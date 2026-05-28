@@ -175,13 +175,12 @@ padding-left:10px;
 /* HERO */
 
 .hero{
-height:100vh;
+min-height:100vh;
 position:relative;
 display:flex;
-justify-content:center;
 align-items:center;
+padding:150px 8% 100px;
 overflow:hidden;
-padding:0 8%;
 }
 
 .hero::before{
@@ -189,8 +188,10 @@ content:'';
 position:absolute;
 width:100%;
 height:100%;
+top:0;
+left:0;
 background:
-linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.92)),
+linear-gradient(rgba(0,0,0,0.68),rgba(0,0,0,0.92)),
 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
 
 background-size:cover;
@@ -198,10 +199,20 @@ background-position:center;
 animation:zoomBg 18s infinite alternate ease-in-out;
 }
 
-.hero-content{
+.hero-container{
 position:relative;
 z-index:2;
-max-width:850px;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:60px;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+max-width:700px;
 animation:fadeUp 1.5s ease;
 }
 
@@ -218,7 +229,7 @@ letter-spacing:1px;
 }
 
 .hero-content h1{
-font-size:95px;
+font-size:82px;
 font-weight:900;
 line-height:1;
 margin-bottom:25px;
@@ -230,11 +241,10 @@ text-shadow:0 0 25px rgba(85,230,165,0.7);
 }
 
 .hero-content p{
-font-size:21px;
+font-size:20px;
 line-height:1.9;
 opacity:0.88;
 margin-bottom:40px;
-max-width:700px;
 }
 
 /* BUTTONS */
@@ -277,23 +287,19 @@ color:#000;
 /* FLOATING CARDS */
 
 .floating-cards{
-position:absolute;
-right:8%;
-top:50%;
-transform:translateY(-50%);
 display:flex;
 flex-direction:column;
-gap:25px;
-z-index:2;
+gap:22px;
+width:280px;
+flex-shrink:0;
 }
 
 .float-card{
 background:rgba(255,255,255,0.04);
 backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,0.05);
-padding:25px;
+padding:28px;
 border-radius:30px;
-width:260px;
 animation:floating 4s ease-in-out infinite;
 }
 
@@ -306,15 +312,15 @@ animation-delay:2s;
 }
 
 .float-card h3{
-font-size:22px;
-margin-bottom:10px;
+font-size:28px;
+margin-bottom:12px;
 color:#55e6a5;
 }
 
 .float-card p{
-line-height:1.8;
+line-height:1.9;
 opacity:0.8;
-font-size:14px;
+font-size:15px;
 }
 
 /* SECTION */
@@ -384,8 +390,6 @@ border-radius:35px;
 backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,0.05);
 transition:0.5s;
-position:relative;
-overflow:hidden;
 }
 
 .why-card:hover{
@@ -409,7 +413,7 @@ line-height:1.9;
 opacity:0.8;
 }
 
-/* EXPERIENCE STRIP */
+/* EXPERIENCE */
 
 .experience-strip{
 display:grid;
@@ -459,86 +463,6 @@ margin-bottom:10px;
 font-size:14px;
 line-height:1.8;
 opacity:0.85;
-}
-
-/* PROCESS */
-
-.process{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-}
-
-.process-card{
-text-align:center;
-padding:40px 30px;
-background:rgba(255,255,255,0.03);
-border-radius:30px;
-border:1px solid rgba(255,255,255,0.05);
-transition:0.5s;
-}
-
-.process-card:hover{
-transform:translateY(-10px);
-}
-
-.process-number{
-width:80px;
-height:80px;
-background:#55e6a5;
-color:#000;
-font-size:28px;
-font-weight:800;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-margin:auto;
-margin-bottom:25px;
-box-shadow:0 0 25px rgba(85,230,165,0.4);
-}
-
-.process-card h3{
-font-size:28px;
-margin-bottom:15px;
-}
-
-.process-card p{
-line-height:1.9;
-opacity:0.8;
-}
-
-/* TESTIMONIALS */
-
-.testimonials{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:30px;
-}
-
-.testimonial{
-background:rgba(255,255,255,0.03);
-padding:40px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,0.05);
-transition:0.5s;
-backdrop-filter:blur(15px);
-}
-
-.testimonial:hover{
-transform:translateY(-10px);
-box-shadow:0 0 35px rgba(85,230,165,0.12);
-}
-
-.testimonial h3{
-color:#55e6a5;
-margin-bottom:15px;
-font-size:24px;
-}
-
-.testimonial p{
-line-height:2;
-opacity:0.82;
 }
 
 /* CTA */
@@ -668,6 +592,28 @@ transform:translateY(-10px);
 
 /* MOBILE */
 
+@media(max-width:1100px){
+
+.hero-container{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.floating-cards{
+flex-direction:row;
+width:100%;
+}
+
+.float-card{
+flex:1;
+}
+
+.hero-content{
+max-width:100%;
+}
+
+}
+
 @media(max-width:992px){
 
 nav ul{
@@ -679,8 +625,7 @@ display:block;
 }
 
 .hero{
-height:auto;
-padding:160px 7% 100px;
+padding:150px 7% 100px;
 }
 
 .hero-content h1{
@@ -693,10 +638,6 @@ font-size:18px;
 
 .section-title{
 font-size:42px;
-}
-
-.floating-cards{
-display:none;
 }
 
 .experience-strip{
@@ -713,7 +654,19 @@ font-size:18px;
 
 }
 
+@media(max-width:768px){
+
+.floating-cards{
+flex-direction:column;
+}
+
+}
+
 @media(max-width:576px){
+
+.hero{
+padding:130px 7% 80px;
+}
 
 .hero-content h1{
 font-size:42px;
@@ -754,10 +707,12 @@ font-size:36px;
 font-size:15px;
 }
 
-.why-card,
-.process-card,
-.testimonial{
-padding:30px;
+.float-card{
+padding:24px;
+}
+
+.float-card h3{
+font-size:24px;
 }
 
 }
@@ -767,8 +722,6 @@ padding:30px;
 </head>
 
 <body>
-
-<!-- NAVBAR -->
 
 <nav>
 
@@ -790,8 +743,6 @@ PARAMATHMA DIARIES
 
 </nav>
 
-<!-- MOBILE MENU -->
-
 <div class="mobile-menu" id="mobileMenu">
 
 <a href="index.html">Home</a>
@@ -805,6 +756,8 @@ PARAMATHMA DIARIES
 <!-- HERO -->
 
 <section class="hero">
+
+<div class="hero-container">
 
 <div class="hero-content">
 
@@ -836,8 +789,6 @@ Join Community
 
 </div>
 
-<!-- FLOATING CARDS -->
-
 <div class="floating-cards">
 
 <div class="float-card">
@@ -867,6 +818,8 @@ Nature, campfires and soulful experiences beyond routine life.
 <p>
 Meet strangers who slowly become your favourite people.
 </p>
+
+</div>
 
 </div>
 
@@ -958,7 +911,7 @@ Campfires, deep conversations, healing vibes and emotional journeys through natu
 
 </section>
 
-<!-- EXPERIENCE STRIP -->
+<!-- EXPERIENCE -->
 
 <section>
 
@@ -1036,120 +989,6 @@ Beautiful roads, waterfalls and unforgettable laughter.
 
 </section>
 
-<!-- PROCESS -->
-
-<section>
-
-<h2 class="section-title">
-How The <span>Journey</span> Works
-</h2>
-
-<div class="process">
-
-<div class="process-card">
-
-<div class="process-number">
-01
-</div>
-
-<h3>Choose Trip</h3>
-
-<p>
-Pick your favourite destination and upcoming experience.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="process-number">
-02
-</div>
-
-<h3>Join Community</h3>
-
-<p>
-Connect with fellow travelers before the journey starts.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="process-number">
-03
-</div>
-
-<h3>Travel & Explore</h3>
-
-<p>
-Experience soulful adventures, nature and unforgettable moments.
-</p>
-
-</div>
-
-<div class="process-card">
-
-<div class="process-number">
-04
-</div>
-
-<h3>Create Memories</h3>
-
-<p>
-Return with stories, friendships and experiences that stay forever.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- TESTIMONIALS -->
-
-<section>
-
-<h2 class="section-title">
-Traveler <span>Stories</span>
-</h2>
-
-<div class="testimonials">
-
-<div class="testimonial">
-
-<h3>Rakesh Gowda • Bangalore</h3>
-
-<p>
-“Best travel community ever. The energy, people and vibes felt unreal. It honestly felt like travelling with family.”
-</p>
-
-</div>
-
-<div class="testimonial">
-
-<h3>Shreya Shetty • Mangalore</h3>
-
-<p>
-“The campfire conversations, nature and bonding made this experience unforgettable.”
-</p>
-
-</div>
-
-<div class="testimonial">
-
-<h3>Puneeth Kumar • Mysore</h3>
-
-<p>
-“Perfectly organized trip with soulful moments, scenic views and beautiful memories.”
-</p>
-
-</div>
-
-</div>
-
-</section>
-
 <!-- CTA -->
 
 <section class="cta">
@@ -1203,15 +1042,9 @@ Collecting Moments. Creating Memories.
 
 </footer>
 
-<!-- WHATSAPP -->
-
 <a href="https://wa.me/918217682902" class="whatsapp">
-
 <i class="fa-brands fa-whatsapp"></i>
-
 </a>
-
-<!-- SCRIPT -->
 
 <script>
 
