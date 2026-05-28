@@ -1,44 +1,439 @@
+```html id="premium-about-page"
 <!DOCTYPE html>
-gap:50px;
-align-items:center;
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | Paramathma Diaries</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
-.about img{
+body{
+background:#050505;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#55e6a5;
+border-radius:20px;
+}
+
+/* GLOW EFFECT */
+
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#55e6a5;
+filter:blur(180px);
+opacity:0.07;
+top:-150px;
+left:-150px;
+z-index:-1;
+animation:floatGlow 8s infinite alternate;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#55e6a5;
+filter:blur(180px);
+opacity:0.05;
+bottom:-150px;
+right:-150px;
+z-index:-1;
+animation:floatGlow2 10s infinite alternate;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
 width:100%;
-border-radius:25px;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
-.about h2{
-font-size:45px;
+.logo{
+font-size:30px;
+font-weight:800;
+color:#55e6a5;
+letter-spacing:2px;
+}
+
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:0.4s;
+}
+
+nav ul li a:hover{
+color:#55e6a5;
+}
+
+/* HERO */
+
+.hero{
+height:70vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.hero-bg{
+position:absolute;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+animation:zoomBg 15s infinite alternate ease-in-out;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:20px;
+animation:fadeUp 1.5s ease;
+}
+
+.hero-content h1{
+font-size:90px;
+font-weight:800;
 margin-bottom:20px;
 }
 
-.about p{
+.hero-content span{
+color:#55e6a5;
+}
+
+.hero-content p{
+font-size:20px;
+line-height:1.8;
+opacity:0.9;
+}
+
+/* SECTIONS */
+
+section{
+padding:120px 10%;
+}
+
+.section-title{
+font-size:60px;
+text-align:center;
+margin-bottom:70px;
+font-weight:800;
+}
+
+.section-title span{
+color:#55e6a5;
+}
+
+/* ABOUT STORY */
+
+.story{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+.story img{
+width:100%;
+border-radius:30px;
+transition:0.5s;
+}
+
+.story img:hover{
+transform:scale(1.03);
+}
+
+.story-text h2{
+font-size:45px;
+margin-bottom:25px;
+}
+
+.story-text p{
 line-height:2;
+opacity:0.8;
+font-size:17px;
+}
+
+/* FOUNDERS */
+
+.team{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
+
+.member{
+background:#101010;
+padding:30px;
+border-radius:30px;
+text-align:center;
+transition:0.5s;
+border:1px solid rgba(255,255,255,0.05);
+position:relative;
+overflow:hidden;
+}
+
+.member::before{
+content:'';
+position:absolute;
+width:150%;
+height:150%;
+background:linear-gradient(45deg,transparent,rgba(85,230,165,0.08),transparent);
+top:-100%;
+left:-100%;
+transition:1s;
+}
+
+.member:hover::before{
+top:100%;
+left:100%;
+}
+
+.member:hover{
+transform:translateY(-12px);
+box-shadow:0 0 35px rgba(85,230,165,0.12);
+}
+
+.member img{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:25px;
+border:4px solid #55e6a5;
+}
+
+.member h3{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.member h4{
+color:#55e6a5;
+margin-bottom:20px;
+font-weight:500;
+}
+
+.member p{
+line-height:1.9;
 opacity:0.8;
 }
 
-footer{
-padding:50px;
-text-align:center;
-background:#101010;
+/* WHY US */
+
+.features{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
 }
 
+.feature-card{
+background:#101010;
+padding:40px;
+border-radius:25px;
+transition:0.5s;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+.feature-card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(85,230,165,0.1);
+}
+
+.feature-card h3{
+font-size:28px;
+margin-bottom:15px;
+color:#55e6a5;
+}
+
+.feature-card p{
+line-height:1.9;
+opacity:0.8;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.stat-box{
+background:#101010;
+padding:50px 30px;
+border-radius:25px;
+transition:0.5s;
+}
+
+.stat-box:hover{
+transform:scale(1.05);
+}
+
+.stat-box h2{
+font-size:60px;
+color:#55e6a5;
+margin-bottom:10px;
+}
+
+.stat-box p{
+opacity:0.8;
+}
+
+/* FOOTER */
+
+footer{
+background:#101010;
+padding:70px 10%;
+text-align:center;
+}
+
+footer h2{
+font-size:38px;
+color:#55e6a5;
+margin-bottom:15px;
+}
+
+footer p{
+opacity:0.7;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+0%{
+opacity:0;
+transform:translateY(60px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes floatGlow{
+100%{
+transform:translate(200px,120px);
+}
+}
+
+@keyframes floatGlow2{
+100%{
+transform:translate(-180px,-120px);
+}
+}
+
+@keyframes zoomBg{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.12);
+}
+}
+
+/* MOBILE */
+
 @media(max-width:768px){
-.about{
+
+.hero-content h1{
+font-size:52px;
+}
+
+.hero-content p{
+font-size:17px;
+}
+
+.story{
 grid-template-columns:1fr;
 }
-.hero h1{
-font-size:45px;
+
+nav ul{
+display:none;
 }
+
+.section-title{
+font-size:40px;
+}
+
+.story-text h2{
+font-size:35px;
+}
+
+.logo{
+font-size:24px;
+}
+
 }
 
 </style>
+
 </head>
+
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
-<div class="logo">PARAMATHMA DIARIES</div>
+
+<div class="logo">
+PARAMATHMA DIARIES
+</div>
+
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
@@ -46,32 +441,204 @@ font-size:45px;
 <li><a href="gallery.html">Gallery</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
+
 </nav>
 
+<!-- HERO -->
+
 <section class="hero">
-<h1>About <span>Us</span></h1>
-<p>Travel Beyond Destinations</p>
-</section>
 
-<section class="about">
+<div class="hero-bg"></div>
 
-<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070&auto=format&fit=crop">
+<div class="hero-content">
 
-<div>
-<h2>Who We Are</h2>
+<h1>
+About <span>Us</span>
+</h1>
+
 <p>
-Paramathma Diaries is more than a travel community. We create soulful journeys, unforgettable memories and experiences that connect people through nature, adventure and togetherness.
-<br><br>
-From trekking adventures to peaceful campfire nights, our mission is to help people escape routine life and experience something meaningful.
+More than just travel. We build unforgettable experiences, meaningful friendships and soulful adventures.
 </p>
+
 </div>
 
 </section>
 
+<!-- STORY -->
+
+<section>
+
+<h2 class="section-title">
+Our <span>Story</span>
+</h2>
+
+<div class="story">
+
+<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070&auto=format&fit=crop">
+
+<div class="story-text">
+
+<h2>Travel Beyond Destinations</h2>
+
+<p>
+Paramathma Diaries started with one vision — creating journeys that go beyond normal travel experiences. We wanted people to feel freedom, connection, adventure and peace through nature and community.
+<br><br>
+From mountain treks and campfire nights to unforgettable memories with strangers who become family, every trip is built to create moments that stay forever.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOUNDERS -->
+
+<section>
+
+<h2 class="section-title">
+Meet The <span>Founders</span>
+</h2>
+
+<div class="team">
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+<h3>Neeraj Jayanna</h3>
+
+<h4>Founder & Creative Head</h4>
+
+<p>
+Passionate about building meaningful travel experiences and creating a community that travels with purpose, adventure and positive energy.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/45.jpg">
+
+<h3>Arjun Gowda</h3>
+
+<h4>Co-Founder & Operations</h4>
+
+<p>
+Focused on creating organized, exciting and memorable journeys while ensuring every traveler feels safe, connected and welcomed.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/65.jpg">
+
+<h3>Ananya Shetty</h3>
+
+<h4>Community & Experience Lead</h4>
+
+<p>
+Believes travel should heal, inspire and connect people through unforgettable experiences and beautiful memories.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WHY CHOOSE -->
+
+<section>
+
+<h2 class="section-title">
+Why <span>Paramathma?</span>
+</h2>
+
+<div class="features">
+
+<div class="feature-card">
+
+<h3>Community Driven</h3>
+
+<p>
+Every trip is designed to help people connect, bond and create lifelong friendships through travel.
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<h3>Premium Experiences</h3>
+
+<p>
+From breathtaking treks to campfire nights and hidden gems, every journey is unforgettable.
+</p>
+
+</div>
+
+<div class="feature-card">
+
+<h3>Safe & Organized</h3>
+
+<p>
+Well-planned itineraries, proper coordination and complete support throughout your journey.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section>
+
+<h2 class="section-title">
+Our <span>Journey</span>
+</h2>
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>500+</h2>
+<p>Happy Travelers</p>
+</div>
+
+<div class="stat-box">
+<h2>40+</h2>
+<p>Trips Completed</p>
+</div>
+
+<div class="stat-box">
+<h2>15+</h2>
+<p>Destinations Covered</p>
+</div>
+
+<div class="stat-box">
+<h2>100%</h2>
+<p>Memories Guaranteed</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer>
+
 <h2>PARAMATHMA DIARIES</h2>
-<p>Travel • Heal • Connect</p>
+
+<p>
+Travel • Heal • Connect
+</p>
+
 </footer>
 
 </body>
+
 </html>
+```
