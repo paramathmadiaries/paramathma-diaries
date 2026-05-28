@@ -1,4 +1,4 @@
-```html id="animated-about-page-full-code"
+```html id="ultimate-about-page"
 <!DOCTYPE html>
 <html lang="en">
 
@@ -191,7 +191,6 @@ font-size:60px;
 text-align:center;
 margin-bottom:70px;
 font-weight:800;
-position:relative;
 animation:fadeUp 1.2s ease;
 }
 
@@ -239,8 +238,8 @@ font-size:17px;
 
 .team{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:35px;
+grid-template-columns:repeat(6,1fr);
+gap:30px;
 }
 
 .member{
@@ -248,12 +247,31 @@ background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.05);
 padding:35px;
 border-radius:30px;
-text-align:center;
 transition:0.5s;
 backdrop-filter:blur(15px);
 position:relative;
 overflow:hidden;
 animation:fadeUp 1.2s ease;
+}
+
+.member:nth-child(1){
+grid-column:2/4;
+}
+
+.member:nth-child(2){
+grid-column:4/6;
+}
+
+.member:nth-child(3){
+grid-column:1/3;
+}
+
+.member:nth-child(4){
+grid-column:3/5;
+}
+
+.member:nth-child(5){
+grid-column:5/7;
 }
 
 .member::before{
@@ -278,8 +296,8 @@ box-shadow:0 0 40px rgba(85,230,165,0.15);
 }
 
 .member img{
-width:150px;
-height:150px;
+width:140px;
+height:140px;
 border-radius:50%;
 object-fit:cover;
 margin-bottom:25px;
@@ -292,84 +310,25 @@ transform:scale(1.08);
 }
 
 .member h3{
-font-size:30px;
+font-size:32px;
 margin-bottom:10px;
 }
 
 .member h4{
 color:#55e6a5;
 margin-bottom:20px;
-font-weight:500;
+font-weight:600;
+line-height:1.6;
 }
 
-.member p{
-line-height:1.9;
-opacity:0.8;
+.member ul{
+padding-left:20px;
 }
 
-/* FEATURES */
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:35px;
-}
-
-.feature-card{
-background:#101010;
-padding:40px;
-border-radius:25px;
-transition:0.5s;
-border:1px solid rgba(255,255,255,0.05);
-animation:fadeUp 1.2s ease;
-}
-
-.feature-card:hover{
-transform:translateY(-12px);
-box-shadow:0 0 35px rgba(85,230,165,0.12);
-}
-
-.feature-card h3{
-font-size:28px;
-margin-bottom:15px;
-color:#55e6a5;
-}
-
-.feature-card p{
-line-height:1.9;
-opacity:0.8;
-}
-
-/* STATS */
-
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
-text-align:center;
-}
-
-.stat-box{
-background:#101010;
-padding:50px 30px;
-border-radius:25px;
-transition:0.5s;
-animation:fadeUp 1.2s ease;
-}
-
-.stat-box:hover{
-transform:scale(1.05);
-box-shadow:0 0 35px rgba(85,230,165,0.12);
-}
-
-.stat-box h2{
-font-size:60px;
-color:#55e6a5;
-margin-bottom:10px;
-}
-
-.stat-box p{
-opacity:0.8;
+.member ul li{
+margin-bottom:14px;
+line-height:1.8;
+opacity:0.82;
 }
 
 /* FOOTER */
@@ -460,6 +419,22 @@ transform:scale(1.12);
 
 /* MOBILE */
 
+@media(max-width:1100px){
+
+.team{
+grid-template-columns:1fr;
+}
+
+.member:nth-child(1),
+.member:nth-child(2),
+.member:nth-child(3),
+.member:nth-child(4),
+.member:nth-child(5){
+grid-column:auto;
+}
+
+}
+
 @media(max-width:768px){
 
 .hero-content h1{
@@ -498,8 +473,6 @@ font-size:24px;
 
 <body>
 
-<!-- NAVBAR -->
-
 <nav>
 
 <div class="logo">
@@ -529,7 +502,7 @@ About <span>Us</span>
 </h1>
 
 <p>
-More than just travel. We create soulful experiences, unforgettable memories and meaningful connections.
+More than just travel. We create soulful experiences, unforgettable memories and meaningful human connections.
 </p>
 
 </div>
@@ -553,9 +526,9 @@ Our <span>Story</span>
 <h2>Travel Beyond Destinations</h2>
 
 <p>
-Paramathma Diaries started with one dream — creating journeys that go beyond ordinary travel. We wanted people to experience freedom, adventure, healing and real human connection through travel and nature.
+Paramathma Diaries was started with one dream — to create journeys that go beyond ordinary travel. We believe travel should heal, inspire, connect and create unforgettable emotions.
 <br><br>
-From breathtaking treks and campfire nights to unforgettable laughter and friendships, every experience is designed to stay with you forever.
+From breathtaking mountain treks to soulful campfire nights and lifelong friendships, every experience is designed to stay in your heart forever.
 </p>
 
 </div>
@@ -569,7 +542,7 @@ From breathtaking treks and campfire nights to unforgettable laughter and friend
 <section>
 
 <h2 class="section-title">
-Meet The <span>Team</span>
+Meet Our <span>Core Team</span>
 </h2>
 
 <div class="team">
@@ -580,11 +553,16 @@ Meet The <span>Team</span>
 
 <h3>Neeraj Jayanna</h3>
 
-<h4>Founder & Creative Head</h4>
+<h4>Business Strategy & Growth Research</h4>
 
-<p>
-Passionate about creating soulful travel experiences and building a community driven by adventure and connection.
-</p>
+<ul>
+<li>Research successful travel startups and study their business models</li>
+<li>Analyze pricing structures of competitors in Bangalore</li>
+<li>Build long-term vision, revenue ideas and expansion roadmap</li>
+<li>Research legal setup, registrations and payment systems</li>
+<li>Prepare partnership and collaboration strategies</li>
+<li>Create company workflow and management structure</li>
+</ul>
 
 </div>
 
@@ -594,11 +572,16 @@ Passionate about creating soulful travel experiences and building a community dr
 
 <h3>Arun</h3>
 
-<h4>Co-Founder & Operations</h4>
+<h4>Operations & Logistics Planning</h4>
 
-<p>
-Focused on making every journey organized, exciting and unforgettable for every traveler.
-</p>
+<ul>
+<li>Research best destinations for different trip categories</li>
+<li>Analyze transport vendors, pricing and stay options</li>
+<li>Build standard trip operation process from start to end</li>
+<li>Create backup and emergency logistics plans</li>
+<li>Research cost optimization methods for profitable trips</li>
+<li>Prepare detailed execution checklist for all future trips</li>
+</ul>
 
 </div>
 
@@ -608,11 +591,16 @@ Focused on making every journey organized, exciting and unforgettable for every 
 
 <h3>Sneha Tilak</h3>
 
-<h4>Community & Experience Lead</h4>
+<h4>Community & Customer Psychology Research</h4>
 
-<p>
-Believes travel should inspire people, create memories and bring meaningful experiences into life.
-</p>
+<ul>
+<li>Research what makes travel communities successful</li>
+<li>Study traveler expectations and experience factors</li>
+<li>Build engagement plans before and after trips</li>
+<li>Research icebreaker activities and bonding concepts</li>
+<li>Create customer retention and referral ideas</li>
+<li>Prepare community-building strategies</li>
+</ul>
 
 </div>
 
@@ -622,11 +610,16 @@ Believes travel should inspire people, create memories and bring meaningful expe
 
 <h3>Nethravathi</h3>
 
-<h4>Travel Experience Coordinator</h4>
+<h4>Women Safety & Hospitality Planning</h4>
 
-<p>
-Dedicated to creating energetic, smooth and unforgettable adventures for every traveler.
-</p>
+<ul>
+<li>Research women safety standards followed by top brands</li>
+<li>Study safe accommodation and emergency systems</li>
+<li>Build women safety SOP and escalation plans</li>
+<li>Research traveler comfort and hospitality practices</li>
+<li>Create trust-building systems for female travelers</li>
+<li>Prepare detailed safety support workflows</li>
+</ul>
 
 </div>
 
@@ -636,90 +629,17 @@ Dedicated to creating energetic, smooth and unforgettable adventures for every t
 
 <h3>Shwetha</h3>
 
-<h4>Creative & Media Lead</h4>
+<h4>Marketing & Branding Research</h4>
 
-<p>
-Capturing stories, emotions and beautiful moments while bringing creative energy to every experience.
-</p>
+<ul>
+<li>Analyze top travel pages and viral travel content</li>
+<li>Research audience behavior and engagement patterns</li>
+<li>Build content strategy for reels and campaigns</li>
+<li>Study branding aesthetics and audience psychology</li>
+<li>Prepare influencer collaboration strategies</li>
+<li>Create monthly growth and promotion plans</li>
+</ul>
 
-</div>
-
-</div>
-
-</section>
-
-<!-- WHY CHOOSE -->
-
-<section>
-
-<h2 class="section-title">
-Why <span>Choose Us</span>
-</h2>
-
-<div class="features">
-
-<div class="feature-card">
-
-<h3>Community Driven</h3>
-
-<p>
-We create friendships, unforgettable moments and journeys that connect people deeply.
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<h3>Premium Adventures</h3>
-
-<p>
-From hidden mountain trails to magical campfire nights, every trip feels cinematic and unforgettable.
-</p>
-
-</div>
-
-<div class="feature-card">
-
-<h3>Safe & Organized</h3>
-
-<p>
-Professional coordination, well-planned itineraries and complete support throughout the trip.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- STATS -->
-
-<section>
-
-<h2 class="section-title">
-Our <span>Journey</span>
-</h2>
-
-<div class="stats">
-
-<div class="stat-box">
-<h2>500+</h2>
-<p>Happy Travelers</p>
-</div>
-
-<div class="stat-box">
-<h2>40+</h2>
-<p>Trips Completed</p>
-</div>
-
-<div class="stat-box">
-<h2>15+</h2>
-<p>Destinations Covered</p>
-</div>
-
-<div class="stat-box">
-<h2>100%</h2>
-<p>Memories Guaranteed</p>
 </div>
 
 </div>
