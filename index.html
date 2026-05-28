@@ -1,382 +1,729 @@
-<!-- ========================= -->
-<!-- MOBILE RESPONSIVE CSS -->
-<!-- REPLACE YOUR OLD MEDIA QUERY WITH THIS -->
-<!-- ========================= -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Us | PARAMATHMA DIARIES</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* ========================= */
-/* TABLETS */
-/* ========================= */
-
-@media(max-width:992px){
-
-section{
-padding:90px 7%;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
-.hero{
-height:auto;
-padding:150px 0 100px;
+body{
+background:#050505;
+color:#fff;
+overflow-x:hidden;
 }
 
-.hero-content{
-padding:10px;
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
 }
 
-.hero-content h1{
-font-size:60px;
-line-height:1.1;
+::-webkit-scrollbar-thumb{
+background:#55e6a5;
+border-radius:20px;
 }
 
-.hero-content p{
-font-size:18px;
-line-height:1.8;
+/* GLOW EFFECT */
+
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#55e6a5;
+filter:blur(180px);
+opacity:0.08;
+top:-150px;
+left:-150px;
+z-index:-1;
+animation:floatGlow 8s infinite alternate;
 }
 
-.btns{
-flex-direction:column;
-align-items:center;
-gap:18px;
-}
-
-.btn{
-width:100%;
-max-width:320px;
-text-align:center;
-padding:16px 20px;
-}
-
-.section-title{
-font-size:42px;
-line-height:1.2;
-margin-bottom:55px;
+body::after{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#ffb347;
+filter:blur(180px);
+opacity:0.06;
+bottom:-150px;
+right:-150px;
+z-index:-1;
+animation:floatGlow2 10s infinite alternate;
 }
 
 /* NAVBAR */
 
 nav{
-padding:18px 7%;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
+font-size:28px;
+font-weight:800;
+letter-spacing:2px;
+color:#55e6a5;
+}
+
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:0.4s;
+position:relative;
+}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+background:#55e6a5;
+left:0;
+bottom:-6px;
+transition:0.4s;
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+nav ul li a:hover{
+color:#55e6a5;
+}
+
+/* HERO */
+
+.hero{
+height:90vh;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+animation:zoomBg 18s infinite alternate ease-in-out;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:1000px;
+padding:20px;
+animation:fadeUp 1.5s ease;
+}
+
+.hero-content h1{
+font-size:95px;
+font-weight:900;
+line-height:1;
+margin-bottom:25px;
+}
+
+.hero-content span{
+color:#55e6a5;
+text-shadow:0 0 25px rgba(85,230,165,0.7);
+}
+
+.hero-content p{
 font-size:22px;
+line-height:1.9;
+opacity:0.9;
+}
+
+/* SECTION */
+
+section{
+padding:120px 10%;
+position:relative;
+}
+
+.section-title{
+font-size:65px;
+font-weight:900;
+text-align:center;
+margin-bottom:80px;
+}
+
+.section-title span{
+color:#55e6a5;
+}
+
+/* STORY */
+
+.story{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+}
+
+.story img{
+width:100%;
+height:600px;
+object-fit:cover;
+border-radius:35px;
+transition:0.6s;
+}
+
+.story img:hover{
+transform:scale(1.03);
+box-shadow:0 0 45px rgba(85,230,165,0.18);
+}
+
+.story-text h2{
+font-size:50px;
+margin-bottom:25px;
 line-height:1.2;
+}
+
+.story-text h2 span{
+color:#55e6a5;
+}
+
+.story-text p{
+line-height:2;
+opacity:0.82;
+font-size:17px;
+}
+
+/* VISION SECTION */
+
+.vision-section{
+height:75vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
+url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+background-attachment:fixed;
+overflow:hidden;
+}
+
+.vision-content{
+max-width:950px;
+padding:20px;
+}
+
+.vision-content h2{
+font-size:70px;
+margin-bottom:25px;
+font-weight:900;
+line-height:1.1;
+color:#55e6a5;
+}
+
+.vision-content p{
+font-size:24px;
+line-height:2;
+opacity:0.85;
+}
+
+/* SPECIALITIES */
+
+.specialities{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.special-card{
+background:rgba(255,255,255,0.03);
+padding:45px;
+border-radius:30px;
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.05);
+transition:0.5s;
+text-align:center;
+}
+
+.special-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 40px rgba(85,230,165,0.15);
+}
+
+.special-card i{
+font-size:45px;
+margin-bottom:25px;
+color:#55e6a5;
+}
+
+.special-card h3{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.special-card p{
+line-height:1.9;
+opacity:0.8;
+}
+
+/* TEAM */
+
+.team{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:35px;
+}
+
+.member{
+background:rgba(255,255,255,0.03);
+padding:40px;
+border-radius:35px;
+backdrop-filter:blur(20px);
+border:1px solid rgba(85,230,165,0.08);
+transition:0.6s;
+position:relative;
+overflow:hidden;
+}
+
+.member:hover{
+transform:translateY(-15px) scale(1.02);
+box-shadow:
+0 0 50px rgba(85,230,165,0.18),
+0 0 100px rgba(85,230,165,0.08);
+}
+
+.member img{
+width:150px;
+height:150px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #55e6a5;
+margin-bottom:25px;
+}
+
+.member h3{
+font-size:34px;
+margin-bottom:10px;
+}
+
+.member h4{
+color:#55e6a5;
+margin-bottom:20px;
+font-weight:600;
+line-height:1.6;
+}
+
+.member p{
+line-height:2;
+opacity:0.82;
+}
+
+/* CTA */
+
+.cta{
+padding:130px 10%;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+}
+
+.cta h2{
+font-size:75px;
+font-weight:900;
+margin-bottom:25px;
+line-height:1.1;
+}
+
+.cta p{
+font-size:22px;
+opacity:0.85;
+max-width:850px;
+margin:auto;
+margin-bottom:40px;
+line-height:1.9;
+}
+
+.btn{
+display:inline-block;
+padding:18px 40px;
+background:#55e6a5;
+color:#000;
+text-decoration:none;
+font-weight:700;
+border-radius:60px;
+transition:0.5s;
+box-shadow:0 0 30px rgba(85,230,165,0.4);
+}
+
+.btn:hover{
+transform:translateY(-6px);
+box-shadow:0 0 50px rgba(85,230,165,0.8);
+}
+
+/* FOOTER */
+
+footer{
+background:#0b0b0b;
+padding:70px 10%;
+text-align:center;
+}
+
+footer h2{
+font-size:40px;
+color:#55e6a5;
+margin-bottom:15px;
+}
+
+footer p{
+opacity:0.75;
+line-height:2;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+0%{
+opacity:0;
+transform:translateY(60px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes floatGlow{
+100%{
+transform:translate(220px,120px);
+}
+}
+
+@keyframes floatGlow2{
+100%{
+transform:translate(-180px,-120px);
+}
+}
+
+@keyframes zoomBg{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.12);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.story{
+grid-template-columns:1fr;
+}
+
+.hero-content h1{
+font-size:55px;
+}
+
+.hero-content p{
+font-size:17px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+.vision-content h2{
+font-size:42px;
+}
+
+.vision-content p{
+font-size:18px;
+}
+
+.cta h2{
+font-size:45px;
 }
 
 nav ul{
 display:none;
 }
 
-/* STORY SECTION */
-
-.story{
-grid-template-columns:1fr;
-gap:40px;
-}
-
-.story img{
-height:420px;
-border-radius:25px;
-}
-
-.story-text{
-text-align:center;
-}
-
-.story-text h2{
-font-size:38px;
-}
-
-.story-text p{
-font-size:16px;
-line-height:1.9;
-}
-
-/* FOUNDERS */
-
-.founders-wrapper{
-gap:45px;
-}
-
-.founder-card{
-grid-template-columns:1fr;
-padding:30px;
-gap:30px;
-border-radius:30px;
-}
-
-.founder-right .founder-image{
-order:1;
-}
-
-.founder-right .founder-content{
-order:2;
-}
-
-.founder-image img{
-height:420px;
-border-radius:25px;
-}
-
-.founder-content{
-text-align:center;
-}
-
-.founder-content h3{
-font-size:42px;
-line-height:1.1;
-}
-
-.founder-content h4{
-font-size:18px;
-margin-bottom:20px;
-}
-
-.founder-content p{
-font-size:15px;
-line-height:2;
-}
-
-/* SPECIALITIES */
-
-.specialities{
-grid-template-columns:1fr;
-gap:25px;
-}
-
-.special-card{
-padding:35px 28px;
-}
-
-.special-card h3{
-font-size:24px;
-}
-
-.special-card p{
-font-size:15px;
-}
-
-/* TEAM */
-
-.team{
-grid-template-columns:1fr;
-gap:25px;
-}
-
-.member{
-padding:35px 25px;
-border-radius:28px;
-}
-
-.member img{
-width:120px;
-height:120px;
-}
-
-.member h3{
-font-size:28px;
-}
-
-.member h4{
-font-size:16px;
-}
-
-.member p{
-font-size:15px;
-line-height:1.9;
-}
-
-/* VISION SECTION */
-
-.vision-section{
-height:auto;
-padding:100px 7%;
-background-attachment:scroll;
-}
-
-.vision-content h2{
-font-size:42px;
-line-height:1.2;
-}
-
-.vision-content p{
-font-size:18px;
-line-height:1.9;
-}
-
-/* CTA */
-
-.cta{
-padding:100px 7%;
-}
-
-.cta h2{
-font-size:45px;
-line-height:1.2;
-}
-
-.cta p{
-font-size:18px;
-line-height:1.9;
-}
-
-/* FOOTER */
-
-footer{
-padding:60px 7%;
-}
-
-footer h2{
-font-size:32px;
-}
-
-footer p{
-font-size:15px;
-line-height:2;
-}
-
-}
-
-/* ========================= */
-/* MOBILE DEVICES */
-/* ========================= */
-
-@media(max-width:576px){
-
-.hero{
-padding:130px 0 90px;
-}
-
-.hero-content h1{
-font-size:42px;
-line-height:1.15;
-}
-
-.hero-content p{
-font-size:15px;
-line-height:1.8;
-}
-
-.section-title{
-font-size:34px;
-margin-bottom:40px;
-}
-
-/* STORY */
-
-.story img{
-height:300px;
-}
-
-.story-text h2{
-font-size:30px;
-}
-
-.story-text p{
-font-size:14px;
-}
-
-/* FOUNDERS */
-
-.founder-card{
-padding:22px;
-border-radius:25px;
-}
-
-.founder-image img{
-height:320px;
-}
-
-.founder-content h3{
-font-size:30px;
-}
-
-.founder-content h4{
-font-size:15px;
-}
-
-.founder-content p{
-font-size:14px;
-line-height:1.9;
-}
-
-/* TEAM */
-
-.member{
-padding:28px 20px;
-}
-
-.member img{
-width:100px;
-height:100px;
-}
-
-.member h3{
-font-size:24px;
-}
-
-.member h4{
-font-size:15px;
-}
-
-.member p{
-font-size:14px;
-}
-
-/* SPECIAL CARDS */
-
-.special-card{
-padding:28px 22px;
-}
-
-.special-card i{
-font-size:36px;
-}
-
-.special-card h3{
-font-size:22px;
-}
-
-.special-card p{
-font-size:14px;
-}
-
-/* VISION */
-
-.vision-content h2{
-font-size:32px;
-}
-
-.vision-content p{
-font-size:15px;
-}
-
-/* CTA */
-
-.cta h2{
-font-size:34px;
-}
-
-.cta p{
-font-size:15px;
-}
-
-.btn{
-font-size:15px;
-padding:15px 20px;
-}
-
-/* FOOTER */
-
-footer h2{
-font-size:28px;
-}
-
-footer p{
-font-size:14px;
-}
-
 }
 
 </style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+<div class="logo">
+PARAMATHMA DIARIES
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="trips.html">Trips</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+More Than <span>Travel</span><br>
+We Create Emotions
+</h1>
+
+<p>
+PARAMATHMA DIARIES is a premium travel and community experience brand focused on soulful journeys, healing moments, adventure escapes and unforgettable human connections.
+</p>
+
+</div>
+
+</section>
+
+<!-- STORY -->
+
+<section>
+
+<h2 class="section-title">
+Our <span>Story</span>
+</h2>
+
+<div class="story">
+
+<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070&auto=format&fit=crop">
+
+<div class="story-text">
+
+<h2>
+Travel Beyond <span>Destinations</span>
+</h2>
+
+<p>
+PARAMATHMA DIARIES was started with one vision — to create journeys that go beyond ordinary tourism.
+<br><br>
+We believe travel should heal, inspire, connect people and create unforgettable memories that stay forever.
+<br><br>
+From breathtaking mountain treks and soulful campfire nights to deep conversations and meaningful human connections, every experience is designed to become a story worth remembering.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- VISION -->
+
+<section class="vision-section">
+
+<div class="vision-content">
+
+<h2>
+WE STARTED THIS TO CREATE MORE THAN TRIPS
+</h2>
+
+<p>
+We are building a travel community where strangers become family, journeys become memories and every experience leaves an emotional impact that lasts forever.
+</p>
+
+</div>
+
+</section>
+
+<!-- SPECIALITIES -->
+
+<section>
+
+<h2 class="section-title">
+Why We Are <span>Different</span>
+</h2>
+
+<div class="specialities">
+
+<div class="special-card">
+<i class="fa-solid fa-people-group"></i>
+<h3>Community Vibes</h3>
+<p>
+We focus on friendships, bonding and unforgettable human connections during every journey.
+</p>
+</div>
+
+<div class="special-card">
+<i class="fa-solid fa-shield-heart"></i>
+<h3>Women-Led Safety</h3>
+<p>
+Dedicated women-led support crews ensuring safety, comfort and trust for every traveler.
+</p>
+</div>
+
+<div class="special-card">
+<i class="fa-solid fa-mountain-sun"></i>
+<h3>Healing Through Nature</h3>
+<p>
+Nature escapes, soulful campfires and peaceful experiences designed to refresh your mind.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TEAM -->
+
+<section>
+
+<h2 class="section-title">
+Meet The <span>Founders</span>
+</h2>
+
+<div class="team">
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+<h3>Neeraj Jayanna</h3>
+
+<h4>Business Strategy & Growth</h4>
+
+<p>
+Focused on building PARAMATHMA DIARIES into a premium travel and community brand through strategic planning, branding, partnerships and long-term vision.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/65.jpg">
+
+<h3>Sneha Tilak</h3>
+
+<h4>Community & Experience</h4>
+
+<p>
+Focused on traveler bonding, community experiences, emotional engagement and creating journeys that people remember forever.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+<h3>Nethravathi</h3>
+
+<h4>Women Safety & Hospitality</h4>
+
+<p>
+Focused on traveler comfort, safety systems, hospitality management and creating a secure travel environment for everyone.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>
+THE WORLD IS WAITING.
+</h2>
+
+<p>
+Pack your bags, leave the routine behind and become part of a travel community that creates unforgettable experiences and lifelong memories.
+</p>
+
+<a href="https://wa.me/918217682902" class="btn">
+Join The Community
+</a>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>PARAMATHMA DIARIES</h2>
+
+<p>
+Travel • Heal • Connect • Grow
+<br><br>
+Instagram : @paramathma__diaries
+<br>
+WhatsApp : +91 8217682902
+<br><br>
+Collecting Moments. Creating Memories.
+</p>
+
+</footer>
+
+</body>
+
+</html>
