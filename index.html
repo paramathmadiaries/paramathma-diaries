@@ -22,13 +22,23 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#000;
+background:#050505;
 color:#fff;
 overflow-x:hidden;
-position:relative;
 }
 
-/* GLOW EFFECTS */
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#55e6a5;
+border-radius:10px;
+}
+
+/* GLOW BACKGROUND */
 
 body::before{
 content:'';
@@ -41,7 +51,7 @@ opacity:0.08;
 top:-100px;
 left:-100px;
 z-index:-1;
-animation:moveGlow 10s infinite alternate;
+animation:floatGlow 8s infinite alternate;
 }
 
 body::after{
@@ -51,11 +61,11 @@ width:400px;
 height:400px;
 background:#55e6a5;
 filter:blur(180px);
-opacity:0.06;
+opacity:0.05;
 bottom:-100px;
 right:-100px;
 z-index:-1;
-animation:moveGlow2 12s infinite alternate;
+animation:floatGlow2 10s infinite alternate;
 }
 
 /* NAVBAR */
@@ -69,8 +79,8 @@ padding:22px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:1000;
-background:rgba(0,0,0,0.45);
+z-index:999;
+background:rgba(0,0,0,0.4);
 backdrop-filter:blur(15px);
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
@@ -80,8 +90,6 @@ font-size:30px;
 font-weight:800;
 color:#55e6a5;
 letter-spacing:2px;
-text-shadow:0 0 20px rgba(85,230,165,0.5);
-animation:glow 3s infinite alternate;
 }
 
 nav ul{
@@ -91,27 +99,10 @@ list-style:none;
 }
 
 nav ul li a{
-color:#fff;
 text-decoration:none;
-font-size:15px;
+color:#fff;
 font-weight:500;
 transition:0.4s;
-position:relative;
-}
-
-nav ul li a::after{
-content:'';
-position:absolute;
-width:0%;
-height:2px;
-background:#55e6a5;
-left:0;
-bottom:-6px;
-transition:0.4s;
-}
-
-nav ul li a:hover::after{
-width:100%;
 }
 
 nav ul li a:hover{
@@ -122,43 +113,43 @@ color:#55e6a5;
 
 .hero{
 height:100vh;
-background:
-linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.85)),
-url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
+position:relative;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-padding:20px;
-position:relative;
 overflow:hidden;
 }
 
-.hero::before{
-content:'';
+.hero video{
 position:absolute;
-width:120%;
-height:120%;
-background:radial-gradient(circle,rgba(85,230,165,0.08),transparent);
-animation:pulse 6s infinite;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(rgba(0,0,0,0.45),rgba(0,0,0,0.85));
 }
 
 .hero-content{
-max-width:950px;
 position:relative;
 z-index:2;
-animation:heroZoom 1.5s ease;
+max-width:950px;
+padding:20px;
+animation:fadeUp 1.5s ease;
 }
 
 .hero-content h1{
-font-size:90px;
+font-size:95px;
 line-height:1;
-margin-bottom:30px;
+margin-bottom:25px;
 font-weight:800;
-text-shadow:0 0 50px rgba(0,0,0,0.5);
 }
 
 .hero-content span{
@@ -166,10 +157,10 @@ color:#55e6a5;
 }
 
 .hero-content p{
-font-size:21px;
-line-height:1.9;
+font-size:22px;
+line-height:1.8;
 opacity:0.9;
-margin-bottom:45px;
+margin-bottom:40px;
 }
 
 /* BUTTONS */
@@ -182,7 +173,7 @@ flex-wrap:wrap;
 }
 
 .btn{
-padding:17px 42px;
+padding:18px 42px;
 border-radius:50px;
 text-decoration:none;
 font-weight:600;
@@ -191,31 +182,15 @@ position:relative;
 overflow:hidden;
 }
 
-.btn::before{
-content:'';
-position:absolute;
-width:100%;
-height:100%;
-background:rgba(255,255,255,0.2);
-top:0;
-left:-100%;
-transform:skewX(30deg);
-transition:0.7s;
-}
-
-.btn:hover::before{
-left:120%;
-}
-
 .primary{
 background:#55e6a5;
 color:#000;
-box-shadow:0 0 30px rgba(85,230,165,0.4);
+box-shadow:0 0 25px rgba(85,230,165,0.4);
 }
 
 .primary:hover{
-transform:translateY(-7px) scale(1.03);
-box-shadow:0 0 50px rgba(85,230,165,0.7);
+transform:translateY(-6px);
+box-shadow:0 0 45px rgba(85,230,165,0.8);
 }
 
 .secondary{
@@ -226,7 +201,6 @@ color:#55e6a5;
 .secondary:hover{
 background:#55e6a5;
 color:#000;
-transform:translateY(-7px);
 }
 
 /* SECTION */
@@ -247,34 +221,85 @@ font-weight:800;
 color:#55e6a5;
 }
 
-/* ABOUT */
+/* WHY CHOOSE */
 
-.about{
+.features{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
 }
 
-.about img{
-width:100%;
-border-radius:30px;
+.feature-card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+padding:40px;
+border-radius:25px;
+transition:0.5s;
+backdrop-filter:blur(15px);
+position:relative;
+overflow:hidden;
+}
+
+.feature-card::before{
+content:'';
+position:absolute;
+width:150%;
+height:150%;
+background:linear-gradient(45deg,transparent,rgba(85,230,165,0.08),transparent);
+top:-100%;
+left:-100%;
+transition:1s;
+}
+
+.feature-card:hover::before{
+top:100%;
+left:100%;
+}
+
+.feature-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 40px rgba(85,230,165,0.12);
+}
+
+.feature-card h3{
+font-size:28px;
+margin-bottom:15px;
+color:#55e6a5;
+}
+
+.feature-card p{
+opacity:0.8;
+line-height:1.9;
+}
+
+/* STATS */
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+text-align:center;
+}
+
+.stat-box{
+padding:50px 30px;
+background:#101010;
+border-radius:25px;
 transition:0.5s;
 }
 
-.about img:hover{
-transform:scale(1.03);
+.stat-box:hover{
+transform:scale(1.05);
 }
 
-.about-text h2{
-font-size:45px;
-margin-bottom:25px;
+.stat-box h2{
+font-size:60px;
+color:#55e6a5;
+margin-bottom:10px;
 }
 
-.about-text p{
-line-height:2;
+.stat-box p{
 opacity:0.8;
-font-size:17px;
 }
 
 /* TRIPS */
@@ -290,26 +315,11 @@ background:#111;
 border-radius:30px;
 overflow:hidden;
 transition:0.5s;
-position:relative;
-border:1px solid rgba(255,255,255,0.05);
-}
-
-.trip-card::before{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(45deg,transparent,rgba(85,230,165,0.1),transparent);
-transform:translateX(-100%);
-transition:1s;
-}
-
-.trip-card:hover::before{
-transform:translateX(100%);
 }
 
 .trip-card:hover{
 transform:translateY(-15px);
-box-shadow:0 0 50px rgba(85,230,165,0.15);
+box-shadow:0 0 40px rgba(85,230,165,0.12);
 }
 
 .trip-card img{
@@ -319,7 +329,7 @@ object-fit:cover;
 }
 
 .trip-content{
-padding:32px;
+padding:30px;
 }
 
 .trip-content h3{
@@ -328,8 +338,8 @@ margin-bottom:15px;
 }
 
 .trip-content p{
-opacity:0.75;
 line-height:1.8;
+opacity:0.8;
 margin-bottom:25px;
 }
 
@@ -338,14 +348,45 @@ display:inline-block;
 padding:14px 28px;
 background:#55e6a5;
 color:#000;
-text-decoration:none;
 border-radius:50px;
+text-decoration:none;
 font-weight:700;
-transition:0.4s;
 }
 
-.trip-content a:hover{
-transform:scale(1.05);
+/* JOURNEY */
+
+.timeline{
+border-left:2px solid #55e6a5;
+padding-left:40px;
+display:flex;
+flex-direction:column;
+gap:50px;
+}
+
+.timeline-item{
+position:relative;
+}
+
+.timeline-item::before{
+content:'';
+position:absolute;
+left:-50px;
+top:5px;
+width:18px;
+height:18px;
+background:#55e6a5;
+border-radius:50%;
+box-shadow:0 0 20px #55e6a5;
+}
+
+.timeline-item h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.timeline-item p{
+opacity:0.8;
+line-height:1.9;
 }
 
 /* TESTIMONIALS */
@@ -357,38 +398,34 @@ gap:30px;
 }
 
 .testimonial{
-background:#111;
+background:#101010;
 padding:40px;
 border-radius:25px;
 line-height:2;
 opacity:0.85;
-transition:0.4s;
-border:1px solid rgba(255,255,255,0.05);
+transition:0.5s;
 }
 
 .testimonial:hover{
 transform:translateY(-10px);
-box-shadow:0 0 40px rgba(85,230,165,0.1);
 }
 
 /* FOOTER */
 
 footer{
-background:#111;
+background:#101010;
 padding:70px 10%;
 text-align:center;
-border-top:1px solid rgba(255,255,255,0.05);
 }
 
 footer h2{
 font-size:38px;
-margin-bottom:15px;
 color:#55e6a5;
+margin-bottom:15px;
 }
 
 footer p{
 opacity:0.7;
-letter-spacing:2px;
 }
 
 /* WHATSAPP */
@@ -397,16 +434,16 @@ letter-spacing:2px;
 position:fixed;
 bottom:25px;
 right:25px;
-background:#25D366;
 width:70px;
 height:70px;
+background:#25D366;
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
 font-size:32px;
-color:#fff;
 text-decoration:none;
+color:#fff;
 box-shadow:0 0 25px rgba(37,211,102,0.5);
 z-index:999;
 animation:bounce 2s infinite;
@@ -414,47 +451,14 @@ animation:bounce 2s infinite;
 
 /* ANIMATIONS */
 
-@keyframes heroZoom{
+@keyframes fadeUp{
 0%{
 opacity:0;
-transform:scale(0.9) translateY(60px);
+transform:translateY(60px);
 }
 100%{
 opacity:1;
-transform:scale(1) translateY(0);
-}
-}
-
-@keyframes pulse{
-0%{
-transform:scale(1);
-opacity:0.5;
-}
-50%{
-transform:scale(1.1);
-opacity:0.8;
-}
-100%{
-transform:scale(1);
-opacity:0.5;
-}
-}
-
-@keyframes moveGlow{
-0%{
-transform:translate(0,0);
-}
-100%{
-transform:translate(220px,120px);
-}
-}
-
-@keyframes moveGlow2{
-0%{
-transform:translate(0,0);
-}
-100%{
-transform:translate(-180px,-120px);
+transform:translateY(0);
 }
 }
 
@@ -467,12 +471,15 @@ transform:translateY(-10px);
 }
 }
 
-@keyframes glow{
-0%{
-text-shadow:0 0 10px rgba(85,230,165,0.4);
-}
+@keyframes floatGlow{
 100%{
-text-shadow:0 0 30px rgba(85,230,165,0.8);
+transform:translate(200px,120px);
+}
+}
+
+@keyframes floatGlow2{
+100%{
+transform:translate(-180px,-120px);
 }
 }
 
@@ -488,28 +495,16 @@ font-size:52px;
 font-size:17px;
 }
 
-nav{
-padding:18px 6%;
-}
-
 nav ul{
 display:none;
-}
-
-.about{
-grid-template-columns:1fr;
 }
 
 .section-title{
 font-size:40px;
 }
 
-.about-text h2{
-font-size:34px;
-}
-
-.logo{
-font-size:24px;
+.timeline{
+padding-left:25px;
 }
 
 }
@@ -541,48 +536,102 @@ PARAMATHMA DIARIES
 
 <section class="hero">
 
+<video autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-mountain-lake-1560081121429?download=1080p" type="video/mp4">
+</video>
+
+<div class="hero-overlay"></div>
+
 <div class="hero-content">
 
 <h1>
-Travel Beyond <span>Destinations</span>
+Not Just <span>Trips</span><br>
+Experiences That Change You
 </h1>
 
 <p>
-Paramathma Diaries is more than just travel. We create soulful journeys filled with adventure, connection, healing and unforgettable memories.
+We create soulful adventures, unforgettable memories and a community that travels beyond destinations.
 </p>
 
 <div class="btns">
-<a href="#" class="btn primary">Explore Trips</a>
+
+<a href="#" class="btn primary">
+Explore Trips
+</a>
 
 <a href="https://wa.me/918217682902" class="btn secondary">
 Join Community
 </a>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- ABOUT -->
+<!-- WHY CHOOSE -->
 
 <section>
 
 <h2 class="section-title">
-About <span>Us</span>
+Why <span>Choose Us</span>
 </h2>
 
-<div class="about">
+<div class="features">
 
-<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070&auto=format&fit=crop">
-
-<div class="about-text">
-
-<h2>Where Memories Meet Mountains</h2>
-
+<div class="feature-card">
+<h3>Community Vibes</h3>
 <p>
-At Paramathma Diaries, every trip is built around experiences that stay forever. From breathtaking mountain treks to peaceful campfire nights, we bring together people who seek adventure, friendship and peace through travel.
+We build friendships, connections and unforgettable group experiences during every trip.
 </p>
+</div>
 
+<div class="feature-card">
+<h3>Premium Experiences</h3>
+<p>
+From campfires to breathtaking treks, every journey is crafted for memories that last forever.
+</p>
+</div>
+
+<div class="feature-card">
+<h3>Safe & Organized</h3>
+<p>
+Professional planning, guided experiences and complete support throughout the trip.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section>
+
+<h2 class="section-title">
+Our <span>Journey</span>
+</h2>
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>500+</h2>
+<p>Happy Travelers</p>
+</div>
+
+<div class="stat-box">
+<h2>40+</h2>
+<p>Trips Completed</p>
+</div>
+
+<div class="stat-box">
+<h2>15+</h2>
+<p>Destinations</p>
+</div>
+
+<div class="stat-box">
+<h2>100%</h2>
+<p>Memories Guaranteed</p>
 </div>
 
 </div>
@@ -608,7 +657,7 @@ Upcoming <span>Trips</span>
 <h3>Chikkamagaluru</h3>
 
 <p>
-2 Days • Campfire • Waterfalls • Jeep Ride • Trekking
+2 Days • Campfire • Trekking • Jeep Ride • Waterfalls
 </p>
 
 <a href="https://wa.me/918217682902">
@@ -628,7 +677,7 @@ Book Now
 <h3>Netravathi Trek</h3>
 
 <p>
-A breathtaking mountain adventure filled with clouds, greenery and unforgettable views.
+Adventure through breathtaking mountain trails and unforgettable sunrise views.
 </p>
 
 <a href="https://wa.me/918217682902">
@@ -648,7 +697,7 @@ Book Now
 <h3>Coorg Diaries</h3>
 
 <p>
-Coffee estates, waterfalls and peaceful escapes through the heart of nature.
+Coffee estates, waterfalls and beautiful nature escapes waiting for you.
 </p>
 
 <a href="https://wa.me/918217682902">
@@ -657,6 +706,41 @@ Book Now
 
 </div>
 
+</div>
+
+</div>
+
+</section>
+
+<!-- TIMELINE -->
+
+<section>
+
+<h2 class="section-title">
+The <span>Experience</span>
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<h3>Meet The Community</h3>
+<p>
+Start your journey by meeting like-minded travelers who share the same adventurous energy.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Explore Hidden Places</h3>
+<p>
+Travel through breathtaking landscapes, waterfalls, mountains and unforgettable routes.
+</p>
+</div>
+
+<div class="timeline-item">
+<h3>Create Lifetime Memories</h3>
+<p>
+Campfire nights, stories, laughter and moments you’ll never forget.
+</p>
 </div>
 
 </div>
@@ -674,15 +758,15 @@ Traveler <span>Stories</span>
 <div class="testimonials">
 
 <div class="testimonial">
-“Best travel community ever. The memories, vibes and people were unforgettable.”
+“Best travel community ever. The energy and vibes were unreal.”
 </div>
 
 <div class="testimonial">
-“Not just a trip, it honestly felt like therapy through nature.”
+“It honestly felt like therapy through nature and amazing people.”
 </div>
 
 <div class="testimonial">
-“Perfectly organized and filled with positive energy throughout the journey.”
+“Perfectly organized with unforgettable experiences throughout.”
 </div>
 
 </div>
@@ -708,5 +792,6 @@ Travel • Heal • Connect
 </a>
 
 </body>
+
 </html>
 ```
