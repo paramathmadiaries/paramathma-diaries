@@ -1,4 +1,3 @@
-```html id="premium-trips-page"
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,11 +6,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Trips | Paramathma Diaries</title>
+<title>Trips | PARAMATHMA DIARIES</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -37,10 +38,10 @@ width:8px;
 
 ::-webkit-scrollbar-thumb{
 background:#55e6a5;
-border-radius:20px;
+border-radius:30px;
 }
 
-/* GLOW EFFECT */
+/* GLOW EFFECTS */
 
 body::before{
 content:'';
@@ -49,7 +50,7 @@ width:500px;
 height:500px;
 background:#55e6a5;
 filter:blur(180px);
-opacity:0.07;
+opacity:0.08;
 top:-150px;
 left:-150px;
 z-index:-1;
@@ -61,7 +62,7 @@ content:'';
 position:fixed;
 width:450px;
 height:450px;
-background:#55e6a5;
+background:#ffb347;
 filter:blur(180px);
 opacity:0.05;
 bottom:-150px;
@@ -77,23 +78,22 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:22px 8%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:999;
 background:rgba(0,0,0,0.45);
 backdrop-filter:blur(12px);
+z-index:999;
 border-bottom:1px solid rgba(255,255,255,0.05);
-animation:fadeDown 1s ease;
 }
 
 .logo{
-font-size:30px;
+font-size:28px;
 font-weight:800;
-color:#55e6a5;
 letter-spacing:2px;
-text-shadow:0 0 20px rgba(85,230,165,0.5);
+color:#55e6a5;
+z-index:1001;
 }
 
 nav ul{
@@ -113,11 +113,11 @@ position:relative;
 nav ul li a::after{
 content:'';
 position:absolute;
+left:0;
+bottom:-6px;
 width:0%;
 height:2px;
 background:#55e6a5;
-left:0;
-bottom:-6px;
 transition:0.4s;
 }
 
@@ -129,10 +129,53 @@ nav ul li a:hover{
 color:#55e6a5;
 }
 
+/* MOBILE MENU */
+
+.menu-btn{
+display:none;
+font-size:28px;
+color:#55e6a5;
+cursor:pointer;
+z-index:1001;
+}
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:280px;
+height:100vh;
+background:#0b0b0b;
+padding:120px 40px;
+display:flex;
+flex-direction:column;
+gap:30px;
+transition:0.5s;
+z-index:1000;
+border-left:1px solid rgba(255,255,255,0.05);
+}
+
+.mobile-menu.active{
+right:0;
+}
+
+.mobile-menu a{
+text-decoration:none;
+color:#fff;
+font-size:20px;
+font-weight:600;
+transition:0.4s;
+}
+
+.mobile-menu a:hover{
+color:#55e6a5;
+padding-left:10px;
+}
+
 /* HERO */
 
 .hero{
-height:70vh;
+height:80vh;
 position:relative;
 display:flex;
 justify-content:center;
@@ -141,12 +184,13 @@ text-align:center;
 overflow:hidden;
 }
 
-.hero-bg{
+.hero::before{
+content:'';
 position:absolute;
 width:100%;
 height:100%;
 background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.88)),
+linear-gradient(rgba(0,0,0,0.65),rgba(0,0,0,0.88)),
 url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
 
 background-size:cover;
@@ -157,26 +201,29 @@ animation:zoomBg 18s infinite alternate ease-in-out;
 .hero-content{
 position:relative;
 z-index:2;
-max-width:950px;
+max-width:1000px;
 padding:20px;
 animation:fadeUp 1.5s ease;
 }
 
 .hero-content h1{
-font-size:90px;
-font-weight:800;
+font-size:100px;
+font-weight:900;
 line-height:1;
 margin-bottom:25px;
 }
 
-.hero-content span{
+.hero-content h1 span{
 color:#55e6a5;
+text-shadow:0 0 30px rgba(85,230,165,0.8);
 }
 
 .hero-content p{
 font-size:22px;
-line-height:1.8;
+line-height:1.9;
 opacity:0.9;
+max-width:850px;
+margin:auto;
 }
 
 /* SECTION */
@@ -187,18 +234,17 @@ position:relative;
 }
 
 .section-title{
-font-size:60px;
+font-size:65px;
+font-weight:900;
 text-align:center;
-margin-bottom:70px;
-font-weight:800;
-animation:fadeUp 1.2s ease;
+margin-bottom:80px;
 }
 
 .section-title span{
 color:#55e6a5;
 }
 
-/* TRIPS GRID */
+/* TRIPS */
 
 .trips{
 display:grid;
@@ -209,24 +255,23 @@ gap:40px;
 .trip-card{
 background:rgba(255,255,255,0.03);
 border:1px solid rgba(255,255,255,0.05);
-border-radius:30px;
+border-radius:35px;
 overflow:hidden;
 backdrop-filter:blur(15px);
 transition:0.5s;
 position:relative;
-animation:fadeUp 1.2s ease;
 }
 
 .trip-card:hover{
 transform:translateY(-15px);
-box-shadow:0 0 40px rgba(85,230,165,0.15);
+box-shadow:0 0 45px rgba(85,230,165,0.15);
 }
 
 .trip-card img{
 width:100%;
 height:280px;
 object-fit:cover;
-transition:0.5s;
+transition:0.6s;
 }
 
 .trip-card:hover img{
@@ -314,7 +359,7 @@ transform:translateY(-5px);
 box-shadow:0 0 30px rgba(85,230,165,0.35);
 }
 
-/* EXPERIENCE */
+/* WHY US */
 
 .experience{
 display:grid;
@@ -323,13 +368,13 @@ gap:35px;
 }
 
 .exp-card{
-background:#101010;
+background:rgba(255,255,255,0.03);
 padding:40px;
-border-radius:25px;
+border-radius:30px;
 transition:0.5s;
 text-align:center;
 border:1px solid rgba(255,255,255,0.05);
-animation:fadeUp 1.2s ease;
+backdrop-filter:blur(15px);
 }
 
 .exp-card:hover{
@@ -337,10 +382,15 @@ transform:translateY(-12px);
 box-shadow:0 0 35px rgba(85,230,165,0.12);
 }
 
+.exp-card i{
+font-size:42px;
+color:#55e6a5;
+margin-bottom:20px;
+}
+
 .exp-card h3{
 font-size:28px;
 margin-bottom:15px;
-color:#55e6a5;
 }
 
 .exp-card p{
@@ -348,23 +398,94 @@ line-height:1.9;
 opacity:0.8;
 }
 
+/* CTA */
+
+.cta{
+padding:140px 10%;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)),
+url('https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+}
+
+.cta h2{
+font-size:75px;
+font-weight:900;
+line-height:1.1;
+margin-bottom:25px;
+}
+
+.cta h2 span{
+color:#55e6a5;
+}
+
+.cta p{
+font-size:22px;
+line-height:1.9;
+opacity:0.85;
+max-width:850px;
+margin:auto;
+margin-bottom:40px;
+}
+
+.btn{
+display:inline-block;
+padding:18px 40px;
+background:#55e6a5;
+color:#000;
+text-decoration:none;
+font-weight:700;
+border-radius:60px;
+transition:0.5s;
+box-shadow:0 0 30px rgba(85,230,165,0.45);
+}
+
+.btn:hover{
+transform:translateY(-6px);
+box-shadow:0 0 50px rgba(85,230,165,0.8);
+}
+
 /* FOOTER */
 
 footer{
-background:#101010;
+background:#0b0b0b;
 padding:70px 10%;
 text-align:center;
 }
 
 footer h2{
-font-size:38px;
+font-size:40px;
 color:#55e6a5;
 margin-bottom:15px;
 }
 
 footer p{
-opacity:0.7;
-letter-spacing:2px;
+opacity:0.75;
+line-height:2;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:#fff;
+text-decoration:none;
+box-shadow:0 0 25px rgba(37,211,102,0.5);
+animation:bounce 2s infinite;
+z-index:999;
 }
 
 /* ANIMATIONS */
@@ -373,17 +494,6 @@ letter-spacing:2px;
 0%{
 opacity:0;
 transform:translateY(60px);
-}
-100%{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes fadeDown{
-0%{
-opacity:0;
-transform:translateY(-40px);
 }
 100%{
 opacity:1;
@@ -412,32 +522,110 @@ transform:scale(1.12);
 }
 }
 
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-10px);
+}
+}
+
 /* MOBILE */
 
-@media(max-width:768px){
-
-.hero-content h1{
-font-size:52px;
-}
-
-.hero-content p{
-font-size:17px;
-}
+@media(max-width:992px){
 
 nav ul{
 display:none;
 }
 
+.menu-btn{
+display:block;
+}
+
+.hero-content h1{
+font-size:60px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
 .section-title{
-font-size:40px;
+font-size:42px;
+}
+
+.trips{
+grid-template-columns:1fr;
+}
+
+.experience{
+grid-template-columns:1fr;
+}
+
+.cta h2{
+font-size:45px;
+}
+
+.cta p{
+font-size:18px;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero{
+padding:120px 0 80px;
+height:auto;
+}
+
+.hero-content h1{
+font-size:42px;
+line-height:1.15;
+}
+
+.hero-content p{
+font-size:15px;
+line-height:1.8;
+}
+
+.section-title{
+font-size:34px;
 }
 
 .logo{
-font-size:24px;
+font-size:20px;
+}
+
+.trip-card img{
+height:230px;
+}
+
+.trip-content{
+padding:25px;
 }
 
 .trip-content h2{
 font-size:28px;
+}
+
+.price h3{
+font-size:32px;
+}
+
+.cta h2{
+font-size:34px;
+}
+
+.cta p{
+font-size:15px;
+}
+
+.btn{
+width:100%;
+max-width:320px;
+text-align:center;
 }
 
 }
@@ -464,13 +652,27 @@ PARAMATHMA DIARIES
 <li><a href="contact.html">Contact</a></li>
 </ul>
 
+<div class="menu-btn" onclick="openMenu()">
+<i class="fa-solid fa-bars"></i>
+</div>
+
 </nav>
+
+<!-- MOBILE MENU -->
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="trips.html">Trips</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+
+</div>
 
 <!-- HERO -->
 
 <section class="hero">
-
-<div class="hero-bg"></div>
 
 <div class="hero-content">
 
@@ -479,7 +681,7 @@ Upcoming <span>Trips</span>
 </h1>
 
 <p>
-Adventure awaits. Explore breathtaking destinations, soulful experiences and unforgettable memories with Paramathma Diaries.
+Adventure awaits. Explore breathtaking destinations, soulful experiences and unforgettable memories with PARAMATHMA DIARIES.
 </p>
 
 </div>
@@ -496,7 +698,7 @@ Choose Your <span>Adventure</span>
 
 <div class="trips">
 
-<!-- CARD 1 -->
+<!-- CHIKKAMAGALURU -->
 
 <div class="trip-card">
 
@@ -508,26 +710,18 @@ Choose Your <span>Adventure</span>
 Most Popular
 </div>
 
-<h2>Chikkamagaluru</h2>
+<h2>Chikkamagaluru Escape</h2>
 
 <div class="trip-details">
 
-<div class="detail">
-2D / 1N
-</div>
-
-<div class="detail">
-Campfire
-</div>
-
-<div class="detail">
-Jeep Ride
-</div>
+<div class="detail">2D / 1N</div>
+<div class="detail">Campfire</div>
+<div class="detail">Trekking</div>
 
 </div>
 
 <p>
-Escape into the mountains with breathtaking viewpoints, waterfalls, trekking adventures and soulful campfire nights.
+Experience breathtaking mountain views, Bandaje trek, waterfalls, jeep rides and soulful campfire nights surrounded by nature.
 </p>
 
 <div class="price-row">
@@ -551,7 +745,7 @@ Book Now
 
 </div>
 
-<!-- CARD 2 -->
+<!-- NETRAVATHI -->
 
 <div class="trip-card">
 
@@ -567,22 +761,14 @@ Adventure Trek
 
 <div class="trip-details">
 
-<div class="detail">
-Sunrise Trek
-</div>
-
-<div class="detail">
-Mountain Trail
-</div>
-
-<div class="detail">
-Photography
-</div>
+<div class="detail">Sunrise</div>
+<div class="detail">Mountains</div>
+<div class="detail">Photography</div>
 
 </div>
 
 <p>
-Experience thrilling trails, breathtaking sunrise views and unforgettable adventure moments surrounded by nature.
+Explore thrilling mountain trails, breathtaking sunrise views and unforgettable adventure moments deep inside nature.
 </p>
 
 <div class="price-row">
@@ -606,7 +792,7 @@ Book Now
 
 </div>
 
-<!-- CARD 3 -->
+<!-- COORG -->
 
 <div class="trip-card">
 
@@ -622,22 +808,14 @@ Nature Escape
 
 <div class="trip-details">
 
-<div class="detail">
-Waterfalls
-</div>
-
-<div class="detail">
-Coffee Estates
-</div>
-
-<div class="detail">
-Relaxation
-</div>
+<div class="detail">Waterfalls</div>
+<div class="detail">Coffee Estate</div>
+<div class="detail">Nature Stay</div>
 
 </div>
 
 <p>
-Reconnect with nature through waterfalls, misty hills, coffee plantations and peaceful soulful experiences.
+Reconnect with nature through waterfalls, scenic roads, misty hills and peaceful soulful experiences.
 </p>
 
 <div class="price-row">
@@ -670,42 +848,67 @@ Book Now
 <section>
 
 <h2 class="section-title">
-What Makes Our <span>Trips Special</span>
+Why Travel With <span>Us?</span>
 </h2>
 
 <div class="experience">
 
 <div class="exp-card">
 
-<h3>Premium Planning</h3>
+<i class="fa-solid fa-fire"></i>
+
+<h3>Soulful Experiences</h3>
 
 <p>
-Every trip is carefully organized to ensure comfort, safety and unforgettable experiences.
+Campfires, healing vibes, meaningful conversations and moments that stay forever.
 </p>
 
 </div>
 
 <div class="exp-card">
+
+<i class="fa-solid fa-people-group"></i>
 
 <h3>Community Energy</h3>
 
 <p>
-Meet like-minded travelers, make new friendships and create memories together.
+Meet like-minded travelers, make new friendships and create unforgettable memories together.
 </p>
 
 </div>
 
 <div class="exp-card">
 
-<h3>Adventure & Healing</h3>
+<i class="fa-solid fa-mountain-sun"></i>
+
+<h3>Adventure & Nature</h3>
 
 <p>
-Nature, mountains, campfires and soulful moments that refresh your mind and spirit.
+Mountains, waterfalls, roadtrips and breathtaking escapes designed for unforgettable journeys.
 </p>
 
 </div>
 
 </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta">
+
+<h2>
+YOUR NEXT <span>MEMORY</span><br>
+STARTS HERE.
+</h2>
+
+<p>
+Pack your bags, leave the routine behind and experience journeys that stay forever.
+</p>
+
+<a href="https://wa.me/918217682902" class="btn">
+Join The Community
+</a>
 
 </section>
 
@@ -716,12 +919,43 @@ Nature, mountains, campfires and soulful moments that refresh your mind and spir
 <h2>PARAMATHMA DIARIES</h2>
 
 <p>
-Travel • Heal • Connect
+
+Travel • Heal • Connect • Grow
+
+<br><br>
+
+Instagram : @paramathma__diaries
+
+<br>
+
+WhatsApp : +91 8217682902
+
+<br><br>
+
+Collecting Moments. Creating Memories.
+
 </p>
 
 </footer>
 
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/918217682902" class="whatsapp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<!-- SCRIPT -->
+
+<script>
+
+function openMenu(){
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+</script>
+
 </body>
 
 </html>
-```
