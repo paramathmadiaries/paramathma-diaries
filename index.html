@@ -1,46 +1,137 @@
+\<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>PARAMATHMA DIARIES</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
 
-/* MAIN COLORS */
-
-:root{
---primary:#8b5cf6;
---secondary:#c084fc;
---dark:#0b0b12;
---glass:rgba(255,255,255,0.05);
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
 }
 
 body{
-background:#05050a;
+background:#050505;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* COLORS */
+
+:root{
+--primary:#7c4dff;
+--secondary:#b388ff;
+--dark:#101010;
+--glass:rgba(255,255,255,0.04);
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:var(--primary);
+border-radius:30px;
 }
 
 /* GLOW EFFECTS */
 
 body::before{
-background:#8b5cf6;
-opacity:0.09;
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:var(--primary);
+filter:blur(180px);
+opacity:0.10;
+top:-150px;
+left:-150px;
+z-index:-1;
+animation:floatGlow 8s infinite alternate;
 }
 
 body::after{
-background:#c084fc;
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#ff4ecd;
+filter:blur(180px);
 opacity:0.07;
+bottom:-150px;
+right:-150px;
+z-index:-1;
+animation:floatGlow2 10s infinite alternate;
 }
 
-/* SCROLLBAR */
+/* NAVBAR */
 
-::-webkit-scrollbar-thumb{
-background:var(--primary);
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(12px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,0.05);
 }
-
-/* LOGO */
 
 .logo{
+font-size:28px;
+font-weight:800;
+letter-spacing:2px;
 color:var(--primary);
+z-index:1001;
 }
 
-/* NAVBAR HOVER */
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:0.4s;
+position:relative;
+}
 
 nav ul li a::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-6px;
+width:0%;
+height:2px;
 background:var(--primary);
+transition:0.4s;
+}
+
+nav ul li a:hover::after{
+width:100%;
 }
 
 nav ul li a:hover{
@@ -50,176 +141,925 @@ color:var(--primary);
 /* MOBILE MENU */
 
 .menu-btn{
+display:none;
+font-size:28px;
 color:var(--primary);
+cursor:pointer;
+z-index:1001;
+}
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:280px;
+height:100vh;
+background:#0b0b0b;
+padding:120px 40px;
+display:flex;
+flex-direction:column;
+gap:30px;
+transition:0.5s;
+z-index:1000;
+border-left:1px solid rgba(255,255,255,0.05);
+}
+
+.mobile-menu.active{
+right:0;
+}
+
+.mobile-menu a{
+text-decoration:none;
+color:#fff;
+font-size:20px;
+font-weight:600;
+transition:0.4s;
 }
 
 .mobile-menu a:hover{
 color:var(--primary);
+padding-left:10px;
 }
 
 /* HERO */
 
+.hero{
+min-height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+padding:150px 8% 100px;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+top:0;
+left:0;
+background:
+linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.94)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+animation:zoomBg 18s infinite alternate ease-in-out;
+}
+
+.hero-container{
+position:relative;
+z-index:2;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:60px;
+}
+
+/* HERO CONTENT */
+
+.hero-content{
+max-width:700px;
+animation:fadeUp 1.5s ease;
+}
+
 .hero-tag{
-border:1px solid rgba(139,92,246,0.45);
-color:var(--primary);
-background:rgba(139,92,246,0.06);
+display:inline-block;
+padding:10px 22px;
+border:1px solid rgba(124,77,255,0.5);
+border-radius:50px;
+margin-bottom:25px;
+color:var(--secondary);
+backdrop-filter:blur(12px);
+font-size:14px;
+letter-spacing:1px;
+}
+
+.hero-content h1{
+font-size:84px;
+font-weight:900;
+line-height:1;
+margin-bottom:25px;
 }
 
 .hero-content h1 span{
 color:var(--primary);
-text-shadow:0 0 35px rgba(139,92,246,0.8);
+text-shadow:0 0 25px rgba(124,77,255,0.8);
+}
+
+.hero-content p{
+font-size:20px;
+line-height:1.9;
+opacity:0.88;
+margin-bottom:40px;
 }
 
 /* BUTTONS */
 
+.btns{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:18px 40px;
+border-radius:60px;
+text-decoration:none;
+font-weight:700;
+transition:0.5s;
+}
+
 .primary{
-background:linear-gradient(135deg,#8b5cf6,#c084fc);
+background:linear-gradient(135deg,var(--primary),#ff4ecd);
 color:#fff;
-box-shadow:0 0 35px rgba(139,92,246,0.45);
+box-shadow:0 0 35px rgba(124,77,255,0.45);
 }
 
 .primary:hover{
-box-shadow:0 0 60px rgba(139,92,246,0.85);
+transform:translateY(-7px);
+box-shadow:0 0 55px rgba(124,77,255,0.9);
 }
 
 .secondary{
 border:2px solid var(--primary);
-color:var(--primary);
+color:var(--secondary);
 }
 
 .secondary:hover{
-background:linear-gradient(135deg,#8b5cf6,#c084fc);
+background:var(--primary);
 color:#fff;
 }
 
 /* FLOATING CARDS */
 
+.floating-cards{
+display:flex;
+flex-direction:column;
+gap:22px;
+width:280px;
+flex-shrink:0;
+}
+
 .float-card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(139,92,246,0.12);
-box-shadow:0 0 35px rgba(139,92,246,0.08);
+background:var(--glass);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.06);
+padding:28px;
+border-radius:30px;
+animation:floating 4s ease-in-out infinite;
+box-shadow:0 0 35px rgba(124,77,255,0.08);
+}
+
+.float-card:nth-child(2){
+animation-delay:1s;
+}
+
+.float-card:nth-child(3){
+animation-delay:2s;
 }
 
 .float-card h3{
-color:var(--primary);
+font-size:28px;
+margin-bottom:12px;
+color:var(--secondary);
 }
 
-/* SECTION TITLES */
+.float-card p{
+line-height:1.9;
+opacity:0.8;
+font-size:15px;
+}
+
+/* SECTION */
+
+section{
+padding:120px 10%;
+position:relative;
+}
+
+.section-title{
+font-size:65px;
+font-weight:900;
+text-align:center;
+margin-bottom:80px;
+}
 
 .section-title span{
-color:var(--primary);
+background:linear-gradient(135deg,var(--primary),#ff4ecd);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 /* STATS */
 
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
 .stat-box{
-border:1px solid rgba(139,92,246,0.08);
+background:var(--glass);
+padding:50px 30px;
+border-radius:30px;
+text-align:center;
+backdrop-filter:blur(18px);
+transition:0.5s;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 .stat-box:hover{
-box-shadow:0 0 45px rgba(139,92,246,0.14);
+transform:translateY(-12px);
+box-shadow:0 0 45px rgba(124,77,255,0.15);
 }
 
 .stat-box h2{
-color:var(--primary);
+font-size:60px;
+background:linear-gradient(135deg,var(--primary),#ff4ecd);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:10px;
 }
 
-/* WHY CARDS */
+.stat-box p{
+line-height:1.8;
+opacity:0.8;
+}
+
+/* WHY US */
+
+.why-us{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:35px;
+}
 
 .why-card{
-border:1px solid rgba(139,92,246,0.08);
+background:var(--glass);
+padding:45px;
+border-radius:35px;
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,0.05);
+transition:0.5s;
 }
 
 .why-card:hover{
-box-shadow:0 0 45px rgba(139,92,246,0.14);
+transform:translateY(-12px);
+box-shadow:0 0 50px rgba(124,77,255,0.15);
 }
 
 .why-card i{
-color:var(--primary);
+font-size:45px;
+margin-bottom:25px;
+color:var(--secondary);
+}
+
+.why-card h3{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.why-card p{
+line-height:1.9;
+opacity:0.8;
 }
 
 /* EXPERIENCE */
 
+.experience-strip{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.strip-box{
+height:420px;
+border-radius:30px;
+overflow:hidden;
+position:relative;
+transition:0.6s;
+cursor:pointer;
+}
+
+.strip-box:hover{
+transform:scale(1.03);
+}
+
+.strip-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.6s;
+}
+
+.strip-box:hover img{
+transform:scale(1.1);
+}
+
 .strip-overlay{
-background:linear-gradient(transparent,rgba(8,8,14,0.96));
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:30px;
+background:linear-gradient(transparent,rgba(0,0,0,0.95));
+}
+
+.strip-overlay h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.strip-overlay p{
+font-size:14px;
+line-height:1.8;
+opacity:0.85;
 }
 
 /* CTA */
 
+.cta{
+padding:150px 10%;
+text-align:center;
+background:
+linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.92)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+}
+
+.cta h2{
+font-size:80px;
+font-weight:900;
+line-height:1.1;
+margin-bottom:25px;
+}
+
 .cta h2 span{
-color:var(--primary);
+background:linear-gradient(135deg,var(--primary),#ff4ecd);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.cta p{
+font-size:22px;
+line-height:1.9;
+opacity:0.85;
+max-width:850px;
+margin:auto;
+margin-bottom:40px;
 }
 
 /* FOOTER */
 
 footer{
-background:#08080d;
+background:#0b0b0b;
+padding:70px 10%;
+text-align:center;
 }
 
 footer h2{
-color:var(--primary);
+font-size:40px;
+background:linear-gradient(135deg,var(--primary),#ff4ecd);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:15px;
+}
+
+footer p{
+opacity:0.75;
+line-height:2;
 }
 
 /* WHATSAPP */
 
 .whatsapp{
-box-shadow:0 0 25px rgba(37,211,102,0.55);
+position:fixed;
+bottom:25px;
+right:25px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:#fff;
+text-decoration:none;
+box-shadow:0 0 25px rgba(37,211,102,0.5);
+animation:bounce 2s infinite;
+z-index:999;
 }
 
-/* EXTRA PREMIUM EFFECTS */
+/* ANIMATIONS */
 
-.float-card::before,
-.why-card::before,
-.stat-box::before{
-content:'';
-position:absolute;
-inset:0;
-background:linear-gradient(
-135deg,
-rgba(139,92,246,0.12),
-transparent,
-rgba(192,132,252,0.08)
-);
+@keyframes fadeUp{
+0%{
 opacity:0;
-transition:0.5s;
-pointer-events:none;
+transform:translateY(60px);
 }
-
-.float-card:hover::before,
-.why-card:hover::before,
-.stat-box:hover::before{
+100%{
 opacity:1;
+transform:translateY(0);
+}
 }
 
-/* HERO EXTRA GLOW */
-
-.hero::after{
-content:'';
-position:absolute;
-width:700px;
-height:700px;
-background:radial-gradient(circle,rgba(139,92,246,0.18),transparent 70%);
-top:50%;
-left:50%;
-transform:translate(-50%,-50%);
-z-index:1;
-animation:pulseGlow 6s infinite ease-in-out;
-}
-
-/* NEW ANIMATION */
-
-@keyframes pulseGlow{
-
+@keyframes floating{
 0%,100%{
-transform:translate(-50%,-50%) scale(1);
-opacity:0.7;
+transform:translateY(0);
+}
+50%{
+transform:translateY(-15px);
+}
 }
 
+@keyframes floatGlow{
+100%{
+transform:translate(220px,120px);
+}
+}
+
+@keyframes floatGlow2{
+100%{
+transform:translate(-180px,-120px);
+}
+}
+
+@keyframes zoomBg{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.12);
+}
+}
+
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
 50%{
-transform:translate(-50%,-50%) scale(1.12);
-opacity:1;
+transform:translateY(-10px);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+.hero-container{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.floating-cards{
+flex-direction:row;
+width:100%;
+}
+
+.float-card{
+flex:1;
+}
+
+.hero-content{
+max-width:100%;
+}
+
+}
+
+@media(max-width:992px){
+
+nav ul{
+display:none;
+}
+
+.menu-btn{
+display:block;
+}
+
+.hero{
+padding:150px 7% 100px;
+}
+
+.hero-content h1{
+font-size:60px;
+}
+
+.hero-content p{
+font-size:18px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+.experience-strip{
+grid-template-columns:1fr 1fr;
+}
+
+.cta h2{
+font-size:48px;
+}
+
+.cta p{
+font-size:18px;
+}
+
+}
+
+@media(max-width:768px){
+
+.floating-cards{
+flex-direction:column;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero{
+padding:130px 7% 80px;
+}
+
+.hero-content h1{
+font-size:42px;
+line-height:1.15;
+}
+
+.hero-content p{
+font-size:15px;
+line-height:1.8;
+}
+
+.logo{
+font-size:20px;
+}
+
+.section-title{
+font-size:34px;
+}
+
+.btn{
+width:100%;
+text-align:center;
+}
+
+.experience-strip{
+grid-template-columns:1fr;
+}
+
+.strip-box{
+height:350px;
+}
+
+.cta h2{
+font-size:36px;
+}
+
+.cta p{
+font-size:15px;
+}
+
+.float-card{
+padding:24px;
+}
+
+.float-card h3{
+font-size:24px;
 }
 
 }
 
 </style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+PARAMATHMA DIARIES
+</div>
+
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="trips.html">Trips</a></li>
+<li><a href="gallery.html">Gallery</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+
+<div class="menu-btn" onclick="openMenu()">
+<i class="fa-solid fa-bars"></i>
+</div>
+
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="trips.html">Trips</a>
+<a href="gallery.html">Gallery</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<section class="hero">
+
+<div class="hero-container">
+
+<div class="hero-content">
+
+<div class="hero-tag">
+KARNATAKA’S SOULFUL TRAVEL COMMUNITY
+</div>
+
+<h1>
+Not Just <span>Trips</span><br>
+Memories That<br>
+Stay Forever
+</h1>
+
+<p>
+PARAMATHMA DIARIES creates soulful journeys, unforgettable experiences, healing adventures and meaningful human connections through nature.
+</p>
+
+<div class="btns">
+
+<a href="trips.html" class="btn primary">
+Explore Trips
+</a>
+
+<a href="https://wa.me/918217682902" class="btn secondary">
+Join Community
+</a>
+
+</div>
+
+</div>
+
+<div class="floating-cards">
+
+<div class="float-card">
+
+<h3>Adventure</h3>
+
+<p>
+Trekking, waterfalls, sunrise trails and unforgettable escapes.
+</p>
+
+</div>
+
+<div class="float-card">
+
+<h3>Healing</h3>
+
+<p>
+Nature, campfires and soulful experiences beyond routine life.
+</p>
+
+</div>
+
+<div class="float-card">
+
+<h3>Community</h3>
+
+<p>
+Meet strangers who slowly become your favourite people.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Our <span>Vision</span>
+</h2>
+
+<div class="stats">
+
+<div class="stat-box">
+<h2>10K+</h2>
+<p>Travelers To Inspire</p>
+</div>
+
+<div class="stat-box">
+<h2>100+</h2>
+<p>Experiences To Create</p>
+</div>
+
+<div class="stat-box">
+<h2>50+</h2>
+<p>Destinations To Explore</p>
+</div>
+
+<div class="stat-box">
+<h2>1</h2>
+<p>Mission — Collecting Moments. Creating Memories.</p>
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Why <span>PARAMATHMA?</span>
+</h2>
+
+<div class="why-us">
+
+<div class="why-card">
+
+<i class="fa-solid fa-people-group"></i>
+
+<h3>Community First</h3>
+
+<p>
+We create friendships, unforgettable memories and journeys where strangers become family.
+</p>
+
+</div>
+
+<div class="why-card">
+
+<i class="fa-solid fa-shield-heart"></i>
+
+<h3>Women-Led Safety</h3>
+
+<p>
+Dedicated support crews focused on safety, hospitality and premium experiences.
+</p>
+
+</div>
+
+<div class="why-card">
+
+<i class="fa-solid fa-fire"></i>
+
+<h3>Soulful Experiences</h3>
+
+<p>
+Campfires, deep conversations, healing vibes and emotional journeys through nature.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2 class="section-title">
+Live The <span>Experience</span>
+</h2>
+
+<div class="experience-strip">
+
+<div class="strip-box">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop">
+
+<div class="strip-overlay">
+
+<h3>Mountain Escapes</h3>
+
+<p>
+Breathtaking treks and unforgettable sunrise moments.
+</p>
+
+</div>
+
+</div>
+
+<div class="strip-box">
+
+<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070&auto=format&fit=crop">
+
+<div class="strip-overlay">
+
+<h3>Community Bonding</h3>
+
+<p>
+Meet like-minded travelers and create lifelong friendships.
+</p>
+
+</div>
+
+</div>
+
+<div class="strip-box">
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop">
+
+<div class="strip-overlay">
+
+<h3>Healing Through Nature</h3>
+
+<p>
+Disconnect from routine and reconnect with yourself.
+</p>
+
+</div>
+
+</div>
+
+<div class="strip-box">
+
+<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop">
+
+<div class="strip-overlay">
+
+<h3>Roadtrip Memories</h3>
+
+<p>
+Beautiful roads, waterfalls and unforgettable laughter.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>
+YOUR NEXT <span>MEMORY</span><br>
+STARTS HERE.
+</h2>
+
+<p>
+Pack your bags, leave the routine behind and experience journeys that stay forever.
+</p>
+
+<div class="btns">
+
+<a href="trips.html" class="btn primary">
+Explore Trips
+</a>
+
+<a href="https://wa.me/918217682902" class="btn secondary">
+Join WhatsApp Community
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>PARAMATHMA DIARIES</h2>
+
+<p>
+
+Travel • Heal • Connect • Grow
+
+<br><br>
+
+Instagram : @paramathma__diaries
+
+<br>
+
+WhatsApp : +91 8217682902
+
+<br><br>
+
+Collecting Moments. Creating Memories.
+
+</p>
+
+</footer>
+
+<a href="https://wa.me/918217682902" class="whatsapp">
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<script>
+
+function openMenu(){
+document.getElementById("mobileMenu").classList.toggle("active");
+}
+
+</script>
+
+</body>
+
+</html>
