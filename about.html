@@ -82,17 +82,17 @@ padding:22px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:999;
 background:rgba(0,0,0,0.45);
 backdrop-filter:blur(12px);
+z-index:999;
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:30px;
+font-size:28px;
 font-weight:800;
-color:#55e6a5;
 letter-spacing:2px;
+color:#55e6a5;
 }
 
 nav ul{
@@ -112,11 +112,11 @@ position:relative;
 nav ul li a::after{
 content:'';
 position:absolute;
+left:0;
+bottom:-6px;
 width:0%;
 height:2px;
 background:#55e6a5;
-left:0;
-bottom:-6px;
 transition:0.4s;
 }
 
@@ -131,7 +131,7 @@ color:#55e6a5;
 /* HERO */
 
 .hero{
-height:90vh;
+height:95vh;
 position:relative;
 display:flex;
 justify-content:center;
@@ -157,19 +157,19 @@ animation:zoomBg 18s infinite alternate ease-in-out;
 .hero-content{
 position:relative;
 z-index:2;
-max-width:950px;
+max-width:1000px;
 padding:20px;
 animation:fadeUp 1.5s ease;
 }
 
 .hero-content h1{
-font-size:95px;
-line-height:1;
+font-size:100px;
 font-weight:900;
+line-height:1;
 margin-bottom:25px;
 }
 
-.hero-content span{
+.hero-content h1 span{
 color:#55e6a5;
 text-shadow:0 0 25px rgba(85,230,165,0.7);
 }
@@ -178,9 +178,11 @@ text-shadow:0 0 25px rgba(85,230,165,0.7);
 font-size:22px;
 line-height:1.9;
 opacity:0.9;
+max-width:850px;
+margin:auto;
 }
 
-/* COMMON SECTION */
+/* SECTION */
 
 section{
 padding:120px 10%;
@@ -189,8 +191,8 @@ position:relative;
 
 .section-title{
 font-size:65px;
-text-align:center;
 font-weight:900;
+text-align:center;
 margin-bottom:80px;
 }
 
@@ -217,23 +219,23 @@ transition:0.6s;
 
 .story img:hover{
 transform:scale(1.03);
-box-shadow:0 0 45px rgba(85,230,165,0.18);
+box-shadow:0 0 45px rgba(85,230,165,0.15);
 }
 
 .story-text h2{
 font-size:52px;
-line-height:1.2;
 margin-bottom:25px;
+line-height:1.2;
 }
 
-.story-text span{
+.story-text h2 span{
 color:#55e6a5;
 }
 
 .story-text p{
 line-height:2;
-opacity:0.82;
 font-size:17px;
+opacity:0.82;
 }
 
 /* VISION */
@@ -244,9 +246,8 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-
 background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
+linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.85)),
 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop');
 
 background-size:cover;
@@ -262,8 +263,8 @@ padding:20px;
 .vision-content h2{
 font-size:70px;
 font-weight:900;
+line-height:1.2;
 margin-bottom:25px;
-line-height:1.1;
 color:#55e6a5;
 }
 
@@ -285,7 +286,7 @@ gap:35px;
 background:rgba(255,255,255,0.03);
 padding:45px;
 border-radius:30px;
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,0.05);
 transition:0.5s;
 text-align:center;
@@ -293,7 +294,7 @@ text-align:center;
 
 .special-card:hover{
 transform:translateY(-12px);
-box-shadow:0 0 40px rgba(85,230,165,0.15);
+box-shadow:0 0 45px rgba(85,230,165,0.15);
 }
 
 .special-card i{
@@ -328,6 +329,8 @@ backdrop-filter:blur(20px);
 border:1px solid rgba(85,230,165,0.08);
 transition:0.6s;
 text-align:center;
+overflow:hidden;
+position:relative;
 }
 
 .member:hover{
@@ -340,8 +343,8 @@ box-shadow:
 .member img{
 width:150px;
 height:150px;
-border-radius:50%;
 object-fit:cover;
+border-radius:50%;
 border:5px solid #55e6a5;
 margin-bottom:25px;
 }
@@ -368,7 +371,6 @@ opacity:0.82;
 .cta{
 padding:130px 10%;
 text-align:center;
-
 background:
 linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)),
 url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
@@ -380,14 +382,14 @@ background-position:center;
 .cta h2{
 font-size:75px;
 font-weight:900;
-margin-bottom:25px;
 line-height:1.1;
+margin-bottom:25px;
 }
 
 .cta p{
 font-size:22px;
-opacity:0.85;
 line-height:1.9;
+opacity:0.85;
 max-width:850px;
 margin:auto;
 margin-bottom:40px;
@@ -395,7 +397,7 @@ margin-bottom:40px;
 
 .btn{
 display:inline-block;
-padding:18px 42px;
+padding:18px 40px;
 background:#55e6a5;
 color:#000;
 text-decoration:none;
@@ -532,12 +534,11 @@ PARAMATHMA DIARIES
 <div class="hero-content">
 
 <h1>
-More Than <span>Travel</span><br>
-We Create Emotions
+About <span>PARAMATHMA</span>
 </h1>
 
 <p>
-PARAMATHMA DIARIES is a premium travel and community experience brand focused on soulful journeys, healing moments, adventure escapes and unforgettable human connections.
+More than just travel. We create soulful experiences, unforgettable memories, healing journeys and meaningful human connections through nature and adventure.
 </p>
 
 </div>
@@ -563,11 +564,11 @@ Travel Beyond <span>Destinations</span>
 </h2>
 
 <p>
-PARAMATHMA DIARIES was started with one vision — to create journeys that go beyond ordinary tourism.
+PARAMATHMA DIARIES was created with one vision — to build journeys that go beyond ordinary tourism.
 <br><br>
-We believe travel should heal, inspire, connect people and create unforgettable memories that stay forever.
+We believe travel should heal people, connect souls, inspire growth and create unforgettable moments that stay forever.
 <br><br>
-From breathtaking mountain treks and soulful campfire nights to deep conversations and meaningful human connections, every experience is designed to become a story worth remembering.
+From breathtaking mountain escapes and soulful campfire nights to deep conversations and beautiful human connections, every experience is designed to become a memory worth reliving.
 </p>
 
 </div>
@@ -587,7 +588,7 @@ WE STARTED THIS TO CREATE MORE THAN TRIPS
 </h2>
 
 <p>
-We are building a travel community where strangers become family, journeys become memories and every experience leaves an emotional impact that lasts forever.
+We are building a travel community where strangers become family, journeys become emotions and every experience leaves a lifelong impact.
 </p>
 
 </div>
@@ -606,9 +607,9 @@ Why We Are <span>Different</span>
 
 <div class="special-card">
 <i class="fa-solid fa-people-group"></i>
-<h3>Community Vibes</h3>
+<h3>Community Experiences</h3>
 <p>
-We focus on friendships, bonding and unforgettable human connections during every journey.
+We focus on emotional bonding, friendships and unforgettable travel memories.
 </p>
 </div>
 
@@ -616,7 +617,7 @@ We focus on friendships, bonding and unforgettable human connections during ever
 <i class="fa-solid fa-shield-heart"></i>
 <h3>Women-Led Safety</h3>
 <p>
-Dedicated women-led support crews ensuring safety, comfort and trust for every traveler.
+Dedicated support crews focused on safety, comfort and premium hospitality experiences.
 </p>
 </div>
 
@@ -624,7 +625,7 @@ Dedicated women-led support crews ensuring safety, comfort and trust for every t
 <i class="fa-solid fa-mountain-sun"></i>
 <h3>Healing Through Nature</h3>
 <p>
-Nature escapes, soulful campfires and peaceful experiences designed to refresh your mind.
+Campfires, mountains, music and soulful moments designed to refresh your mind.
 </p>
 </div>
 
@@ -648,10 +649,10 @@ Meet Our <span>Core Team</span>
 
 <h3>Neeraj Jayanna</h3>
 
-<h4>Business Strategy & Growth</h4>
+<h4>Founder • Business Strategy & Growth</h4>
 
 <p>
-Focused on building PARAMATHMA DIARIES into a premium travel and community brand through strategic planning, partnerships, branding and long-term vision.
+Focused on building PARAMATHMA DIARIES into a premium travel and community brand through strategic planning, branding, partnerships and long-term vision.
 </p>
 
 </div>
@@ -662,10 +663,10 @@ Focused on building PARAMATHMA DIARIES into a premium travel and community brand
 
 <h3>Arun</h3>
 
-<h4>Operations & Logistics</h4>
+<h4>Founder • Operations & Logistics</h4>
 
 <p>
-Focused on trip execution, destination research, transport coordination, stay planning and ensuring every experience runs smoothly from start to finish.
+Focused on trip execution, destination research, transport coordination, stay planning and ensuring every PARAMATHMA experience runs smoothly.
 </p>
 
 </div>
@@ -679,7 +680,7 @@ Focused on trip execution, destination research, transport coordination, stay pl
 <h4>Community & Experience</h4>
 
 <p>
-Focused on traveler bonding, emotional engagement and building experiences that people remember forever.
+Focused on traveler bonding, emotional engagement, community experiences and creating journeys people remember forever.
 </p>
 
 </div>
@@ -693,7 +694,7 @@ Focused on traveler bonding, emotional engagement and building experiences that 
 <h4>Women Safety & Hospitality</h4>
 
 <p>
-Focused on traveler comfort, hospitality management, women safety systems and creating a secure travel environment.
+Focused on traveler comfort, hospitality systems, safety management and creating a secure travel environment for everyone.
 </p>
 
 </div>
@@ -707,7 +708,7 @@ Focused on traveler comfort, hospitality management, women safety systems and cr
 <h4>Marketing & Branding</h4>
 
 <p>
-Focused on social media growth, content strategy, audience engagement and building PARAMATHMA DIARIES into a powerful community brand.
+Focused on social media growth, branding aesthetics, content strategy and building PARAMATHMA DIARIES into a powerful travel community brand.
 </p>
 
 </div>
