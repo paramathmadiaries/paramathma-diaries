@@ -1,17 +1,461 @@
+```html id="premium-trips-page"
 <!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trips | Paramathma Diaries</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#050505;
+color:#fff;
+overflow-x:hidden;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar{
+width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+background:#55e6a5;
+border-radius:20px;
+}
+
+/* GLOW EFFECT */
+
+body::before{
+content:'';
+position:fixed;
+width:500px;
+height:500px;
+background:#55e6a5;
+filter:blur(180px);
+opacity:0.07;
+top:-150px;
+left:-150px;
+z-index:-1;
+animation:floatGlow 8s infinite alternate;
+}
+
+body::after{
+content:'';
+position:fixed;
+width:450px;
+height:450px;
+background:#55e6a5;
+filter:blur(180px);
+opacity:0.05;
+bottom:-150px;
+right:-150px;
+z-index:-1;
+animation:floatGlow2 10s infinite alternate;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:22px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(12px);
+border-bottom:1px solid rgba(255,255,255,0.05);
+animation:fadeDown 1s ease;
+}
+
+.logo{
+font-size:30px;
+font-weight:800;
+color:#55e6a5;
+letter-spacing:2px;
+text-shadow:0 0 20px rgba(85,230,165,0.5);
+}
+
+nav ul{
+display:flex;
+gap:35px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#fff;
+font-weight:500;
+transition:0.4s;
+position:relative;
+}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+background:#55e6a5;
+left:0;
+bottom:-6px;
+transition:0.4s;
+}
+
+nav ul li a:hover::after{
+width:100%;
+}
+
+nav ul li a:hover{
+color:#55e6a5;
+}
+
+/* HERO */
+
+.hero{
+height:70vh;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero-bg{
+position:absolute;
+width:100%;
+height:100%;
+background:
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.88)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
+
+background-size:cover;
+background-position:center;
+animation:zoomBg 18s infinite alternate ease-in-out;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:950px;
+padding:20px;
+animation:fadeUp 1.5s ease;
+}
+
+.hero-content h1{
+font-size:90px;
+font-weight:800;
+line-height:1;
+margin-bottom:25px;
+}
+
+.hero-content span{
+color:#55e6a5;
+}
+
+.hero-content p{
+font-size:22px;
+line-height:1.8;
+opacity:0.9;
+}
+
+/* SECTION */
+
+section{
+padding:120px 10%;
+position:relative;
+}
+
+.section-title{
+font-size:60px;
+text-align:center;
+margin-bottom:70px;
+font-weight:800;
+animation:fadeUp 1.2s ease;
+}
+
+.section-title span{
+color:#55e6a5;
+}
+
+/* TRIPS GRID */
+
+.trips{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:40px;
+}
+
+.trip-card{
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+border-radius:30px;
+overflow:hidden;
+backdrop-filter:blur(15px);
+transition:0.5s;
+position:relative;
+animation:fadeUp 1.2s ease;
+}
+
+.trip-card:hover{
+transform:translateY(-15px);
+box-shadow:0 0 40px rgba(85,230,165,0.15);
+}
+
+.trip-card img{
+width:100%;
+height:280px;
+object-fit:cover;
+transition:0.5s;
+}
+
+.trip-card:hover img{
+transform:scale(1.08);
+}
+
+.trip-content{
+padding:35px;
+}
+
+.trip-badge{
+display:inline-block;
+padding:8px 18px;
 background:#55e6a5;
 color:#000;
-text-decoration:none;
 border-radius:50px;
+font-size:14px;
 font-weight:700;
+margin-bottom:20px;
+}
+
+.trip-content h2{
+font-size:34px;
+margin-bottom:18px;
+}
+
+.trip-details{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+margin-bottom:20px;
+}
+
+.detail{
+background:#101010;
+padding:10px 18px;
+border-radius:50px;
+font-size:14px;
+opacity:0.85;
+}
+
+.trip-content p{
+line-height:1.9;
+opacity:0.8;
+margin-bottom:30px;
+}
+
+.price-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.price h3{
+font-size:38px;
+color:#55e6a5;
+}
+
+.price span{
+opacity:0.7;
+font-size:14px;
+}
+
+.seats{
+color:#ffcc70;
+font-weight:600;
+}
+
+.book-btn{
+display:inline-block;
+width:100%;
+padding:18px;
+background:#55e6a5;
+color:#000;
+text-align:center;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+transition:0.4s;
+}
+
+.book-btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px rgba(85,230,165,0.35);
+}
+
+/* EXPERIENCE */
+
+.experience{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:35px;
+}
+
+.exp-card{
+background:#101010;
+padding:40px;
+border-radius:25px;
+transition:0.5s;
+text-align:center;
+border:1px solid rgba(255,255,255,0.05);
+animation:fadeUp 1.2s ease;
+}
+
+.exp-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 35px rgba(85,230,165,0.12);
+}
+
+.exp-card h3{
+font-size:28px;
+margin-bottom:15px;
+color:#55e6a5;
+}
+
+.exp-card p{
+line-height:1.9;
+opacity:0.8;
+}
+
+/* FOOTER */
+
+footer{
+background:#101010;
+padding:70px 10%;
+text-align:center;
+}
+
+footer h2{
+font-size:38px;
+color:#55e6a5;
+margin-bottom:15px;
+}
+
+footer p{
+opacity:0.7;
+letter-spacing:2px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+0%{
+opacity:0;
+transform:translateY(60px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fadeDown{
+0%{
+opacity:0;
+transform:translateY(-40px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes floatGlow{
+100%{
+transform:translate(220px,120px);
+}
+}
+
+@keyframes floatGlow2{
+100%{
+transform:translate(-180px,-120px);
+}
+}
+
+@keyframes zoomBg{
+0%{
+transform:scale(1);
+}
+100%{
+transform:scale(1.12);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero-content h1{
+font-size:52px;
+}
+
+.hero-content p{
+font-size:17px;
+}
+
+nav ul{
+display:none;
+}
+
+.section-title{
+font-size:40px;
+}
+
+.logo{
+font-size:24px;
+}
+
+.trip-content h2{
+font-size:28px;
+}
+
 }
 
 </style>
+
 </head>
+
 <body>
 
+<!-- NAVBAR -->
+
 <nav>
-<div class="logo">PARAMATHMA DIARIES</div>
+
+<div class="logo">
+PARAMATHMA DIARIES
+</div>
+
 <ul>
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
@@ -19,44 +463,265 @@ font-weight:700;
 <li><a href="gallery.html">Gallery</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
+
 </nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-bg"></div>
+
+<div class="hero-content">
+
+<h1>
+Upcoming <span>Trips</span>
+</h1>
+
+<p>
+Adventure awaits. Explore breathtaking destinations, soulful experiences and unforgettable memories with Paramathma Diaries.
+</p>
+
+</div>
+
+</section>
+
+<!-- TRIPS -->
 
 <section>
 
-<h1 class="title">Upcoming <span>Trips</span></h1>
+<h2 class="section-title">
+Choose Your <span>Adventure</span>
+</h2>
 
 <div class="trips">
 
-<div class="card">
+<!-- CARD 1 -->
+
+<div class="trip-card">
+
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop">
-<div class="content">
+
+<div class="trip-content">
+
+<div class="trip-badge">
+Most Popular
+</div>
+
 <h2>Chikkamagaluru</h2>
-<p>2D1N • Trekking • Campfire • Jeep Ride</p>
-<a href="https://wa.me/918217682902">Book Now</a>
-</div>
+
+<div class="trip-details">
+
+<div class="detail">
+2D / 1N
 </div>
 
-<div class="card">
+<div class="detail">
+Campfire
+</div>
+
+<div class="detail">
+Jeep Ride
+</div>
+
+</div>
+
+<p>
+Escape into the mountains with breathtaking viewpoints, waterfalls, trekking adventures and soulful campfire nights.
+</p>
+
+<div class="price-row">
+
+<div class="price">
+<h3>₹4,999</h3>
+<span>per person</span>
+</div>
+
+<div class="seats">
+8 Seats Left
+</div>
+
+</div>
+
+<a href="https://wa.me/918217682902" class="book-btn">
+Book Now
+</a>
+
+</div>
+
+</div>
+
+<!-- CARD 2 -->
+
+<div class="trip-card">
+
 <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop">
-<div class="content">
-<h2>Netravathi Trek</h2>
-<p>Adventure through breathtaking mountain trails.</p>
-<a href="https://wa.me/918217682902">Book Now</a>
-</div>
+
+<div class="trip-content">
+
+<div class="trip-badge">
+Adventure Trek
 </div>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop">
-<div class="content">
-<h2>Coorg Diaries</h2>
-<p>Waterfalls • Coffee Estates • Nature Escape</p>
-<a href="https://wa.me/918217682902">Book Now</a>
+<h2>Netravathi Trek</h2>
+
+<div class="trip-details">
+
+<div class="detail">
+Sunrise Trek
 </div>
+
+<div class="detail">
+Mountain Trail
+</div>
+
+<div class="detail">
+Photography
+</div>
+
+</div>
+
+<p>
+Experience thrilling trails, breathtaking sunrise views and unforgettable adventure moments surrounded by nature.
+</p>
+
+<div class="price-row">
+
+<div class="price">
+<h3>₹3,499</h3>
+<span>per person</span>
+</div>
+
+<div class="seats">
+12 Seats Left
+</div>
+
+</div>
+
+<a href="https://wa.me/918217682902" class="book-btn">
+Book Now
+</a>
+
+</div>
+
+</div>
+
+<!-- CARD 3 -->
+
+<div class="trip-card">
+
+<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop">
+
+<div class="trip-content">
+
+<div class="trip-badge">
+Nature Escape
+</div>
+
+<h2>Coorg Diaries</h2>
+
+<div class="trip-details">
+
+<div class="detail">
+Waterfalls
+</div>
+
+<div class="detail">
+Coffee Estates
+</div>
+
+<div class="detail">
+Relaxation
+</div>
+
+</div>
+
+<p>
+Reconnect with nature through waterfalls, misty hills, coffee plantations and peaceful soulful experiences.
+</p>
+
+<div class="price-row">
+
+<div class="price">
+<h3>₹5,499</h3>
+<span>per person</span>
+</div>
+
+<div class="seats">
+5 Seats Left
+</div>
+
+</div>
+
+<a href="https://wa.me/918217682902" class="book-btn">
+Book Now
+</a>
+
+</div>
+
 </div>
 
 </div>
 
 </section>
 
+<!-- EXPERIENCE -->
+
+<section>
+
+<h2 class="section-title">
+What Makes Our <span>Trips Special</span>
+</h2>
+
+<div class="experience">
+
+<div class="exp-card">
+
+<h3>Premium Planning</h3>
+
+<p>
+Every trip is carefully organized to ensure comfort, safety and unforgettable experiences.
+</p>
+
+</div>
+
+<div class="exp-card">
+
+<h3>Community Energy</h3>
+
+<p>
+Meet like-minded travelers, make new friendships and create memories together.
+</p>
+
+</div>
+
+<div class="exp-card">
+
+<h3>Adventure & Healing</h3>
+
+<p>
+Nature, mountains, campfires and soulful moments that refresh your mind and spirit.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>PARAMATHMA DIARIES</h2>
+
+<p>
+Travel • Heal • Connect
+</p>
+
+</footer>
+
 </body>
+
 </html>
+```
