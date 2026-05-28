@@ -1,4 +1,4 @@
-```html id="premium-about-page"
+```html id="animated-about-page-full-code"
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@ background:#55e6a5;
 border-radius:20px;
 }
 
-/* GLOW EFFECT */
+/* GLOW EFFECTS */
 
 body::before{
 content:'';
@@ -85,6 +85,7 @@ z-index:999;
 background:rgba(0,0,0,0.45);
 backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(255,255,255,0.05);
+animation:fadeDown 1s ease;
 }
 
 .logo{
@@ -92,6 +93,7 @@ font-size:30px;
 font-weight:800;
 color:#55e6a5;
 letter-spacing:2px;
+text-shadow:0 0 20px rgba(85,230,165,0.5);
 }
 
 nav ul{
@@ -105,6 +107,22 @@ text-decoration:none;
 color:#fff;
 font-weight:500;
 transition:0.4s;
+position:relative;
+}
+
+nav ul li a::after{
+content:'';
+position:absolute;
+width:0%;
+height:2px;
+background:#55e6a5;
+left:0;
+bottom:-6px;
+transition:0.4s;
+}
+
+nav ul li a:hover::after{
+width:100%;
 }
 
 nav ul li a:hover{
@@ -114,12 +132,12 @@ color:#55e6a5;
 /* HERO */
 
 .hero{
-height:70vh;
+height:75vh;
+position:relative;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
-position:relative;
 overflow:hidden;
 }
 
@@ -128,12 +146,12 @@ position:absolute;
 width:100%;
 height:100%;
 background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
+linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.85)),
 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
 
 background-size:cover;
 background-position:center;
-animation:zoomBg 15s infinite alternate ease-in-out;
+animation:zoomBg 18s infinite alternate ease-in-out;
 }
 
 .hero-content{
@@ -148,6 +166,7 @@ animation:fadeUp 1.5s ease;
 font-size:90px;
 font-weight:800;
 margin-bottom:20px;
+line-height:1;
 }
 
 .hero-content span{
@@ -155,15 +174,16 @@ color:#55e6a5;
 }
 
 .hero-content p{
-font-size:20px;
-line-height:1.8;
+font-size:22px;
+line-height:1.9;
 opacity:0.9;
 }
 
-/* SECTIONS */
+/* SECTION */
 
 section{
 padding:120px 10%;
+position:relative;
 }
 
 .section-title{
@@ -171,29 +191,37 @@ font-size:60px;
 text-align:center;
 margin-bottom:70px;
 font-weight:800;
+position:relative;
+animation:fadeUp 1.2s ease;
 }
 
 .section-title span{
 color:#55e6a5;
 }
 
-/* ABOUT STORY */
+/* STORY */
 
 .story{
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:60px;
+gap:70px;
 align-items:center;
 }
 
 .story img{
 width:100%;
 border-radius:30px;
-transition:0.5s;
+transition:0.6s;
+animation:slideLeft 1.5s ease;
 }
 
 .story img:hover{
-transform:scale(1.03);
+transform:scale(1.04);
+box-shadow:0 0 40px rgba(85,230,165,0.2);
+}
+
+.story-text{
+animation:slideRight 1.5s ease;
 }
 
 .story-text h2{
@@ -207,7 +235,7 @@ opacity:0.8;
 font-size:17px;
 }
 
-/* FOUNDERS */
+/* TEAM */
 
 .team{
 display:grid;
@@ -216,14 +244,16 @@ gap:35px;
 }
 
 .member{
-background:#101010;
-padding:30px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.05);
+padding:35px;
 border-radius:30px;
 text-align:center;
 transition:0.5s;
-border:1px solid rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
 position:relative;
 overflow:hidden;
+animation:fadeUp 1.2s ease;
 }
 
 .member::before{
@@ -244,16 +274,21 @@ left:100%;
 
 .member:hover{
 transform:translateY(-12px);
-box-shadow:0 0 35px rgba(85,230,165,0.12);
+box-shadow:0 0 40px rgba(85,230,165,0.15);
 }
 
 .member img{
-width:140px;
-height:140px;
+width:150px;
+height:150px;
 border-radius:50%;
 object-fit:cover;
 margin-bottom:25px;
 border:4px solid #55e6a5;
+transition:0.5s;
+}
+
+.member:hover img{
+transform:scale(1.08);
 }
 
 .member h3{
@@ -272,7 +307,7 @@ line-height:1.9;
 opacity:0.8;
 }
 
-/* WHY US */
+/* FEATURES */
 
 .features{
 display:grid;
@@ -286,11 +321,12 @@ padding:40px;
 border-radius:25px;
 transition:0.5s;
 border:1px solid rgba(255,255,255,0.05);
+animation:fadeUp 1.2s ease;
 }
 
 .feature-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 35px rgba(85,230,165,0.1);
+transform:translateY(-12px);
+box-shadow:0 0 35px rgba(85,230,165,0.12);
 }
 
 .feature-card h3{
@@ -318,10 +354,12 @@ background:#101010;
 padding:50px 30px;
 border-radius:25px;
 transition:0.5s;
+animation:fadeUp 1.2s ease;
 }
 
 .stat-box:hover{
 transform:scale(1.05);
+box-shadow:0 0 35px rgba(85,230,165,0.12);
 }
 
 .stat-box h2{
@@ -350,6 +388,7 @@ margin-bottom:15px;
 
 footer p{
 opacity:0.7;
+letter-spacing:2px;
 }
 
 /* ANIMATIONS */
@@ -365,9 +404,42 @@ transform:translateY(0);
 }
 }
 
+@keyframes fadeDown{
+0%{
+opacity:0;
+transform:translateY(-40px);
+}
+100%{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes slideLeft{
+0%{
+opacity:0;
+transform:translateX(-80px);
+}
+100%{
+opacity:1;
+transform:translateX(0);
+}
+}
+
+@keyframes slideRight{
+0%{
+opacity:0;
+transform:translateX(80px);
+}
+100%{
+opacity:1;
+transform:translateX(0);
+}
+}
+
 @keyframes floatGlow{
 100%{
-transform:translate(200px,120px);
+transform:translate(220px,120px);
 }
 }
 
@@ -411,7 +483,7 @@ font-size:40px;
 }
 
 .story-text h2{
-font-size:35px;
+font-size:34px;
 }
 
 .logo{
@@ -457,7 +529,7 @@ About <span>Us</span>
 </h1>
 
 <p>
-More than just travel. We build unforgettable experiences, meaningful friendships and soulful adventures.
+More than just travel. We create soulful experiences, unforgettable memories and meaningful connections.
 </p>
 
 </div>
@@ -481,9 +553,9 @@ Our <span>Story</span>
 <h2>Travel Beyond Destinations</h2>
 
 <p>
-Paramathma Diaries started with one vision — creating journeys that go beyond normal travel experiences. We wanted people to feel freedom, connection, adventure and peace through nature and community.
+Paramathma Diaries started with one dream — creating journeys that go beyond ordinary travel. We wanted people to experience freedom, adventure, healing and real human connection through travel and nature.
 <br><br>
-From mountain treks and campfire nights to unforgettable memories with strangers who become family, every trip is built to create moments that stay forever.
+From breathtaking treks and campfire nights to unforgettable laughter and friendships, every experience is designed to stay with you forever.
 </p>
 
 </div>
@@ -492,12 +564,12 @@ From mountain treks and campfire nights to unforgettable memories with strangers
 
 </section>
 
-<!-- FOUNDERS -->
+<!-- TEAM -->
 
 <section>
 
 <h2 class="section-title">
-Meet The <span>Founders</span>
+Meet The <span>Team</span>
 </h2>
 
 <div class="team">
@@ -511,7 +583,7 @@ Meet The <span>Founders</span>
 <h4>Founder & Creative Head</h4>
 
 <p>
-Passionate about building meaningful travel experiences and creating a community that travels with purpose, adventure and positive energy.
+Passionate about creating soulful travel experiences and building a community driven by adventure and connection.
 </p>
 
 </div>
@@ -520,12 +592,12 @@ Passionate about building meaningful travel experiences and creating a community
 
 <img src="https://randomuser.me/api/portraits/men/45.jpg">
 
-<h3>Arjun Gowda</h3>
+<h3>Arun</h3>
 
 <h4>Co-Founder & Operations</h4>
 
 <p>
-Focused on creating organized, exciting and memorable journeys while ensuring every traveler feels safe, connected and welcomed.
+Focused on making every journey organized, exciting and unforgettable for every traveler.
 </p>
 
 </div>
@@ -534,12 +606,40 @@ Focused on creating organized, exciting and memorable journeys while ensuring ev
 
 <img src="https://randomuser.me/api/portraits/women/65.jpg">
 
-<h3>Ananya Shetty</h3>
+<h3>Sneha Tilak</h3>
 
 <h4>Community & Experience Lead</h4>
 
 <p>
-Believes travel should heal, inspire and connect people through unforgettable experiences and beautiful memories.
+Believes travel should inspire people, create memories and bring meaningful experiences into life.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+<h3>Nethravathi</h3>
+
+<h4>Travel Experience Coordinator</h4>
+
+<p>
+Dedicated to creating energetic, smooth and unforgettable adventures for every traveler.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/33.jpg">
+
+<h3>Shwetha</h3>
+
+<h4>Creative & Media Lead</h4>
+
+<p>
+Capturing stories, emotions and beautiful moments while bringing creative energy to every experience.
 </p>
 
 </div>
@@ -553,7 +653,7 @@ Believes travel should heal, inspire and connect people through unforgettable ex
 <section>
 
 <h2 class="section-title">
-Why <span>Paramathma?</span>
+Why <span>Choose Us</span>
 </h2>
 
 <div class="features">
@@ -563,17 +663,17 @@ Why <span>Paramathma?</span>
 <h3>Community Driven</h3>
 
 <p>
-Every trip is designed to help people connect, bond and create lifelong friendships through travel.
+We create friendships, unforgettable moments and journeys that connect people deeply.
 </p>
 
 </div>
 
 <div class="feature-card">
 
-<h3>Premium Experiences</h3>
+<h3>Premium Adventures</h3>
 
 <p>
-From breathtaking treks to campfire nights and hidden gems, every journey is unforgettable.
+From hidden mountain trails to magical campfire nights, every trip feels cinematic and unforgettable.
 </p>
 
 </div>
@@ -583,7 +683,7 @@ From breathtaking treks to campfire nights and hidden gems, every journey is unf
 <h3>Safe & Organized</h3>
 
 <p>
-Well-planned itineraries, proper coordination and complete support throughout your journey.
+Professional coordination, well-planned itineraries and complete support throughout the trip.
 </p>
 
 </div>
