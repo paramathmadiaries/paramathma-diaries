@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>About Us | PARAMATHMA DIARIES</title>
+<title>PARAMATHMA DIARIES</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -38,10 +38,10 @@ width:8px;
 
 ::-webkit-scrollbar-thumb{
 background:#55e6a5;
-border-radius:20px;
+border-radius:30px;
 }
 
-/* GLOW EFFECT */
+/* GLOW EFFECTS */
 
 body::before{
 content:'';
@@ -64,7 +64,7 @@ width:450px;
 height:450px;
 background:#ffb347;
 filter:blur(180px);
-opacity:0.06;
+opacity:0.05;
 bottom:-150px;
 right:-150px;
 z-index:-1;
@@ -82,9 +82,9 @@ padding:22px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:999;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.45);
 backdrop-filter:blur(12px);
+z-index:999;
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
@@ -112,11 +112,11 @@ position:relative;
 nav ul li a::after{
 content:'';
 position:absolute;
+left:0;
+bottom:-6px;
 width:0%;
 height:2px;
 background:#55e6a5;
-left:0;
-bottom:-6px;
 transition:0.4s;
 }
 
@@ -131,7 +131,7 @@ color:#55e6a5;
 /* HERO */
 
 .hero{
-height:90vh;
+height:100vh;
 position:relative;
 display:flex;
 justify-content:center;
@@ -146,7 +146,7 @@ position:absolute;
 width:100%;
 height:100%;
 background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.88)),
 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
 
 background-size:cover;
@@ -169,7 +169,7 @@ line-height:1;
 margin-bottom:25px;
 }
 
-.hero-content span{
+.hero-content h1 span{
 color:#55e6a5;
 text-shadow:0 0 25px rgba(85,230,165,0.7);
 }
@@ -178,6 +178,47 @@ text-shadow:0 0 25px rgba(85,230,165,0.7);
 font-size:22px;
 line-height:1.9;
 opacity:0.9;
+max-width:850px;
+margin:auto;
+margin-bottom:40px;
+}
+
+/* BUTTONS */
+
+.btns{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:18px 40px;
+border-radius:60px;
+text-decoration:none;
+font-weight:700;
+transition:0.5s;
+}
+
+.primary{
+background:#55e6a5;
+color:#000;
+box-shadow:0 0 30px rgba(85,230,165,0.45);
+}
+
+.primary:hover{
+transform:translateY(-7px);
+box-shadow:0 0 50px rgba(85,230,165,0.9);
+}
+
+.secondary{
+border:2px solid #55e6a5;
+color:#55e6a5;
+}
+
+.secondary:hover{
+background:#55e6a5;
+color:#000;
 }
 
 /* SECTION */
@@ -198,170 +239,183 @@ margin-bottom:80px;
 color:#55e6a5;
 }
 
-/* STORY */
+/* FEATURES */
 
-.story{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:70px;
-align-items:center;
-}
-
-.story img{
-width:100%;
-height:600px;
-object-fit:cover;
-border-radius:35px;
-transition:0.6s;
-}
-
-.story img:hover{
-transform:scale(1.03);
-box-shadow:0 0 45px rgba(85,230,165,0.18);
-}
-
-.story-text h2{
-font-size:50px;
-margin-bottom:25px;
-line-height:1.2;
-}
-
-.story-text h2 span{
-color:#55e6a5;
-}
-
-.story-text p{
-line-height:2;
-opacity:0.82;
-font-size:17px;
-}
-
-/* VISION SECTION */
-
-.vision-section{
-height:75vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:
-linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
-url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop');
-
-background-size:cover;
-background-position:center;
-background-attachment:fixed;
-overflow:hidden;
-}
-
-.vision-content{
-max-width:950px;
-padding:20px;
-}
-
-.vision-content h2{
-font-size:70px;
-margin-bottom:25px;
-font-weight:900;
-line-height:1.1;
-color:#55e6a5;
-}
-
-.vision-content p{
-font-size:24px;
-line-height:2;
-opacity:0.85;
-}
-
-/* SPECIALITIES */
-
-.specialities{
+.features{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:35px;
 }
 
-.special-card{
+.feature-card{
 background:rgba(255,255,255,0.03);
 padding:45px;
 border-radius:30px;
-backdrop-filter:blur(15px);
+backdrop-filter:blur(18px);
 border:1px solid rgba(255,255,255,0.05);
 transition:0.5s;
 text-align:center;
 }
 
-.special-card:hover{
+.feature-card:hover{
 transform:translateY(-12px);
-box-shadow:0 0 40px rgba(85,230,165,0.15);
+box-shadow:0 0 45px rgba(85,230,165,0.15);
 }
 
-.special-card i{
+.feature-card i{
 font-size:45px;
 margin-bottom:25px;
 color:#55e6a5;
 }
 
-.special-card h3{
+.feature-card h3{
 font-size:28px;
 margin-bottom:15px;
 }
 
-.special-card p{
+.feature-card p{
 line-height:1.9;
 opacity:0.8;
 }
 
-/* TEAM */
+/* STATS */
 
-.team{
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:30px;
+}
+
+.stat-box{
+background:#101010;
+padding:50px 30px;
+border-radius:25px;
+text-align:center;
+transition:0.5s;
+}
+
+.stat-box:hover{
+transform:scale(1.05);
+box-shadow:0 0 35px rgba(85,230,165,0.12);
+}
+
+.stat-box h2{
+font-size:60px;
+color:#55e6a5;
+margin-bottom:10px;
+}
+
+.stat-box p{
+opacity:0.8;
+line-height:1.8;
+}
+
+/* TRIPS */
+
+.trips{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:35px;
 }
 
-.member{
-background:rgba(255,255,255,0.03);
-padding:40px;
-border-radius:35px;
-backdrop-filter:blur(20px);
-border:1px solid rgba(85,230,165,0.08);
-transition:0.6s;
-position:relative;
+.trip-card{
+background:#111;
+border-radius:30px;
 overflow:hidden;
+transition:0.5s;
 }
 
-.member:hover{
-transform:translateY(-15px) scale(1.02);
-box-shadow:
-0 0 50px rgba(85,230,165,0.18),
-0 0 100px rgba(85,230,165,0.08);
+.trip-card:hover{
+transform:translateY(-12px);
+box-shadow:0 0 40px rgba(85,230,165,0.15);
 }
 
-.member img{
-width:150px;
-height:150px;
-border-radius:50%;
+.trip-card img{
+width:100%;
+height:260px;
 object-fit:cover;
-border:5px solid #55e6a5;
+}
+
+.trip-content{
+padding:30px;
+}
+
+.trip-content h3{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.trip-content p{
+line-height:1.8;
+opacity:0.8;
 margin-bottom:25px;
 }
 
-.member h3{
-font-size:34px;
+.trip-content a{
+display:inline-block;
+padding:14px 28px;
+background:#55e6a5;
+color:#000;
+text-decoration:none;
+font-weight:700;
+border-radius:50px;
+}
+
+/* TIMELINE */
+
+.timeline{
+border-left:2px solid #55e6a5;
+padding-left:40px;
+display:flex;
+flex-direction:column;
+gap:50px;
+}
+
+.timeline-item{
+position:relative;
+}
+
+.timeline-item::before{
+content:'';
+position:absolute;
+left:-50px;
+top:5px;
+width:18px;
+height:18px;
+background:#55e6a5;
+border-radius:50%;
+box-shadow:0 0 20px #55e6a5;
+}
+
+.timeline-item h3{
+font-size:28px;
 margin-bottom:10px;
 }
 
-.member h4{
-color:#55e6a5;
-margin-bottom:20px;
-font-weight:600;
-line-height:1.6;
+.timeline-item p{
+line-height:1.9;
+opacity:0.8;
 }
 
-.member p{
+/* TESTIMONIALS */
+
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.testimonial{
+background:#101010;
+padding:40px;
+border-radius:25px;
 line-height:2;
-opacity:0.82;
+transition:0.5s;
+}
+
+.testimonial:hover{
+transform:translateY(-10px);
+box-shadow:0 0 35px rgba(85,230,165,0.1);
 }
 
 /* CTA */
@@ -380,34 +434,17 @@ background-position:center;
 .cta h2{
 font-size:75px;
 font-weight:900;
-margin-bottom:25px;
 line-height:1.1;
+margin-bottom:25px;
 }
 
 .cta p{
 font-size:22px;
+line-height:1.9;
 opacity:0.85;
 max-width:850px;
 margin:auto;
 margin-bottom:40px;
-line-height:1.9;
-}
-
-.btn{
-display:inline-block;
-padding:18px 40px;
-background:#55e6a5;
-color:#000;
-text-decoration:none;
-font-weight:700;
-border-radius:60px;
-transition:0.5s;
-box-shadow:0 0 30px rgba(85,230,165,0.4);
-}
-
-.btn:hover{
-transform:translateY(-6px);
-box-shadow:0 0 50px rgba(85,230,165,0.8);
 }
 
 /* FOOTER */
@@ -427,6 +464,27 @@ margin-bottom:15px;
 footer p{
 opacity:0.75;
 line-height:2;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+width:70px;
+height:70px;
+border-radius:50%;
+background:#25D366;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:#fff;
+text-decoration:none;
+box-shadow:0 0 25px rgba(37,211,102,0.5);
+animation:bounce 2s infinite;
+z-index:999;
 }
 
 /* ANIMATIONS */
@@ -463,40 +521,146 @@ transform:scale(1.12);
 }
 }
 
-/* MOBILE */
+@keyframes bounce{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-10px);
+}
+}
 
-@media(max-width:900px){
+/* ========================= */
+/* MOBILE OPTIMIZATION */
+/* ========================= */
 
-.story{
-grid-template-columns:1fr;
+@media(max-width:992px){
+
+section{
+padding:90px 7%;
+}
+
+.hero{
+height:auto;
+padding:150px 0 100px;
 }
 
 .hero-content h1{
-font-size:55px;
+font-size:60px;
+line-height:1.1;
 }
 
 .hero-content p{
-font-size:17px;
+font-size:18px;
+line-height:1.8;
+}
+
+.btns{
+flex-direction:column;
+align-items:center;
+gap:18px;
+}
+
+.btn{
+width:100%;
+max-width:320px;
+text-align:center;
+padding:16px 20px;
 }
 
 .section-title{
 font-size:42px;
+line-height:1.2;
+margin-bottom:55px;
 }
 
-.vision-content h2{
-font-size:42px;
+nav{
+padding:18px 7%;
 }
 
-.vision-content p{
-font-size:18px;
+.logo{
+font-size:22px;
+}
+
+nav ul{
+display:none;
+}
+
+.features{
+grid-template-columns:1fr;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.trips{
+grid-template-columns:1fr;
+}
+
+.testimonials{
+grid-template-columns:1fr;
+}
+
+.story{
+grid-template-columns:1fr;
+gap:40px;
+}
+
+.story img{
+height:420px;
+}
+
+.timeline{
+padding-left:25px;
 }
 
 .cta h2{
 font-size:45px;
 }
 
-nav ul{
-display:none;
+.cta p{
+font-size:18px;
+}
+
+}
+
+@media(max-width:576px){
+
+.hero-content h1{
+font-size:42px;
+}
+
+.hero-content p{
+font-size:15px;
+}
+
+.section-title{
+font-size:34px;
+}
+
+.trip-card img{
+height:220px;
+}
+
+.timeline-item h3{
+font-size:22px;
+}
+
+.cta h2{
+font-size:34px;
+}
+
+.cta p{
+font-size:15px;
+}
+
+footer h2{
+font-size:28px;
+}
+
+footer p{
+font-size:14px;
 }
 
 }
@@ -532,154 +696,274 @@ PARAMATHMA DIARIES
 <div class="hero-content">
 
 <h1>
-More Than <span>Travel</span><br>
-We Create Emotions
+Not Just <span>Trips</span><br>
+Experiences That Stay Forever
 </h1>
 
 <p>
-PARAMATHMA DIARIES is a premium travel and community experience brand focused on soulful journeys, healing moments, adventure escapes and unforgettable human connections.
+PARAMATHMA DIARIES creates soulful journeys, unforgettable memories, healing experiences, nature escapes and deep human connections across Karnataka and beyond.
 </p>
+
+<div class="btns">
+
+<a href="trips.html" class="btn primary">
+Explore Trips
+</a>
+
+<a href="https://wa.me/918217682902" class="btn secondary">
+Join Community
+</a>
+
+</div>
 
 </div>
 
 </section>
 
-<!-- STORY -->
+<!-- WHY US -->
 
 <section>
 
 <h2 class="section-title">
-Our <span>Story</span>
+Why <span>PARAMATHMA?</span>
 </h2>
 
-<div class="story">
+<div class="features">
 
-<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070&auto=format&fit=crop">
+<div class="feature-card">
 
-<div class="story-text">
-
-<h2>
-Travel Beyond <span>Destinations</span>
-</h2>
-
-<p>
-PARAMATHMA DIARIES was started with one vision — to create journeys that go beyond ordinary tourism.
-<br><br>
-We believe travel should heal, inspire, connect people and create unforgettable memories that stay forever.
-<br><br>
-From breathtaking mountain treks and soulful campfire nights to deep conversations and meaningful human connections, every experience is designed to become a story worth remembering.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- VISION -->
-
-<section class="vision-section">
-
-<div class="vision-content">
-
-<h2>
-WE STARTED THIS TO CREATE MORE THAN TRIPS
-</h2>
-
-<p>
-We are building a travel community where strangers become family, journeys become memories and every experience leaves an emotional impact that lasts forever.
-</p>
-
-</div>
-
-</section>
-
-<!-- SPECIALITIES -->
-
-<section>
-
-<h2 class="section-title">
-Why We Are <span>Different</span>
-</h2>
-
-<div class="specialities">
-
-<div class="special-card">
 <i class="fa-solid fa-people-group"></i>
-<h3>Community Vibes</h3>
+
+<h3>Community Over Customers</h3>
+
 <p>
-We focus on friendships, bonding and unforgettable human connections during every journey.
+We create friendships, unforgettable memories and journeys where strangers become family.
 </p>
+
 </div>
 
-<div class="special-card">
+<div class="feature-card">
+
 <i class="fa-solid fa-shield-heart"></i>
-<h3>Women-Led Safety</h3>
+
+<h3>Women-Led Safety Crews</h3>
+
 <p>
-Dedicated women-led support crews ensuring safety, comfort and trust for every traveler.
+Dedicated support teams focused on comfort, safety and premium travel experiences.
 </p>
+
 </div>
 
-<div class="special-card">
+<div class="feature-card">
+
 <i class="fa-solid fa-mountain-sun"></i>
+
 <h3>Healing Through Nature</h3>
+
 <p>
-Nature escapes, soulful campfires and peaceful experiences designed to refresh your mind.
+Campfires, mountains, deep conversations and soulful experiences designed to refresh your mind.
 </p>
+
 </div>
 
 </div>
 
 </section>
 
-<!-- TEAM -->
+<!-- STATS -->
 
 <section>
 
 <h2 class="section-title">
-Meet The <span>Founders</span>
+Our <span>Vision</span>
 </h2>
 
-<div class="team">
+<div class="stats">
 
-<div class="member">
+<div class="stat-box">
+<h2>10K+</h2>
+<p>Travelers To Inspire</p>
+</div>
 
-<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<div class="stat-box">
+<h2>100+</h2>
+<p>Experiences To Create</p>
+</div>
 
-<h3>Neeraj Jayanna</h3>
+<div class="stat-box">
+<h2>50+</h2>
+<p>Destinations To Explore</p>
+</div>
 
-<h4>Business Strategy & Growth</h4>
+<div class="stat-box">
+<h2>1</h2>
+<p>Mission — Collecting Moments. Creating Memories.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- TRIPS -->
+
+<section>
+
+<h2 class="section-title">
+Upcoming <span>Experiences</span>
+</h2>
+
+<div class="trips">
+
+<div class="trip-card">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop">
+
+<div class="trip-content">
+
+<h3>Chikkamagaluru Escape</h3>
 
 <p>
-Focused on building PARAMATHMA DIARIES into a premium travel and community brand through strategic planning, branding, partnerships and long-term vision.
+2 Days • Trekking • Campfire • Healing Session • Waterfalls • Jeep Ride
+</p>
+
+<a href="https://wa.me/918217682902">
+Book Now
+</a>
+
+</div>
+
+</div>
+
+<div class="trip-card">
+
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop">
+
+<div class="trip-content">
+
+<h3>Netravathi Trek</h3>
+
+<p>
+Adventure trails, breathtaking sunrise views and unforgettable mountain experiences.
+</p>
+
+<a href="https://wa.me/918217682902">
+Book Now
+</a>
+
+</div>
+
+</div>
+
+<div class="trip-card">
+
+<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070&auto=format&fit=crop">
+
+<div class="trip-content">
+
+<h3>Coorg Diaries</h3>
+
+<p>
+Coffee estates, waterfalls, scenic roads and nature escapes waiting for you.
+</p>
+
+<a href="https://wa.me/918217682902">
+Book Now
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- EXPERIENCE -->
+
+<section>
+
+<h2 class="section-title">
+The <span>Experience</span>
+</h2>
+
+<div class="timeline">
+
+<div class="timeline-item">
+
+<h3>Meet The Community</h3>
+
+<p>
+Travel with explorers, dreamers and people who share the same adventurous energy.
 </p>
 
 </div>
 
-<div class="member">
+<div class="timeline-item">
 
-<img src="https://randomuser.me/api/portraits/women/65.jpg">
-
-<h3>Sneha Tilak</h3>
-
-<h4>Community & Experience</h4>
+<h3>Escape The Routine</h3>
 
 <p>
-Focused on traveler bonding, community experiences, emotional engagement and creating journeys that people remember forever.
+Leave behind stress, distractions and reconnect with yourself through nature.
 </p>
 
 </div>
 
-<div class="member">
+<div class="timeline-item">
 
-<img src="https://randomuser.me/api/portraits/women/44.jpg">
-
-<h3>Nethravathi</h3>
-
-<h4>Women Safety & Hospitality</h4>
+<h3>Create Lifetime Memories</h3>
 
 <p>
-Focused on traveler comfort, safety systems, hospitality management and creating a secure travel environment for everyone.
+Campfire nights, healing vibes, music, laughter and stories that stay forever.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section>
+
+<h2 class="section-title">
+Traveler <span>Stories</span>
+</h2>
+
+<div class="testimonials">
+
+<div class="testimonial">
+
+<h3 style="color:#55e6a5;margin-bottom:15px;">
+Rakesh Gowda • Bangalore
+</h3>
+
+<p>
+“Best travel community ever. The energy, people and vibes felt unreal. It honestly felt like travelling with family.”
+</p>
+
+</div>
+
+<div class="testimonial">
+
+<h3 style="color:#55e6a5;margin-bottom:15px;">
+Shreya Shetty • Mangalore
+</h3>
+
+<p>
+“The campfire conversations, nature and community feeling made this experience unforgettable.”
+</p>
+
+</div>
+
+<div class="testimonial">
+
+<h3 style="color:#55e6a5;margin-bottom:15px;">
+Puneeth Kumar • Mysore
+</h3>
+
+<p>
+“Perfectly organized trip with soulful moments, scenic views and beautiful memories.”
 </p>
 
 </div>
@@ -697,12 +981,20 @@ THE WORLD IS WAITING.
 </h2>
 
 <p>
-Pack your bags, leave the routine behind and become part of a travel community that creates unforgettable experiences and lifelong memories.
+Pack your bags, leave the routine behind and experience journeys that stay forever.
 </p>
 
-<a href="https://wa.me/918217682902" class="btn">
-Join The Community
+<div class="btns">
+
+<a href="trips.html" class="btn primary">
+Explore Upcoming Trips
 </a>
+
+<a href="https://wa.me/918217682902" class="btn secondary">
+Join WhatsApp Community
+</a>
+
+</div>
 
 </section>
 
@@ -713,16 +1005,32 @@ Join The Community
 <h2>PARAMATHMA DIARIES</h2>
 
 <p>
+
 Travel • Heal • Connect • Grow
+
 <br><br>
+
 Instagram : @paramathma__diaries
+
 <br>
+
 WhatsApp : +91 8217682902
+
 <br><br>
+
 Collecting Moments. Creating Memories.
+
 </p>
 
 </footer>
+
+<!-- WHATSAPP -->
+
+<a href="https://wa.me/918217682902" class="whatsapp">
+
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
 
 </body>
 
