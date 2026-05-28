@@ -25,9 +25,18 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#050505;
+background:#060606;
 color:#fff;
 overflow-x:hidden;
+}
+
+/* MAIN COLORS */
+
+:root{
+--primary:#ff914d;
+--secondary:#ffb36b;
+--dark:#101010;
+--glass:rgba(255,255,255,0.04);
 }
 
 /* SCROLLBAR */
@@ -37,7 +46,7 @@ width:8px;
 }
 
 ::-webkit-scrollbar-thumb{
-background:#55e6a5;
+background:var(--primary);
 border-radius:30px;
 }
 
@@ -48,7 +57,7 @@ content:'';
 position:fixed;
 width:500px;
 height:500px;
-background:#55e6a5;
+background:var(--primary);
 filter:blur(180px);
 opacity:0.08;
 top:-150px;
@@ -62,9 +71,9 @@ content:'';
 position:fixed;
 width:450px;
 height:450px;
-background:#ffb347;
+background:#ff5e62;
 filter:blur(180px);
-opacity:0.05;
+opacity:0.06;
 bottom:-150px;
 right:-150px;
 z-index:-1;
@@ -92,7 +101,7 @@ border-bottom:1px solid rgba(255,255,255,0.05);
 font-size:28px;
 font-weight:800;
 letter-spacing:2px;
-color:#55e6a5;
+color:var(--primary);
 z-index:1001;
 }
 
@@ -117,7 +126,7 @@ left:0;
 bottom:-6px;
 width:0%;
 height:2px;
-background:#55e6a5;
+background:var(--primary);
 transition:0.4s;
 }
 
@@ -126,7 +135,7 @@ width:100%;
 }
 
 nav ul li a:hover{
-color:#55e6a5;
+color:var(--primary);
 }
 
 /* MOBILE MENU */
@@ -134,7 +143,7 @@ color:#55e6a5;
 .menu-btn{
 display:none;
 font-size:28px;
-color:#55e6a5;
+color:var(--primary);
 cursor:pointer;
 z-index:1001;
 }
@@ -168,7 +177,7 @@ transition:0.4s;
 }
 
 .mobile-menu a:hover{
-color:#55e6a5;
+color:var(--primary);
 padding-left:10px;
 }
 
@@ -191,7 +200,7 @@ height:100%;
 top:0;
 left:0;
 background:
-linear-gradient(rgba(0,0,0,0.68),rgba(0,0,0,0.92)),
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.92)),
 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
 
 background-size:cover;
@@ -219,10 +228,10 @@ animation:fadeUp 1.5s ease;
 .hero-tag{
 display:inline-block;
 padding:10px 22px;
-border:1px solid rgba(85,230,165,0.4);
+border:1px solid rgba(255,145,77,0.4);
 border-radius:50px;
 margin-bottom:25px;
-color:#55e6a5;
+color:var(--primary);
 backdrop-filter:blur(12px);
 font-size:14px;
 letter-spacing:1px;
@@ -236,8 +245,8 @@ margin-bottom:25px;
 }
 
 .hero-content h1 span{
-color:#55e6a5;
-text-shadow:0 0 25px rgba(85,230,165,0.7);
+color:var(--primary);
+text-shadow:0 0 25px rgba(255,145,77,0.7);
 }
 
 .hero-content p{
@@ -264,23 +273,23 @@ transition:0.5s;
 }
 
 .primary{
-background:#55e6a5;
+background:var(--primary);
 color:#000;
-box-shadow:0 0 30px rgba(85,230,165,0.45);
+box-shadow:0 0 30px rgba(255,145,77,0.45);
 }
 
 .primary:hover{
 transform:translateY(-7px);
-box-shadow:0 0 50px rgba(85,230,165,0.9);
+box-shadow:0 0 50px rgba(255,145,77,0.8);
 }
 
 .secondary{
-border:2px solid #55e6a5;
-color:#55e6a5;
+border:2px solid var(--primary);
+color:var(--primary);
 }
 
 .secondary:hover{
-background:#55e6a5;
+background:var(--primary);
 color:#000;
 }
 
@@ -295,7 +304,7 @@ flex-shrink:0;
 }
 
 .float-card{
-background:rgba(255,255,255,0.04);
+background:var(--glass);
 backdrop-filter:blur(15px);
 border:1px solid rgba(255,255,255,0.05);
 padding:28px;
@@ -314,7 +323,7 @@ animation-delay:2s;
 .float-card h3{
 font-size:28px;
 margin-bottom:12px;
-color:#55e6a5;
+color:var(--primary);
 }
 
 .float-card p{
@@ -338,7 +347,7 @@ margin-bottom:80px;
 }
 
 .section-title span{
-color:#55e6a5;
+color:var(--primary);
 }
 
 /* STATS */
@@ -350,7 +359,7 @@ gap:30px;
 }
 
 .stat-box{
-background:rgba(255,255,255,0.03);
+background:var(--glass);
 padding:50px 30px;
 border-radius:30px;
 text-align:center;
@@ -361,12 +370,12 @@ border:1px solid rgba(255,255,255,0.05);
 
 .stat-box:hover{
 transform:translateY(-12px);
-box-shadow:0 0 40px rgba(85,230,165,0.12);
+box-shadow:0 0 40px rgba(255,145,77,0.12);
 }
 
 .stat-box h2{
 font-size:60px;
-color:#55e6a5;
+color:var(--primary);
 margin-bottom:10px;
 }
 
@@ -384,7 +393,7 @@ gap:35px;
 }
 
 .why-card{
-background:rgba(255,255,255,0.03);
+background:var(--glass);
 padding:45px;
 border-radius:35px;
 backdrop-filter:blur(18px);
@@ -394,13 +403,13 @@ transition:0.5s;
 
 .why-card:hover{
 transform:translateY(-12px);
-box-shadow:0 0 45px rgba(85,230,165,0.12);
+box-shadow:0 0 45px rgba(255,145,77,0.12);
 }
 
 .why-card i{
 font-size:45px;
 margin-bottom:25px;
-color:#55e6a5;
+color:var(--primary);
 }
 
 .why-card h3{
@@ -486,7 +495,7 @@ margin-bottom:25px;
 }
 
 .cta h2 span{
-color:#55e6a5;
+color:var(--primary);
 }
 
 .cta p{
@@ -508,7 +517,7 @@ text-align:center;
 
 footer h2{
 font-size:40px;
-color:#55e6a5;
+color:var(--primary);
 margin-bottom:15px;
 }
 
@@ -753,8 +762,6 @@ PARAMATHMA DIARIES
 
 </div>
 
-<!-- HERO -->
-
 <section class="hero">
 
 <div class="hero-container">
@@ -827,8 +834,6 @@ Meet strangers who slowly become your favourite people.
 
 </section>
 
-<!-- STATS -->
-
 <section>
 
 <h2 class="section-title">
@@ -860,8 +865,6 @@ Our <span>Vision</span>
 </div>
 
 </section>
-
-<!-- WHY US -->
 
 <section>
 
@@ -910,8 +913,6 @@ Campfires, deep conversations, healing vibes and emotional journeys through natu
 </div>
 
 </section>
-
-<!-- EXPERIENCE -->
 
 <section>
 
@@ -989,8 +990,6 @@ Beautiful roads, waterfalls and unforgettable laughter.
 
 </section>
 
-<!-- CTA -->
-
 <section class="cta">
 
 <h2>
@@ -1015,8 +1014,6 @@ Join WhatsApp Community
 </div>
 
 </section>
-
-<!-- FOOTER -->
 
 <footer>
 
