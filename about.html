@@ -41,7 +41,7 @@ background:#55e6a5;
 border-radius:20px;
 }
 
-/* GLOW EFFECT */
+/* GLOW EFFECTS */
 
 body::before{
 content:'';
@@ -64,7 +64,7 @@ width:450px;
 height:450px;
 background:#ffb347;
 filter:blur(180px);
-opacity:0.06;
+opacity:0.05;
 bottom:-150px;
 right:-150px;
 z-index:-1;
@@ -83,16 +83,16 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:999;
-background:rgba(0,0,0,0.5);
+background:rgba(0,0,0,0.45);
 backdrop-filter:blur(12px);
 border-bottom:1px solid rgba(255,255,255,0.05);
 }
 
 .logo{
-font-size:28px;
+font-size:30px;
 font-weight:800;
-letter-spacing:2px;
 color:#55e6a5;
+letter-spacing:2px;
 }
 
 nav ul{
@@ -146,7 +146,7 @@ position:absolute;
 width:100%;
 height:100%;
 background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.85)),
+linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.88)),
 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070&auto=format&fit=crop');
 
 background-size:cover;
@@ -157,15 +157,15 @@ animation:zoomBg 18s infinite alternate ease-in-out;
 .hero-content{
 position:relative;
 z-index:2;
-max-width:1000px;
+max-width:950px;
 padding:20px;
 animation:fadeUp 1.5s ease;
 }
 
 .hero-content h1{
 font-size:95px;
-font-weight:900;
 line-height:1;
+font-weight:900;
 margin-bottom:25px;
 }
 
@@ -180,7 +180,7 @@ line-height:1.9;
 opacity:0.9;
 }
 
-/* SECTION */
+/* COMMON SECTION */
 
 section{
 padding:120px 10%;
@@ -189,8 +189,8 @@ position:relative;
 
 .section-title{
 font-size:65px;
-font-weight:900;
 text-align:center;
+font-weight:900;
 margin-bottom:80px;
 }
 
@@ -221,12 +221,12 @@ box-shadow:0 0 45px rgba(85,230,165,0.18);
 }
 
 .story-text h2{
-font-size:50px;
-margin-bottom:25px;
+font-size:52px;
 line-height:1.2;
+margin-bottom:25px;
 }
 
-.story-text h2 span{
+.story-text span{
 color:#55e6a5;
 }
 
@@ -236,7 +236,7 @@ opacity:0.82;
 font-size:17px;
 }
 
-/* VISION SECTION */
+/* VISION */
 
 .vision-section{
 height:75vh;
@@ -244,6 +244,7 @@ display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+
 background:
 linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.85)),
 url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop');
@@ -251,7 +252,6 @@ url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&au
 background-size:cover;
 background-position:center;
 background-attachment:fixed;
-overflow:hidden;
 }
 
 .vision-content{
@@ -261,8 +261,8 @@ padding:20px;
 
 .vision-content h2{
 font-size:70px;
-margin-bottom:25px;
 font-weight:900;
+margin-bottom:25px;
 line-height:1.1;
 color:#55e6a5;
 }
@@ -327,8 +327,7 @@ border-radius:35px;
 backdrop-filter:blur(20px);
 border:1px solid rgba(85,230,165,0.08);
 transition:0.6s;
-position:relative;
-overflow:hidden;
+text-align:center;
 }
 
 .member:hover{
@@ -369,6 +368,7 @@ opacity:0.82;
 .cta{
 padding:130px 10%;
 text-align:center;
+
 background:
 linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.9)),
 url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070&auto=format&fit=crop');
@@ -387,15 +387,15 @@ line-height:1.1;
 .cta p{
 font-size:22px;
 opacity:0.85;
+line-height:1.9;
 max-width:850px;
 margin:auto;
 margin-bottom:40px;
-line-height:1.9;
 }
 
 .btn{
 display:inline-block;
-padding:18px 40px;
+padding:18px 42px;
 background:#55e6a5;
 color:#000;
 text-decoration:none;
@@ -637,7 +637,7 @@ Nature escapes, soulful campfires and peaceful experiences designed to refresh y
 <section>
 
 <h2 class="section-title">
-Meet The <span>Founders</span>
+Meet Our <span>Core Team</span>
 </h2>
 
 <div class="team">
@@ -651,7 +651,21 @@ Meet The <span>Founders</span>
 <h4>Business Strategy & Growth</h4>
 
 <p>
-Focused on building PARAMATHMA DIARIES into a premium travel and community brand through strategic planning, branding, partnerships and long-term vision.
+Focused on building PARAMATHMA DIARIES into a premium travel and community brand through strategic planning, partnerships, branding and long-term vision.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/men/45.jpg">
+
+<h3>Arun</h3>
+
+<h4>Operations & Logistics</h4>
+
+<p>
+Focused on trip execution, destination research, transport coordination, stay planning and ensuring every experience runs smoothly from start to finish.
 </p>
 
 </div>
@@ -665,7 +679,7 @@ Focused on building PARAMATHMA DIARIES into a premium travel and community brand
 <h4>Community & Experience</h4>
 
 <p>
-Focused on traveler bonding, community experiences, emotional engagement and creating journeys that people remember forever.
+Focused on traveler bonding, emotional engagement and building experiences that people remember forever.
 </p>
 
 </div>
@@ -679,7 +693,21 @@ Focused on traveler bonding, community experiences, emotional engagement and cre
 <h4>Women Safety & Hospitality</h4>
 
 <p>
-Focused on traveler comfort, safety systems, hospitality management and creating a secure travel environment for everyone.
+Focused on traveler comfort, hospitality management, women safety systems and creating a secure travel environment.
+</p>
+
+</div>
+
+<div class="member">
+
+<img src="https://randomuser.me/api/portraits/women/33.jpg">
+
+<h3>Shwetha</h3>
+
+<h4>Marketing & Branding</h4>
+
+<p>
+Focused on social media growth, content strategy, audience engagement and building PARAMATHMA DIARIES into a powerful community brand.
 </p>
 
 </div>
