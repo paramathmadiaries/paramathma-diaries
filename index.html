@@ -1,14 +1,16 @@
-```html
+```html id="paramathma-full-premium-code"
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Paramathma Diaries</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
@@ -38,7 +40,7 @@ background:#55e6a5;
 border-radius:20px;
 }
 
-/* GLOW EFFECTS */
+/* GLOW BACKGROUND */
 
 body::before{
 content:'';
@@ -198,7 +200,7 @@ background:#55e6a5;
 color:#000;
 }
 
-/* GENERAL SECTION */
+/* SECTION */
 
 section{
 padding:120px 10%;
@@ -215,7 +217,7 @@ font-weight:800;
 color:#55e6a5;
 }
 
-/* WHY CHOOSE US */
+/* WHY CHOOSE */
 
 .features{
 display:grid;
@@ -290,6 +292,8 @@ background:#101010;
 border-radius:30px;
 overflow:hidden;
 transition:0.5s;
+display:flex;
+flex-direction:column;
 }
 
 .trip-card:hover{
@@ -305,6 +309,9 @@ object-fit:cover;
 
 .trip-content{
 padding:30px;
+display:flex;
+flex-direction:column;
+height:320px;
 }
 
 .trip-content h3{
@@ -316,6 +323,7 @@ margin-bottom:15px;
 line-height:1.8;
 opacity:0.8;
 margin-bottom:25px;
+flex:1;
 }
 
 .trip-content a{
@@ -326,9 +334,10 @@ color:#000;
 border-radius:50px;
 text-decoration:none;
 font-weight:700;
+width:fit-content;
 }
 
-/* EXPERIENCE TIMELINE */
+/* TIMELINE */
 
 .timeline{
 border-left:2px solid #55e6a5;
@@ -377,12 +386,14 @@ background:#101010;
 padding:40px;
 border-radius:25px;
 line-height:2;
-opacity:0.85;
+opacity:0.9;
 transition:0.5s;
+border:1px solid rgba(255,255,255,0.05);
 }
 
 .testimonial:hover{
 transform:translateY(-10px);
+box-shadow:0 0 35px rgba(85,230,165,0.1);
 }
 
 /* FOOTER */
@@ -742,15 +753,39 @@ Traveler <span>Stories</span>
 <div class="testimonials">
 
 <div class="testimonial">
-“Best travel community ever. The energy and vibes were unreal.”
+
+<h3 style="color:#55e6a5;margin-bottom:15px;">
+Rakesh Gowda • Bangalore
+</h3>
+
+<p>
+“Best travel community ever. The energy, people and vibes were unreal. Felt like travelling with family.”
+</p>
+
 </div>
 
 <div class="testimonial">
-“It honestly felt like therapy through nature and amazing people.”
+
+<h3 style="color:#55e6a5;margin-bottom:15px;">
+Shreya Shetty • Mangalore
+</h3>
+
+<p>
+“It honestly felt like therapy through nature and amazing people. One of the best experiences I’ve had.”
+</p>
+
 </div>
 
 <div class="testimonial">
-“Perfectly organized with unforgettable experiences throughout.”
+
+<h3 style="color:#55e6a5;margin-bottom:15px;">
+Puneeth Kumar • Mysore
+</h3>
+
+<p>
+“Perfectly organized trip with unforgettable memories, campfire vibes and beautiful locations.”
+</p>
+
 </div>
 
 </div>
