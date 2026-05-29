@@ -136,10 +136,11 @@ content:'';
 position:absolute;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
-url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070');
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92)),
+url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070');
 background-size:cover;
 background-position:center;
+animation:zoomHero 18s infinite alternate;
 }
 
 .hero-content{
@@ -148,19 +149,19 @@ z-index:2;
 max-width:1000px;
 }
 
-.hero-badge{
+.hero-tag{
 display:inline-block;
-padding:12px 25px;
+padding:12px 28px;
 border-radius:50px;
 border:1px solid rgba(255,255,255,.1);
-margin-bottom:25px;
 color:#b388ff;
+margin-bottom:25px;
 }
 
 .hero h1{
-font-size:100px;
-line-height:1;
+font-size:110px;
 font-weight:900;
+line-height:1;
 margin-bottom:25px;
 }
 
@@ -172,87 +173,103 @@ background:linear-gradient(90deg,var(--primary),var(--secondary));
 
 .hero p{
 font-size:22px;
-line-height:1.9;
+line-height:2;
 max-width:850px;
 margin:auto;
 opacity:.85;
 }
 
-/* STATS */
+@keyframes zoomHero{
+0%{transform:scale(1);}
+100%{transform:scale(1.1);}
+}
 
-.stats-grid{
+/* EMOTIONAL PILLARS */
+
+.pillars{
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
-}
-
-.stat-card{
-background:var(--glass);
-padding:40px;
-border-radius:25px;
-text-align:center;
-border:1px solid rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
-}
-
-.stat-card h2{
-font-size:60px;
-font-weight:900;
-background:linear-gradient(90deg,var(--primary),var(--secondary));
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
-.stat-card p{
-margin-top:10px;
-opacity:.8;
-}
-
-/* WHY PARAMATHMA */
-
-.why-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
+grid-template-columns:repeat(3,1fr);
 gap:30px;
-max-width:1200px;
+max-width:1300px;
 margin:auto;
 }
 
-.why-card{
+.pillar{
 background:var(--glass);
-padding:45px;
-border-radius:30px;
+padding:50px;
+border-radius:35px;
 border:1px solid rgba(255,255,255,.05);
 backdrop-filter:blur(20px);
 transition:.5s;
+text-align:center;
 }
 
-.why-card:hover{
+.pillar:hover{
 transform:translateY(-10px);
-box-shadow:0 0 35px rgba(124,77,255,.15);
+box-shadow:0 0 40px rgba(124,77,255,.18);
 }
 
-.why-card i{
-font-size:50px;
-margin-bottom:20px;
+.pillar i{
+font-size:60px;
+margin-bottom:25px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.why-card h3{
-font-size:30px;
+.pillar h3{
+font-size:38px;
 margin-bottom:15px;
 }
 
-.why-card p{
+.pillar p{
 line-height:1.9;
 opacity:.82;
 }
 
+/* INSTAGRAM CTA */
+
+.instagram-banner{
+background:linear-gradient(
+135deg,
+rgba(124,77,255,.12),
+rgba(255,78,205,.12)
+);
+border:1px solid rgba(255,255,255,.05);
+padding:50px;
+border-radius:35px;
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+}
+
+.instagram-banner h3{
+font-size:42px;
+}
+
+.instagram-banner p{
+opacity:.8;
+line-height:1.8;
+margin-top:10px;
+}
+
+.instagram-btn{
+display:inline-block;
+padding:18px 35px;
+border-radius:50px;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+color:#fff;
+text-decoration:none;
+font-weight:700;
+white-space:nowrap;
+}
+
 /* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
 nav ul{
 display:none;
@@ -263,7 +280,7 @@ display:block;
 }
 
 .hero h1{
-font-size:55px;
+font-size:60px;
 }
 
 .hero p{
@@ -274,12 +291,17 @@ font-size:16px;
 font-size:42px;
 }
 
-.stats-grid{
-grid-template-columns:repeat(2,1fr);
+.pillars{
+grid-template-columns:1fr;
 }
 
-.why-grid{
-grid-template-columns:1fr;
+.instagram-banner{
+flex-direction:column;
+text-align:center;
+}
+
+.instagram-banner h3{
+font-size:32px;
 }
 
 }
@@ -312,17 +334,21 @@ grid-template-columns:1fr;
 
 <div class="hero-content">
 
-<div class="hero-badge">
+<div class="hero-tag">
 YOUR NEXT STORY STARTS HERE
 </div>
 
 <h1>
-Ready For Your<br>
-<span>Next Adventure?</span>
+Don't Just<br>
+<span>Travel.</span>
+</h1>
+
+<h1>
+Belong.
 </h1>
 
 <p>
-The mountains are waiting. The campfire is ready. Your next unforgettable memory begins with a single message.
+Every trip begins with a destination. The best journeys create friendships, memories and stories that stay with you forever.
 </p>
 
 </div>
@@ -332,29 +358,45 @@ The mountains are waiting. The campfire is ready. Your next unforgettable memory
 <section>
 
 <h2 class="section-title">
-PARAMATHMA In <span>Numbers</span>
+The PARAMATHMA <span>Experience</span>
 </h2>
 
-<div class="stats-grid">
+<div class="pillars">
 
-<div class="stat-card">
-<h2>500+</h2>
-<p>Travelers</p>
+<div class="pillar">
+
+<i class="fas fa-mountain"></i>
+
+<h3>Adventure</h3>
+
+<p>
+Discover breathtaking landscapes, hidden gems and unforgettable experiences beyond ordinary travel.
+</p>
+
 </div>
 
-<div class="stat-card">
-<h2>40+</h2>
-<p>Trips</p>
+<div class="pillar">
+
+<i class="fas fa-users"></i>
+
+<h3>Connection</h3>
+
+<p>
+Meet strangers who become friends and create bonds that continue long after the journey ends.
+</p>
+
 </div>
 
-<div class="stat-card">
-<h2>15+</h2>
-<p>Destinations</p>
-</div>
+<div class="pillar">
 
-<div class="stat-card">
-<h2>1</h2>
-<p>Travel Family</p>
+<i class="fas fa-heart"></i>
+
+<h3>Transformation</h3>
+
+<p>
+Return with more than photos. Return with stories, confidence and memories that shape you.
+</p>
+
 </div>
 
 </div>
@@ -363,61 +405,51 @@ PARAMATHMA In <span>Numbers</span>
 
 <section>
 
-<h2 class="section-title">
-Why Travel With <span>Us?</span>
-</h2>
+<div class="instagram-banner">
 
-<div class="why-grid">
+<div>
 
-<div class="why-card">
-<i class="fas fa-mountain"></i>
-<h3>Adventure</h3>
-<p>Discover breathtaking destinations and experiences that push you beyond routine.</p>
+<h3>📸 Follow Our Journey</h3>
+
+<p>
+See real adventures, real travelers and real memories from PARAMATHMA DIARIES.
+</p>
+
 </div>
 
-<div class="why-card">
-<i class="fas fa-users"></i>
-<h3>Community</h3>
-<p>Meet amazing people, build friendships and become part of something bigger.</p>
-</div>
+<a href="https://www.instagram.com/paramathma__diaries/"
+target="_blank"
+class="instagram-btn">
 
-<div class="why-card">
-<i class="fas fa-heart"></i>
-<h3>Healing</h3>
-<p>Reconnect with nature, slow down and find peace away from everyday stress.</p>
-</div>
+Follow On Instagram
 
-<div class="why-card">
-<i class="fas fa-camera"></i>
-<h3>Memories</h3>
-<p>Create moments you'll remember forever and stories you'll keep telling.</p>
-</div>
+</a>
 
 </div>
 
 </section>
 <style>
 
-/* CONTACT WRAPPER */
+/* CONTACT HUB */
 
-.contact-wrapper{
+.contact-hub{
 display:grid;
 grid-template-columns:0.9fr 1.1fr;
 gap:40px;
-max-width:1300px;
+max-width:1400px;
 margin:auto;
 align-items:start;
 }
 
-/* CONTACT CARDS */
+/* LEFT SIDE */
 
-.contact-info{
+.contact-stack{
 display:flex;
 flex-direction:column;
 gap:25px;
 }
 
-.contact-card{
+.contact-box{
 background:var(--glass);
 padding:35px;
 border-radius:30px;
@@ -426,33 +458,33 @@ backdrop-filter:blur(20px);
 transition:.5s;
 }
 
-.contact-card:hover{
+.contact-box:hover{
 transform:translateY(-10px);
-box-shadow:0 0 35px rgba(124,77,255,.15);
+box-shadow:0 0 40px rgba(124,77,255,.15);
 }
 
-.contact-card i{
-font-size:45px;
+.contact-box i{
+font-size:48px;
 margin-bottom:15px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.contact-card h3{
-font-size:28px;
+.contact-box h3{
+font-size:30px;
 margin-bottom:10px;
 }
 
-.contact-card p{
-line-height:1.8;
+.contact-box p{
+line-height:1.9;
 opacity:.82;
 }
 
-.whatsapp-btn{
+.whatsapp-main-btn{
 display:inline-block;
 margin-top:20px;
-padding:16px 30px;
+padding:18px 35px;
 border-radius:50px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 color:#fff;
@@ -462,27 +494,27 @@ font-weight:700;
 
 /* FORM */
 
-.contact-form{
+.travel-form{
 background:var(--glass);
-padding:45px;
+padding:50px;
 border-radius:35px;
 border:1px solid rgba(255,255,255,.05);
 backdrop-filter:blur(20px);
 }
 
-.contact-form h2{
-font-size:50px;
-margin-bottom:15px;
+.travel-form h2{
+font-size:52px;
 font-weight:900;
+margin-bottom:15px;
 }
 
-.contact-form h2 span{
+.travel-form h2 span{
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.contact-form p{
+.travel-form p{
 line-height:1.9;
 opacity:.82;
 margin-bottom:30px;
@@ -525,54 +557,60 @@ color:#fff;
 font-size:16px;
 font-weight:700;
 cursor:pointer;
+transition:.4s;
 }
 
-/* QUICK CONTACT */
+.submit-btn:hover{
+transform:translateY(-5px);
+}
 
-.quick-contact{
+/* QUICK LINKS */
+
+.quick-links{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:25px;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 }
 
-.quick-card{
+.quick-link-card{
 background:var(--glass);
 padding:35px;
 border-radius:25px;
 border:1px solid rgba(255,255,255,.05);
 text-align:center;
-backdrop-filter:blur(20px);
 transition:.5s;
 }
 
-.quick-card:hover{
+.quick-link-card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 35px rgba(124,77,255,.15);
+box-shadow:0 0 40px rgba(124,77,255,.15);
 }
 
-.quick-card i{
+.quick-link-card i{
 font-size:45px;
-margin-bottom:20px;
+margin-bottom:15px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.quick-card h3{
-font-size:26px;
+.quick-link-card h3{
+font-size:28px;
 margin-bottom:10px;
 }
 
-.quick-card p{
+.quick-link-card p{
 opacity:.82;
 line-height:1.8;
 }
 
+/* MOBILE */
+
 @media(max-width:1000px){
 
-.contact-wrapper{
+.contact-hub{
 grid-template-columns:1fr;
 }
 
@@ -580,23 +618,23 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
-.quick-contact{
+.quick-links{
 grid-template-columns:1fr;
 }
 
-.contact-form{
+.travel-form{
 padding:30px;
 }
 
-.contact-form h2{
-font-size:36px;
+.travel-form h2{
+font-size:38px;
 }
 
 }
 
 </style>
 
-<!-- CONTACT SECTION -->
+<!-- CONTACT HUB -->
 
 <section>
 
@@ -604,52 +642,64 @@ font-size:36px;
 Let's <span>Connect</span>
 </h2>
 
-<div class="contact-wrapper">
+<div class="contact-hub">
 
-<!-- LEFT -->
+<!-- LEFT SIDE -->
 
-<div class="contact-info">
+<div class="contact-stack">
 
-<div class="contact-card">
+<div class="contact-box">
 
 <i class="fab fa-whatsapp"></i>
 
-<h3>Talk To Us Instantly</h3>
+<h3>Talk To Us Directly</h3>
 
 <p>
-The fastest way to join a trip is through WhatsApp. One message and we'll help you plan everything.
+Skip the waiting. The fastest way to join a PARAMATHMA journey is through WhatsApp.
 </p>
 
-<a href="https://wa.me/918217682902" class="whatsapp-btn">
+<a href="https://wa.me/918217682902"
+target="_blank"
+class="whatsapp-main-btn">
+
 Chat On WhatsApp
+
 </a>
 
 </div>
 
-<div class="contact-card">
+<div class="contact-box">
 
-<i class="fas fa-heart"></i>
+<i class="fab fa-instagram"></i>
 
-<h3>Travel With Family</h3>
+<h3>Instagram Community</h3>
 
 <p>
-At PARAMATHMA, we don't create customers. We create friendships, stories and lifelong memories.
+Follow our adventures, reels, stories and traveler memories.
 </p>
 
-</div>
+<a href="https://www.instagram.com/paramathma__diaries/"
+target="_blank"
+class="whatsapp-main-btn">
+
+Visit Instagram
+
+</a>
 
 </div>
 
-<!-- RIGHT -->
+</div>
 
-<div class="contact-form">
+<!-- RIGHT SIDE -->
+
+<div class="travel-form">
 
 <h2>
 Plan Your <span>Journey</span>
 </h2>
 
 <p>
-Fill in your details and we'll prepare the perfect adventure for you.
+Tell us where you want to go and we'll help create your next unforgettable adventure.
 </p>
 
 <form id="journeyForm">
@@ -715,30 +765,54 @@ Start My Journey
 Reach Us <span>Anywhere</span>
 </h2>
 
-<div class="quick-contact">
+<div class="quick-links">
 
-<div class="quick-card">
-<i class="fab fa-instagram"></i>
-<h3>Instagram</h3>
-<p>@paramathmadiaries</p>
-</div>
+<div class="quick-link-card">
 
-<div class="quick-card">
 <i class="fas fa-phone"></i>
+
 <h3>Phone</h3>
-<p>+91 82176 82902</p>
+
+<p>
++91 82176 82902
+</p>
+
 </div>
 
-<div class="quick-card">
+<div class="quick-link-card">
+
+<i class="fab fa-instagram"></i>
+
+<h3>Instagram</h3>
+
+<p>
+@paramathma__diaries
+</p>
+
+</div>
+
+<div class="quick-link-card">
+
 <i class="fas fa-location-dot"></i>
+
 <h3>Location</h3>
-<p>Bangalore, Karnataka</p>
+
+<p>
+Bangalore, Karnataka
+</p>
+
 </div>
 
-<div class="quick-card">
+<div class="quick-link-card">
+
 <i class="fas fa-clock"></i>
+
 <h3>Response Time</h3>
-<p>Usually Within A Few Hours</p>
+
+<p>
+Usually Within A Few Hours
+</p>
+
 </div>
 
 </div>
@@ -746,21 +820,21 @@ Reach Us <span>Anywhere</span>
 </section>
 <style>
 
-/* JOURNEY TIMELINE */
+/* COMMUNITY JOURNEY */
 
-.journey-flow{
+.community-journey{
 max-width:1200px;
 margin:auto;
 display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:25px;
+grid-template-columns:repeat(4,1fr);
+gap:30px;
 position:relative;
 }
 
-.flow-card{
+.community-card{
 background:var(--glass);
-padding:35px 25px;
-border-radius:25px;
+padding:40px 30px;
+border-radius:30px;
 border:1px solid rgba(255,255,255,.05);
 backdrop-filter:blur(20px);
 text-align:center;
@@ -768,32 +842,32 @@ transition:.5s;
 position:relative;
 }
 
-.flow-card:hover{
+.community-card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 35px rgba(124,77,255,.15);
+box-shadow:0 0 40px rgba(124,77,255,.18);
 }
 
-.flow-number{
-width:60px;
-height:60px;
-margin:auto;
-margin-bottom:20px;
+.community-number{
+width:70px;
+height:70px;
 border-radius:50%;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:24px;
+font-size:26px;
 font-weight:800;
+margin:auto;
+margin-bottom:20px;
 }
 
-.flow-card h3{
-font-size:24px;
-margin-bottom:12px;
+.community-card h3{
+font-size:28px;
+margin-bottom:15px;
 }
 
-.flow-card p{
-line-height:1.8;
+.community-card p{
+line-height:1.9;
 opacity:.82;
 }
 
@@ -819,7 +893,7 @@ z-index:-2;
 }
 
 .contact-cta h2{
-font-size:90px;
+font-size:95px;
 font-weight:900;
 line-height:1.05;
 margin-bottom:25px;
@@ -845,8 +919,8 @@ display:inline-block;
 padding:20px 45px;
 border-radius:60px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
-text-decoration:none;
 color:#fff;
+text-decoration:none;
 font-weight:700;
 transition:.4s;
 }
@@ -890,8 +964,8 @@ margin-bottom:30px;
 }
 
 .footer-links a{
-color:#fff;
 text-decoration:none;
+color:#fff;
 opacity:.8;
 transition:.4s;
 }
@@ -911,8 +985,8 @@ width:55px;
 height:55px;
 border-radius:50%;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 background:rgba(255,255,255,.05);
 color:#fff;
 font-size:20px;
@@ -956,7 +1030,7 @@ font-weight:600;
 
 @media(max-width:1000px){
 
-.journey-flow{
+.community-journey{
 grid-template-columns:1fr;
 }
 
@@ -980,44 +1054,62 @@ font-size:32px;
 
 </style>
 
-<!-- JOURNEY FLOW -->
+<!-- COMMUNITY JOURNEY -->
 
 <section>
 
 <h2 class="section-title">
-Your Journey <span>Process</span>
+Become Part Of The <span>Journey</span>
 </h2>
 
-<div class="journey-flow">
+<div class="community-journey">
 
-<div class="flow-card">
-<div class="flow-number">1</div>
-<h3>Message Us</h3>
-<p>Contact us through WhatsApp or the form.</p>
+<div class="community-card">
+
+<div class="community-number">1</div>
+
+<h3>Meet</h3>
+
+<p>
+Join a trip and meet people who share the same love for travel and adventure.
+</p>
+
 </div>
 
-<div class="flow-card">
-<div class="flow-number">2</div>
-<h3>Get Guidance</h3>
-<p>We'll suggest the best trip based on your interests.</p>
+<div class="community-card">
+
+<div class="community-number">2</div>
+
+<h3>Connect</h3>
+
+<p>
+Travel together, share stories and build meaningful friendships.
+</p>
+
 </div>
 
-<div class="flow-card">
-<div class="flow-number">3</div>
-<h3>Reserve Seat</h3>
-<p>Confirm your booking and receive all details.</p>
+<div class="community-card">
+
+<div class="community-number">3</div>
+
+<h3>Explore</h3>
+
+<p>
+Experience mountains, waterfalls, forests and unforgettable destinations.
+</p>
+
 </div>
 
-<div class="flow-card">
-<div class="flow-number">4</div>
-<h3>Start Adventure</h3>
-<p>Travel, explore, connect and create memories.</p>
-</div>
+<div class="community-card">
 
-<div class="flow-card">
-<div class="flow-number">5</div>
-<h3>Stay Family</h3>
-<p>Leave with friendships and stories for life.</p>
+<div class="community-number">4</div>
+
+<h3>Belong</h3>
+
+<p>
+Leave with memories, friendships and a community that feels like family.
+</p>
+
 </div>
 
 </div>
@@ -1029,16 +1121,24 @@ Your Journey <span>Process</span>
 <section class="contact-cta">
 
 <h2>
-Don't Just Travel.<br>
-<span>Belong.</span>
+Don't Just Visit<br>
+<span>Places.</span>
+</h2>
+
+<h2>
+Belong Somewhere.
 </h2>
 
 <p>
-PARAMATHMA DIARIES is more than trips and destinations. It's a community of explorers creating stories, friendships and unforgettable memories together.
+PARAMATHMA DIARIES is not about checking destinations off a list. It's about finding people, moments and memories that stay with you forever.
 </p>
 
-<a href="https://wa.me/918217682902" class="cta-btn">
+<a href="https://wa.me/918217682902"
+target="_blank"
+class="cta-btn">
+
 JOIN THE NEXT JOURNEY
+
 </a>
 
 </section>
@@ -1052,23 +1152,35 @@ PARAMATHMA DIARIES
 </div>
 
 <p class="footer-text">
+
 Travel • Heal • Connect • Grow
+
 <br><br>
+
 Collecting Moments. Creating Memories.
+
 </p>
 
 <div class="footer-links">
+
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
 <a href="trips.html">Trips</a>
 <a href="gallery.html">Memories</a>
 <a href="contact.html">Contact</a>
+
 </div>
 
 <div class="social-icons">
-<a href="#"><i class="fab fa-instagram"></i></a>
-<a href="#"><i class="fab fa-whatsapp"></i></a>
-<a href="#"><i class="fab fa-youtube"></i></a>
+
+<a href="https://www.instagram.com/paramathma__diaries/" target="_blank">
+<i class="fab fa-instagram"></i>
+</a>
+
+<a href="https://wa.me/918217682902" target="_blank">
+<i class="fab fa-whatsapp"></i>
+</a>
+
 </div>
 
 </footer>
@@ -1089,8 +1201,8 @@ Collecting Moments. Creating Memories.
 
 /* MOBILE MENU */
 
-const menuBtn=document.querySelector('.menu-btn');
-const mobileMenu=document.getElementById('mobileMenu');
+const menuBtn = document.querySelector('.menu-btn');
+const mobileMenu = document.getElementById('mobileMenu');
 
 if(menuBtn){
 menuBtn.addEventListener('click',()=>{
