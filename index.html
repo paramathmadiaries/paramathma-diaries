@@ -832,32 +832,34 @@ Escape the noise and reconnect with what truly matters.
 
 /* UPCOMING JOURNEYS */
 
-.journey-slider{
-padding:140px 0;
-overflow:hidden;
+.upcoming-section{
+padding:140px 10%;
 }
 
-.slider-track{
-display:flex;
+.upcoming-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
 gap:30px;
-width:max-content;
-animation:slideTrips 35s linear infinite;
-padding-left:40px;
+max-width:1400px;
+margin:auto;
 }
 
-.trip-banner{
-min-width:420px;
-height:520px;
+.trip-card{
+height:500px;
 border-radius:35px;
 overflow:hidden;
 position:relative;
-flex-shrink:0;
 }
 
-.trip-banner img{
+.trip-card img{
 width:100%;
 height:100%;
 object-fit:cover;
+transition:.7s;
+}
+
+.trip-card:hover img{
+transform:scale(1.08);
 }
 
 .trip-overlay{
@@ -870,68 +872,78 @@ rgba(0,0,0,.95)
 display:flex;
 flex-direction:column;
 justify-content:flex-end;
-padding:35px;
+padding:40px;
 }
 
 .trip-overlay h3{
-font-size:38px;
+font-size:42px;
 margin-bottom:10px;
 }
 
 .trip-overlay p{
-opacity:.85;
 line-height:1.8;
 margin-bottom:20px;
+opacity:.85;
 }
 
-.trip-btn{
-display:inline-block;
-padding:14px 28px;
-border-radius:50px;
-background:linear-gradient(135deg,var(--primary),var(--secondary));
-text-decoration:none;
-color:#fff;
-font-weight:700;
-width:max-content;
-}
+/* MEMORIES FROM THE TRAIL */
 
-@keyframes slideTrips{
-0%{
-transform:translateX(0);
-}
-100%{
-transform:translateX(-50%);
-}
-}
-
-/* COMMUNITY WALL */
-
-.community-wall{
+.memories-section{
 padding:140px 10%;
 }
 
-.wall-grid{
-columns:3;
-column-gap:25px;
-}
-
-.wall-item{
-margin-bottom:25px;
-border-radius:30px;
-overflow:hidden;
+.feature-memory{
+max-width:1400px;
+margin:auto;
 position:relative;
-break-inside:avoid;
+border-radius:40px;
+overflow:hidden;
+height:650px;
+margin-bottom:40px;
 }
 
-.wall-item img{
+.feature-memory img{
 width:100%;
-display:block;
-border-radius:30px;
+height:100%;
+object-fit:cover;
+}
+
+.memory-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(
+rgba(0,0,0,.2),
+rgba(0,0,0,.9)
+);
+display:flex;
+align-items:flex-end;
+padding:60px;
+}
+
+.memory-overlay h2{
+font-size:60px;
+line-height:1.2;
+max-width:800px;
+}
+
+.memory-gallery{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+max-width:1400px;
+margin:auto;
+}
+
+.memory-gallery img{
+width:100%;
+height:320px;
+object-fit:cover;
+border-radius:25px;
 transition:.6s;
 }
 
-.wall-item:hover img{
-transform:scale(1.05);
+.memory-gallery img:hover{
+transform:translateY(-10px);
 }
 
 /* TESTIMONIALS */
@@ -954,55 +966,33 @@ padding:40px;
 border-radius:35px;
 backdrop-filter:blur(20px);
 border:1px solid rgba(255,255,255,.05);
-transition:.5s;
-}
-
-.testimonial-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 50px rgba(124,77,255,.15);
-}
-
-.stars{
-font-size:22px;
-margin-bottom:15px;
-color:#ffd700;
 }
 
 .testimonial-card p{
 line-height:2;
 opacity:.85;
-margin-bottom:20px;
+margin:20px 0;
 }
 
 .testimonial-card h4{
 color:#b388ff;
 }
 
-/* FINAL CTA */
+.stars{
+font-size:22px;
+color:#ffd700;
+}
+
+/* CTA */
 
 .massive-cta{
 padding:180px 10%;
 text-align:center;
-position:relative;
-overflow:hidden;
-}
-
-.massive-cta::before{
-content:'';
-position:absolute;
-inset:0;
-background:
-linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92)),
-url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070');
-background-size:cover;
-background-position:center;
-z-index:-2;
 }
 
 .massive-cta h2{
 font-size:100px;
-font-weight:900;
-line-height:1.05;
+line-height:1;
 margin-bottom:25px;
 }
 
@@ -1013,10 +1003,10 @@ background:linear-gradient(135deg,var(--primary),var(--secondary));
 }
 
 .massive-cta p{
-font-size:22px;
-max-width:900px;
+max-width:850px;
 margin:auto;
 line-height:2;
+font-size:20px;
 opacity:.85;
 margin-bottom:40px;
 }
@@ -1060,10 +1050,6 @@ text-decoration:none;
 opacity:.8;
 }
 
-.footer-grid a:hover{
-color:#b388ff;
-}
-
 .copyright{
 text-align:center;
 padding-top:50px;
@@ -1086,82 +1072,41 @@ align-items:center;
 font-size:34px;
 color:#fff;
 text-decoration:none;
-box-shadow:0 0 30px rgba(37,211,102,.5);
-animation:bounce 2s infinite;
 z-index:999;
-}
-
-/* MOBILE MENU */
-
-.mobile-menu{
-position:fixed;
-top:0;
-right:-100%;
-width:280px;
-height:100vh;
-background:#050505;
-padding:120px 40px;
-display:flex;
-flex-direction:column;
-gap:25px;
-transition:.5s;
-z-index:9999;
-}
-
-.mobile-menu.active{
-right:0;
-}
-
-.mobile-menu a{
-color:#fff;
-text-decoration:none;
-font-size:20px;
-font-weight:600;
 }
 
 /* MOBILE */
 
-@media(max-width:1100px){
+@media(max-width:1000px){
 
-.testimonial-grid{
-grid-template-columns:1fr;
-}
-
+.upcoming-grid,
+.testimonial-grid,
 .footer-grid{
 grid-template-columns:1fr;
 }
 
-.wall-grid{
-columns:2;
+.memory-gallery{
+grid-template-columns:repeat(2,1fr);
+}
+
+.feature-memory{
+height:500px;
+}
+
+.memory-overlay h2{
+font-size:38px;
 }
 
 .massive-cta h2{
-font-size:60px;
+font-size:55px;
 }
 
 }
 
 @media(max-width:768px){
 
-.wall-grid{
-columns:1;
-}
-
-.trip-banner{
-min-width:320px;
-height:450px;
-}
-
-.massive-cta{
-padding:120px 8%;
-}
-
-.massive-cta h2{
-font-size:42px;
-}
-
-.massive-cta p{
-font-size:16px;
+.memory-gallery{
+grid-template-columns:1fr;
 }
 
 }
@@ -1170,47 +1115,29 @@ font-size:16px;
 
 <!-- UPCOMING JOURNEYS -->
 
-<section class="journey-slider">
+<section class="upcoming-section">
 
 <h2 class="section-title">
 Upcoming <span>Journeys</span>
 </h2>
 
-<div class="slider-track">
+<div class="upcoming-grid">
 
-<div class="trip-banner">
+<div class="trip-card">
 <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070">
-<div class="trip-overlay">
-<h3>Kudremukh Trek</h3>
-<p>Clouds, peaks and unforgettable sunrise views.</p>
-<a href="contact.html" class="trip-btn">Book Now</a>
-</div>
-</div>
-
-<div class="trip-banner">
-<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070">
 <div class="trip-overlay">
 <h3>Netravathi Trek</h3>
 <p>One of Karnataka's most beautiful trails.</p>
-<a href="contact.html" class="trip-btn">Book Now</a>
+<a href="contact.html" class="btn btn-primary">Book Now</a>
 </div>
 </div>
 
-<div class="trip-banner">
-<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070">
+<div class="trip-card">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070">
 <div class="trip-overlay">
 <h3>Kodachadri</h3>
 <p>Adventure, waterfalls and stunning landscapes.</p>
-<a href="contact.html" class="trip-btn">Book Now</a>
-</div>
-</div>
-
-<div class="trip-banner">
-<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070">
-<div class="trip-overlay">
-<h3>Coorg Escape</h3>
-<p>Coffee estates, mist and unforgettable vibes.</p>
-<a href="contact.html" class="trip-btn">Book Now</a>
+<a href="contact.html" class="btn btn-primary">Book Now</a>
 </div>
 </div>
 
@@ -1218,22 +1145,35 @@ Upcoming <span>Journeys</span>
 
 </section>
 
-<!-- COMMUNITY WALL -->
+<!-- MEMORIES -->
 
-<section class="community-wall">
+<section class="memories-section">
 
 <h2 class="section-title">
-Community <span>Memories</span>
+Memories From The <span>Trail</span>
 </h2>
 
-<div class="wall-grid">
+<div class="feature-memory">
 
-<img class="wall-item" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070">
-<img class="wall-item" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070">
-<img class="wall-item" src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070">
-<img class="wall-item" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070">
-<img class="wall-item" src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070">
-<img class="wall-item" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070">
+<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070">
+
+<div class="memory-overlay">
+
+<h2>
+Every mountain has a story.<br>
+Every traveler becomes part of ours.
+</h2>
+
+</div>
+
+</div>
+
+<div class="memory-gallery">
+
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070">
+<img src="https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=2070">
+<img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070">
+<img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=2070">
 
 </div>
 
@@ -1251,33 +1191,27 @@ Traveler <span>Stories</span>
 
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
-<p>
-The best travel community I've ever been part of. Came for a trek, left with lifelong friends.
-</p>
-<h4>— Traveler</h4>
+<p>The best travel community I've ever joined.</p>
+<h4>— PARAMATHMA Traveler</h4>
 </div>
 
 <div class="testimonial-card">
 <div class="stars">★★★★★</div>
-<p>
-Beautifully organized. Safe, fun and full of memories. PARAMATHMA feels like family.
-</p>
-<h4>— Explorer</h4>
-</div>
-
-<div class="testimonial-card">
-<div class="stars">★★★★★</div>
-<p>
-More than travel. It genuinely helped me reconnect with myself and nature.
-</p>
+<p>Not just a trek. I made genuine friendships.</p>
 <h4>— Community Member</h4>
+</div>
+
+<div class="testimonial-card">
+<div class="stars">★★★★★</div>
+<p>Beautifully organized and full of unforgettable moments.</p>
+<h4>— Explorer</h4>
 </div>
 
 </div>
 
 </section>
 
-<!-- FINAL CTA -->
+<!-- CTA -->
 
 <section class="massive-cta">
 
@@ -1304,82 +1238,3 @@ Join PARAMATHMA
 </div>
 
 </section>
-
-<!-- FOOTER -->
-
-<footer>
-
-<div class="footer-grid">
-
-<div>
-
-<div class="footer-logo">
-PARAMATHMA DIARIES
-</div>
-
-<p>
-Travel • Heal • Connect • Grow
-<br><br>
-Creating journeys that become lifelong memories.
-</p>
-
-</div>
-
-<div>
-
-<h3>Quick Links</h3>
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="trips.html">Trips</a>
-<a href="gallery.html">Gallery</a>
-<a href="contact.html">Contact</a>
-
-</div>
-
-<div>
-
-<h3>Connect</h3>
-
-<a href="https://www.instagram.com/paramathma__diaries/">Instagram</a>
-<a href="https://wa.me/918217682902">WhatsApp</a>
-
-</div>
-
-</div>
-
-<div class="copyright">
-© 2026 PARAMATHMA DIARIES • Collecting Moments. Creating Memories.
-</div>
-
-</footer>
-
-<a href="https://wa.me/918217682902" class="whatsapp">
-<i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<div class="mobile-menu" id="mobileMenu">
-
-<a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="trips.html">Trips</a>
-<a href="gallery.html">Gallery</a>
-<a href="contact.html">Contact</a>
-
-</div>
-
-<script>
-
-const menuBtn=document.querySelector('.menu-btn');
-const mobileMenu=document.getElementById('mobileMenu');
-
-if(menuBtn){
-menuBtn.addEventListener('click',()=>{
-mobileMenu.classList.toggle('active');
-});
-}
-
-</script>
-
-</body>
-</html>
