@@ -6,9 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Start Your Journey | PARAMATHMA DIARIES</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>Contact | PARAMATHMA DIARIES</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -62,15 +60,6 @@ right:-150px;
 z-index:-1;
 }
 
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-background:linear-gradient(var(--primary),var(--secondary));
-border-radius:20px;
-}
-
 /* NAVBAR */
 
 nav{
@@ -102,14 +91,9 @@ list-style:none;
 }
 
 nav ul a{
-text-decoration:none;
 color:#fff;
+text-decoration:none;
 font-weight:600;
-transition:.4s;
-}
-
-nav ul a:hover{
-color:#b388ff;
 }
 
 .menu-btn{
@@ -152,7 +136,7 @@ content:'';
 position:absolute;
 inset:0;
 background:
-linear-gradient(rgba(0,0,0,.72),rgba(0,0,0,.92)),
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.9)),
 url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070');
 background-size:cover;
 background-position:center;
@@ -164,19 +148,19 @@ z-index:2;
 max-width:1000px;
 }
 
-.hero-tag{
+.hero-badge{
 display:inline-block;
 padding:12px 25px;
 border-radius:50px;
-border:1px solid rgba(255,255,255,.08);
+border:1px solid rgba(255,255,255,.1);
 margin-bottom:25px;
 color:#b388ff;
 }
 
 .hero h1{
-font-size:95px;
-font-weight:900;
+font-size:100px;
 line-height:1;
+font-weight:900;
 margin-bottom:25px;
 }
 
@@ -189,92 +173,81 @@ background:linear-gradient(90deg,var(--primary),var(--secondary));
 .hero p{
 font-size:22px;
 line-height:1.9;
-opacity:.85;
 max-width:850px;
 margin:auto;
+opacity:.85;
 }
 
-/* JOURNEY SECTION */
+/* STATS */
 
-.journey-grid{
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+}
+
+.stat-card{
+background:var(--glass);
+padding:40px;
+border-radius:25px;
+text-align:center;
+border:1px solid rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+}
+
+.stat-card h2{
+font-size:60px;
+font-weight:900;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.stat-card p{
+margin-top:10px;
+opacity:.8;
+}
+
+/* WHY PARAMATHMA */
+
+.why-grid{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:30px;
-max-width:1100px;
+max-width:1200px;
 margin:auto;
 }
 
-.journey-card{
+.why-card{
 background:var(--glass);
-padding:50px 40px;
+padding:45px;
 border-radius:30px;
 border:1px solid rgba(255,255,255,.05);
 backdrop-filter:blur(20px);
 transition:.5s;
-text-align:center;
-min-height:320px;
-display:flex;
-flex-direction:column;
-justify-content:center;
 }
 
-.journey-card:hover{
+.why-card:hover{
 transform:translateY(-10px);
 box-shadow:0 0 35px rgba(124,77,255,.15);
 }
 
-.journey-card i{
-font-size:60px;
+.why-card i{
+font-size:50px;
 margin-bottom:20px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.journey-card h3{
-font-size:34px;
+.why-card h3{
+font-size:30px;
 margin-bottom:15px;
 }
 
-.journey-card p{
+.why-card p{
 line-height:1.9;
 opacity:.82;
-}
-
-/* PROMISE */
-
-.promise{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:25px;
-max-width:1000px;
-margin:auto;
-}
-
-.promise-card{
-background:var(--glass);
-padding:35px;
-border-radius:25px;
-text-align:center;
-border:1px solid rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
-transition:.4s;
-}
-
-.promise-card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 35px rgba(124,77,255,.15);
-}
-
-.promise-card h3{
-font-size:24px;
-margin-bottom:12px;
-color:#b388ff;
-}
-
-.promise-card p{
-opacity:.82;
-line-height:1.8;
 }
 
 /* MOBILE */
@@ -301,11 +274,11 @@ font-size:16px;
 font-size:42px;
 }
 
-.journey-grid{
-grid-template-columns:1fr;
+.stats-grid{
+grid-template-columns:repeat(2,1fr);
 }
 
-.promise{
+.why-grid{
 grid-template-columns:1fr;
 }
 
@@ -339,17 +312,17 @@ grid-template-columns:1fr;
 
 <div class="hero-content">
 
-<div class="hero-tag">
-YOUR NEXT MEMORY IS ONE MESSAGE AWAY
+<div class="hero-badge">
+YOUR NEXT STORY STARTS HERE
 </div>
 
 <h1>
-Start Your Next<br>
-<span>Journey</span>
+Ready For Your<br>
+<span>Next Adventure?</span>
 </h1>
 
 <p>
-Whether you're looking for adventure, friendships, healing or unforgettable experiences — your next story starts here.
+The mountains are waiting. The campfire is ready. Your next unforgettable memory begins with a single message.
 </p>
 
 </div>
@@ -359,33 +332,29 @@ Whether you're looking for adventure, friendships, healing or unforgettable expe
 <section>
 
 <h2 class="section-title">
-Choose Your <span>Journey</span>
+PARAMATHMA In <span>Numbers</span>
 </h2>
 
-<div class="journey-grid">
+<div class="stats-grid">
 
-<div class="journey-card">
-<i class="fas fa-mountain"></i>
-<h3>Trekking Adventures</h3>
-<p>Epic mountain trails, breathtaking sunrises and unforgettable outdoor experiences.</p>
+<div class="stat-card">
+<h2>500+</h2>
+<p>Travelers</p>
 </div>
 
-<div class="journey-card">
-<i class="fas fa-users"></i>
-<h3>Community Trips</h3>
-<p>Meet like-minded explorers and build meaningful friendships through travel.</p>
+<div class="stat-card">
+<h2>40+</h2>
+<p>Trips</p>
 </div>
 
-<div class="journey-card">
-<i class="fas fa-briefcase"></i>
-<h3>Corporate Outings</h3>
-<p>Premium outdoor experiences designed for team bonding and engagement.</p>
+<div class="stat-card">
+<h2>15+</h2>
+<p>Destinations</p>
 </div>
 
-<div class="journey-card">
-<i class="fas fa-route"></i>
-<h3>Private Getaways</h3>
-<p>Custom adventures crafted around your group's interests and preferences.</p>
+<div class="stat-card">
+<h2>1</h2>
+<p>Travel Family</p>
 </div>
 
 </div>
@@ -395,29 +364,33 @@ Choose Your <span>Journey</span>
 <section>
 
 <h2 class="section-title">
-Our <span>Promise</span>
+Why Travel With <span>Us?</span>
 </h2>
 
-<div class="promise">
+<div class="why-grid">
 
-<div class="promise-card">
-<h3>⚡ Fast Response</h3>
-<p>We aim to respond to every inquiry within 24 hours.</p>
+<div class="why-card">
+<i class="fas fa-mountain"></i>
+<h3>Adventure</h3>
+<p>Discover breathtaking destinations and experiences that push you beyond routine.</p>
 </div>
 
-<div class="promise-card">
-<h3>💜 Personalized Guidance</h3>
-<p>Every traveler receives support tailored to their journey.</p>
+<div class="why-card">
+<i class="fas fa-users"></i>
+<h3>Community</h3>
+<p>Meet amazing people, build friendships and become part of something bigger.</p>
 </div>
 
-<div class="promise-card">
-<h3>🛡 Safe Travel</h3>
-<p>Your safety and comfort remain our highest priorities.</p>
+<div class="why-card">
+<i class="fas fa-heart"></i>
+<h3>Healing</h3>
+<p>Reconnect with nature, slow down and find peace away from everyday stress.</p>
 </div>
 
-<div class="promise-card">
-<h3>🤝 Human Support</h3>
-<p>Real people helping you create unforgettable memories.</p>
+<div class="why-card">
+<i class="fas fa-camera"></i>
+<h3>Memories</h3>
+<p>Create moments you'll remember forever and stories you'll keep telling.</p>
 </div>
 
 </div>
@@ -425,18 +398,18 @@ Our <span>Promise</span>
 </section>
 <style>
 
-/* CONTACT SECTION */
+/* CONTACT WRAPPER */
 
 .contact-wrapper{
 display:grid;
 grid-template-columns:0.9fr 1.1fr;
 gap:40px;
-align-items:start;
 max-width:1300px;
 margin:auto;
+align-items:start;
 }
 
-/* LEFT SIDE */
+/* CONTACT CARDS */
 
 .contact-info{
 display:flex;
@@ -446,63 +419,44 @@ gap:25px;
 
 .contact-card{
 background:var(--glass);
-padding:30px;
-border-radius:25px;
+padding:35px;
+border-radius:30px;
 border:1px solid rgba(255,255,255,.05);
 backdrop-filter:blur(20px);
-display:flex;
-align-items:center;
-gap:20px;
 transition:.5s;
 }
 
 .contact-card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
 box-shadow:0 0 35px rgba(124,77,255,.15);
 }
 
-.contact-icon{
-width:70px;
-height:70px;
-border-radius:50%;
+.contact-card i{
+font-size:45px;
+margin-bottom:15px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
-display:flex;
-justify-content:center;
-align-items:center;
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.contact-card h3{
 font-size:28px;
-color:#fff;
-flex-shrink:0;
+margin-bottom:10px;
 }
 
-.contact-content h3{
-font-size:24px;
-margin-bottom:5px;
-}
-
-.contact-content p{
-opacity:.8;
-line-height:1.7;
-}
-
-/* WHATSAPP SPECIAL */
-
-.whatsapp-card{
-background:linear-gradient(
-135deg,
-rgba(124,77,255,.15),
-rgba(255,78,205,.15)
-);
-border:1px solid rgba(255,255,255,.08);
+.contact-card p{
+line-height:1.8;
+opacity:.82;
 }
 
 .whatsapp-btn{
 display:inline-block;
-margin-top:12px;
-padding:12px 24px;
+margin-top:20px;
+padding:16px 30px;
 border-radius:50px;
-text-decoration:none;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 color:#fff;
+text-decoration:none;
 font-weight:700;
 }
 
@@ -517,7 +471,7 @@ backdrop-filter:blur(20px);
 }
 
 .contact-form h2{
-font-size:48px;
+font-size:50px;
 margin-bottom:15px;
 font-weight:900;
 }
@@ -529,16 +483,15 @@ background:linear-gradient(90deg,var(--primary),var(--secondary));
 }
 
 .contact-form p{
-opacity:.8;
-margin-bottom:30px;
 line-height:1.9;
+opacity:.82;
+margin-bottom:30px;
 }
 
 .form-row{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:20px;
-margin-bottom:20px;
 }
 
 .form-group{
@@ -546,8 +499,8 @@ margin-bottom:20px;
 }
 
 .form-group input,
-.form-group textarea,
-.form-group select{
+.form-group select,
+.form-group textarea{
 width:100%;
 padding:18px 20px;
 background:rgba(255,255,255,.03);
@@ -563,30 +516,20 @@ height:180px;
 resize:none;
 }
 
-.form-group input::placeholder,
-.form-group textarea::placeholder{
-color:rgba(255,255,255,.5);
-}
-
 .submit-btn{
 padding:18px 40px;
 border:none;
-border-radius:60px;
+border-radius:50px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 color:#fff;
 font-size:16px;
 font-weight:700;
 cursor:pointer;
-transition:.4s;
 }
 
-.submit-btn:hover{
-transform:translateY(-5px);
-}
+/* QUICK CONTACT */
 
-/* HOW WE CAN HELP */
-
-.help-grid{
+.quick-contact{
 display:grid;
 grid-template-columns:repeat(2,1fr);
 gap:25px;
@@ -594,40 +537,38 @@ max-width:1100px;
 margin:auto;
 }
 
-.help-card{
+.quick-card{
 background:var(--glass);
-padding:40px;
+padding:35px;
 border-radius:25px;
 border:1px solid rgba(255,255,255,.05);
-backdrop-filter:blur(20px);
 text-align:center;
+backdrop-filter:blur(20px);
 transition:.5s;
 }
 
-.help-card:hover{
-transform:translateY(-8px);
+.quick-card:hover{
+transform:translateY(-10px);
 box-shadow:0 0 35px rgba(124,77,255,.15);
 }
 
-.help-card i{
-font-size:50px;
+.quick-card i{
+font-size:45px;
 margin-bottom:20px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
 
-.help-card h3{
-font-size:28px;
-margin-bottom:15px;
+.quick-card h3{
+font-size:26px;
+margin-bottom:10px;
 }
 
-.help-card p{
-line-height:1.8;
+.quick-card p{
 opacity:.82;
+line-height:1.8;
 }
-
-/* MOBILE */
 
 @media(max-width:1000px){
 
@@ -639,7 +580,7 @@ grid-template-columns:1fr;
 grid-template-columns:1fr;
 }
 
-.help-grid{
+.quick-contact{
 grid-template-columns:1fr;
 }
 
@@ -655,12 +596,12 @@ font-size:36px;
 
 </style>
 
-<!-- LET'S TALK -->
+<!-- CONTACT SECTION -->
 
 <section>
 
 <h2 class="section-title">
-Let's <span>Talk</span>
+Let's <span>Connect</span>
 </h2>
 
 <div class="contact-wrapper">
@@ -669,64 +610,31 @@ Let's <span>Talk</span>
 
 <div class="contact-info">
 
-<div class="contact-card whatsapp-card">
+<div class="contact-card">
 
-<div class="contact-icon">
 <i class="fab fa-whatsapp"></i>
-</div>
 
-<div class="contact-content">
-
-<h3>WhatsApp Us</h3>
+<h3>Talk To Us Instantly</h3>
 
 <p>
-Need a quick response? Reach out directly and we'll help you choose the perfect journey.
+The fastest way to join a trip is through WhatsApp. One message and we'll help you plan everything.
 </p>
 
 <a href="https://wa.me/918217682902" class="whatsapp-btn">
-Chat Now
+Chat On WhatsApp
 </a>
 
 </div>
 
-</div>
-
 <div class="contact-card">
 
-<div class="contact-icon">
-<i class="fas fa-phone"></i>
-</div>
+<i class="fas fa-heart"></i>
 
-<div class="contact-content">
-<h3>Call Us</h3>
-<p>+91 82176 82902</p>
-</div>
+<h3>Travel With Family</h3>
 
-</div>
-
-<div class="contact-card">
-
-<div class="contact-icon">
-<i class="fab fa-instagram"></i>
-</div>
-
-<div class="contact-content">
-<h3>Instagram</h3>
-<p>@paramathmadiaries</p>
-</div>
-
-</div>
-
-<div class="contact-card">
-
-<div class="contact-icon">
-<i class="fas fa-location-dot"></i>
-</div>
-
-<div class="contact-content">
-<h3>Location</h3>
-<p>Bangalore, Karnataka</p>
-</div>
+<p>
+At PARAMATHMA, we don't create customers. We create friendships, stories and lifelong memories.
+</p>
 
 </div>
 
@@ -737,23 +645,23 @@ Chat Now
 <div class="contact-form">
 
 <h2>
-Plan Your <span>Adventure</span>
+Plan Your <span>Journey</span>
 </h2>
 
 <p>
-Tell us about yourself and we'll guide you towards your next unforgettable experience.
+Fill in your details and we'll prepare the perfect adventure for you.
 </p>
 
-<form>
+<form id="journeyForm">
 
 <div class="form-row">
 
 <div class="form-group">
-<input type="text" placeholder="Full Name">
+<input type="text" id="name" placeholder="Full Name">
 </div>
 
 <div class="form-group">
-<input type="tel" placeholder="Phone Number">
+<input type="tel" id="phone" placeholder="Phone Number">
 </div>
 
 </div>
@@ -761,17 +669,18 @@ Tell us about yourself and we'll guide you towards your next unforgettable exper
 <div class="form-row">
 
 <div class="form-group">
-<input type="email" placeholder="Email Address">
+<input type="email" id="email" placeholder="Email Address">
 </div>
 
 <div class="form-group">
 
-<select>
-<option>Preferred Trip Type</option>
+<select id="trip">
+
 <option>Trekking Adventure</option>
 <option>Community Trip</option>
 <option>Corporate Outing</option>
 <option>Private Getaway</option>
+
 </select>
 
 </div>
@@ -779,14 +688,14 @@ Tell us about yourself and we'll guide you towards your next unforgettable exper
 </div>
 
 <div class="form-group">
-<input type="text" placeholder="Preferred Destination">
+<input type="text" id="destination" placeholder="Preferred Destination">
 </div>
 
 <div class="form-group">
-<textarea placeholder="Tell us about your dream trip..."></textarea>
+<textarea id="message" placeholder="Tell us about your dream trip..."></textarea>
 </div>
 
-<button class="submit-btn">
+<button type="submit" class="submit-btn">
 Start My Journey
 </button>
 
@@ -798,46 +707,38 @@ Start My Journey
 
 </section>
 
-<!-- HOW WE CAN HELP -->
+<!-- QUICK CONTACT -->
 
 <section>
 
 <h2 class="section-title">
-How We Can <span>Help</span>
+Reach Us <span>Anywhere</span>
 </h2>
 
-<div class="help-grid">
+<div class="quick-contact">
 
-<div class="help-card">
-<i class="fas fa-map"></i>
-<h3>Trip Planning</h3>
-<p>
-We'll help you choose the perfect experience based on your interests and travel goals.
-</p>
+<div class="quick-card">
+<i class="fab fa-instagram"></i>
+<h3>Instagram</h3>
+<p>@paramathmadiaries</p>
 </div>
 
-<div class="help-card">
-<i class="fas fa-users"></i>
-<h3>Group Adventures</h3>
-<p>
-Customized experiences for friends, communities and travel groups.
-</p>
+<div class="quick-card">
+<i class="fas fa-phone"></i>
+<h3>Phone</h3>
+<p>+91 82176 82902</p>
 </div>
 
-<div class="help-card">
-<i class="fas fa-building"></i>
-<h3>Corporate Outings</h3>
-<p>
-Team bonding, retreats and adventure experiences for organizations.
-</p>
+<div class="quick-card">
+<i class="fas fa-location-dot"></i>
+<h3>Location</h3>
+<p>Bangalore, Karnataka</p>
 </div>
 
-<div class="help-card">
-<i class="fas fa-compass"></i>
-<h3>Travel Guidance</h3>
-<p>
-Support before, during and after your journey to ensure a smooth experience.
-</p>
+<div class="quick-card">
+<i class="fas fa-clock"></i>
+<h3>Response Time</h3>
+<p>Usually Within A Few Hours</p>
 </div>
 
 </div>
@@ -847,76 +748,53 @@ Support before, during and after your journey to ensure a smooth experience.
 
 /* JOURNEY TIMELINE */
 
-.journey-timeline{
-max-width:1100px;
+.journey-flow{
+max-width:1200px;
 margin:auto;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:25px;
 position:relative;
 }
 
-.journey-timeline::before{
-content:'';
-position:absolute;
-left:50%;
-top:0;
-transform:translateX(-50%);
-width:3px;
-height:100%;
-background:linear-gradient(var(--primary),var(--secondary));
-}
-
-.timeline-step{
-width:50%;
-padding:25px;
-position:relative;
-}
-
-.timeline-step:nth-child(odd){
-left:0;
-text-align:right;
-}
-
-.timeline-step:nth-child(even){
-left:50%;
-}
-
-.timeline-card{
+.flow-card{
 background:var(--glass);
-padding:35px;
+padding:35px 25px;
 border-radius:25px;
 border:1px solid rgba(255,255,255,.05);
 backdrop-filter:blur(20px);
+text-align:center;
 transition:.5s;
+position:relative;
 }
 
-.timeline-card:hover{
-transform:translateY(-8px);
+.flow-card:hover{
+transform:translateY(-10px);
 box-shadow:0 0 35px rgba(124,77,255,.15);
 }
 
-.timeline-card h3{
-font-size:28px;
-margin-bottom:12px;
+.flow-number{
+width:60px;
+height:60px;
+margin:auto;
+margin-bottom:20px;
+border-radius:50%;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
 font-weight:800;
 }
 
-.timeline-card p{
-line-height:1.9;
+.flow-card h3{
+font-size:24px;
+margin-bottom:12px;
+}
+
+.flow-card p{
+line-height:1.8;
 opacity:.82;
-}
-
-.timeline-dot{
-position:absolute;
-width:22px;
-height:22px;
-border-radius:50%;
-background:linear-gradient(var(--primary),var(--secondary));
-top:45px;
-right:-11px;
-box-shadow:0 0 20px rgba(124,77,255,.6);
-}
-
-.timeline-step:nth-child(even) .timeline-dot{
-left:-11px;
 }
 
 /* CTA */
@@ -955,9 +833,9 @@ background:linear-gradient(90deg,var(--primary),var(--secondary));
 
 .contact-cta p{
 font-size:20px;
+line-height:2;
 max-width:850px;
 margin:auto;
-line-height:2;
 opacity:.85;
 margin-bottom:40px;
 }
@@ -967,14 +845,14 @@ display:inline-block;
 padding:20px 45px;
 border-radius:60px;
 background:linear-gradient(90deg,var(--primary),var(--secondary));
-color:#fff;
 text-decoration:none;
+color:#fff;
 font-weight:700;
 transition:.4s;
 }
 
 .cta-btn:hover{
-transform:translateY(-5px);
+transform:translateY(-6px);
 }
 
 /* FOOTER */
@@ -1076,22 +954,10 @@ font-weight:600;
 
 /* MOBILE */
 
-@media(max-width:900px){
+@media(max-width:1000px){
 
-.journey-timeline::before{
-left:20px;
-}
-
-.timeline-step{
-width:100%;
-left:0!important;
-text-align:left!important;
-padding-left:60px;
-}
-
-.timeline-dot{
-left:10px!important;
-right:auto!important;
+.journey-flow{
+grid-template-columns:1fr;
 }
 
 .contact-cta{
@@ -1099,7 +965,7 @@ padding:120px 8%;
 }
 
 .contact-cta h2{
-font-size:48px;
+font-size:50px;
 }
 
 .contact-cta p{
@@ -1107,71 +973,51 @@ font-size:16px;
 }
 
 .footer-logo{
-font-size:30px;
+font-size:32px;
 }
 
 }
 
 </style>
 
-<!-- JOURNEY TIMELINE -->
+<!-- JOURNEY FLOW -->
 
 <section>
 
 <h2 class="section-title">
-Your <span>Journey</span> Starts Here
+Your Journey <span>Process</span>
 </h2>
 
-<div class="journey-timeline">
+<div class="journey-flow">
 
-<div class="timeline-step">
-<div class="timeline-card">
-<h3>📩 Reach Out</h3>
-<p>
-Send us a message through WhatsApp, Instagram or the contact form.
-</p>
-</div>
-<div class="timeline-dot"></div>
+<div class="flow-card">
+<div class="flow-number">1</div>
+<h3>Message Us</h3>
+<p>Contact us through WhatsApp or the form.</p>
 </div>
 
-<div class="timeline-step">
-<div class="timeline-card">
-<h3>🧭 Get Guidance</h3>
-<p>
-We'll help you find the perfect adventure based on your interests.
-</p>
-</div>
-<div class="timeline-dot"></div>
+<div class="flow-card">
+<div class="flow-number">2</div>
+<h3>Get Guidance</h3>
+<p>We'll suggest the best trip based on your interests.</p>
 </div>
 
-<div class="timeline-step">
-<div class="timeline-card">
-<h3>✅ Confirm Your Seat</h3>
-<p>
-Reserve your place and receive all travel details.
-</p>
-</div>
-<div class="timeline-dot"></div>
+<div class="flow-card">
+<div class="flow-number">3</div>
+<h3>Reserve Seat</h3>
+<p>Confirm your booking and receive all details.</p>
 </div>
 
-<div class="timeline-step">
-<div class="timeline-card">
-<h3>🎒 Pack Your Bags</h3>
-<p>
-Get ready for mountains, friendships and unforgettable moments.
-</p>
-</div>
-<div class="timeline-dot"></div>
+<div class="flow-card">
+<div class="flow-number">4</div>
+<h3>Start Adventure</h3>
+<p>Travel, explore, connect and create memories.</p>
 </div>
 
-<div class="timeline-step">
-<div class="timeline-card">
-<h3>✨ Create Memories</h3>
-<p>
-Experience the PARAMATHMA journey and return with stories worth telling.
-</p>
-</div>
-<div class="timeline-dot"></div>
+<div class="flow-card">
+<div class="flow-number">5</div>
+<h3>Stay Family</h3>
+<p>Leave with friendships and stories for life.</p>
 </div>
 
 </div>
@@ -1183,16 +1029,16 @@ Experience the PARAMATHMA journey and return with stories worth telling.
 <section class="contact-cta">
 
 <h2>
-Some Journeys<br>
-<span>Change You.</span>
+Don't Just Travel.<br>
+<span>Belong.</span>
 </h2>
 
 <p>
-The mountains are calling. The campfire is waiting. Your next unforgettable memory is just one message away.
+PARAMATHMA DIARIES is more than trips and destinations. It's a community of explorers creating stories, friendships and unforgettable memories together.
 </p>
 
 <a href="https://wa.me/918217682902" class="cta-btn">
-START YOUR JOURNEY
+JOIN THE NEXT JOURNEY
 </a>
 
 </section>
@@ -1208,7 +1054,7 @@ PARAMATHMA DIARIES
 <p class="footer-text">
 Travel • Heal • Connect • Grow
 <br><br>
-Creating journeys that become lifelong memories.
+Collecting Moments. Creating Memories.
 </p>
 
 <div class="footer-links">
@@ -1241,6 +1087,8 @@ Creating journeys that become lifelong memories.
 
 <script>
 
+/* MOBILE MENU */
+
 const menuBtn=document.querySelector('.menu-btn');
 const mobileMenu=document.getElementById('mobileMenu');
 
@@ -1249,6 +1097,40 @@ menuBtn.addEventListener('click',()=>{
 mobileMenu.classList.toggle('active');
 });
 }
+
+/* WHATSAPP FORM */
+
+document.getElementById("journeyForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let email=document.getElementById("email").value;
+let trip=document.getElementById("trip").value;
+let destination=document.getElementById("destination").value;
+let message=document.getElementById("message").value;
+
+let whatsappMessage=`Hi PARAMATHMA DIARIES 👋
+
+Name: ${name}
+
+Phone: ${phone}
+
+Email: ${email}
+
+Trip Type: ${trip}
+
+Preferred Destination: ${destination}
+
+Message:
+${message}`;
+
+let url="https://wa.me/918217682902?text="+encodeURIComponent(whatsappMessage);
+
+window.open(url,'_blank');
+
+});
 
 </script>
 
