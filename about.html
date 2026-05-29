@@ -392,18 +392,19 @@ Meet The <span>Founders</span>
 
 <div class="founder-image">
 
-<img src="https://raw.githubusercontent.com/paramathmadiaries/paramathma-diaries/main/497545117_2781240238743112_7747289861041064099_n.jpg">
+<img src="https://raw.githubusercontent.com/paramathmadiaries/paramathma-diaries/main/497545117_2781240238743112_7747289861041064099_n.jpg" alt="Neeraj Jayanna">
 
 </div>
 
 <div class="founder-content">
 
+<span class="founder-badge">Founder</span>
+
 <h3>Neeraj Jayanna</h3>
 
-<h4>Founder • Vision & Growth</h4>
+<h4>Vision & Growth</h4>
 
 <p>
-
 Neeraj envisioned PARAMATHMA DIARIES as more than a travel company — a movement that connects people emotionally through nature, adventure and unforgettable experiences.
 
 <br><br>
@@ -413,7 +414,6 @@ His vision is to build one of Karnataka's most loved travel communities where jo
 <br><br>
 
 Focused on expansion, branding and community culture, he believes travel should transform emotions, not just locations.
-
 </p>
 
 </div>
@@ -424,20 +424,15 @@ Focused on expansion, branding and community culture, he believes travel should 
 
 <div class="founder-card founder-right">
 
-<div class="founder-image">
-
-<img src="https://raw.githubusercontent.com/paramathmadiaries/paramathma-diaries/main/IMG_6374.jpg">
-
-</div>
-
 <div class="founder-content">
+
+<span class="founder-badge">Founder</span>
 
 <h3>Arun</h3>
 
-<h4>Founder • Experience & Execution</h4>
+<h4>Experience & Execution</h4>
 
 <p>
-
 Arun believes the best journeys are created through meaningful experiences, perfect execution and unforgettable moments.
 
 <br><br>
@@ -447,88 +442,13 @@ His vision is to make every PARAMATHMA journey feel premium, emotional and deepl
 <br><br>
 
 Focused on trust, safety and high-quality travel experiences, he aims to redefine how people experience travel communities in Karnataka.
-
 </p>
 
 </div>
 
-</div>
+<div class="founder-image">
 
-</div>
-
-</section>
-
-<!-- LEADERSHIP TEAM -->
-
-<section>
-
-<h2 class="section-title">
-Our <span>Leadership Team</span>
-</h2>
-
-<div class="team-leadership">
-
-<!-- SNEHA -->
-
-<div class="leader-card">
-
-<img src="https://raw.githubusercontent.com/paramathmadiaries/paramathma-diaries/main/64BAD3D4-9C82-433E-9186-0ECD1C5B20FE_1_105_c.jpeg">
-
-<div class="leader-content">
-
-<h3>Sneha Tilak</h3>
-
-<h4>Community & Experiences</h4>
-
-<p>
-
-Focused on traveler bonding, community engagement and creating experiences that people remember forever.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- SHWETHA -->
-
-<div class="leader-card">
-
-<img src="https://raw.githubusercontent.com/paramathmadiaries/paramathma-diaries/main/PHOTO-2026-04-19-18-44-33.jpg">
-
-<div class="leader-content">
-
-<h3>Shwetha</h3>
-
-<h4>Marketing & Branding</h4>
-
-<p>
-
-Focused on branding, storytelling, social media growth and building PARAMATHMA DIARIES into a strong travel community brand.
-
-</p>
-
-</div>
-
-</div>
-
-<!-- NETHRA -->
-
-<div class="leader-card">
-
-<img src="https://raw.githubusercontent.com/paramathmadiaries/paramathma-diaries/main/WhatsApp%20Image%202026-05-29%20at%2010.54.18%20AM.jpeg">
-
-<div class="leader-content">
-
-<h3>Nethravathi</h3>
-
-<h4>Women Safety & Hospitality</h4>
-
-<p>
-
-Focused on traveler wellbeing, hospitality and creating a safe, comfortable and welcoming environment for every traveler.
-
-</p>
+<img src="https://raw.githubusercontent.com/paramathmadiaries/paramathma-diaries/main/IMG_6374.jpg" alt="Arun">
 
 </div>
 
@@ -540,62 +460,111 @@ Focused on traveler wellbeing, hospitality and creating a safe, comfortable and 
 
 <style>
 
-/* LEADERSHIP TEAM */
+/* FOUNDERS */
 
-.team-leadership{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-gap:35px;
-margin-top:40px;
+.founders-wrapper{
+display:flex;
+flex-direction:column;
+gap:70px;
+margin-top:50px;
 }
 
-.leader-card{
+.founder-card{
+display:grid;
+grid-template-columns:380px 1fr;
+gap:50px;
+align-items:center;
 background:rgba(255,255,255,.03);
-border:1px solid rgba(255,255,255,.05);
-border-radius:30px;
-overflow:hidden;
+border:1px solid rgba(255,255,255,.06);
+padding:40px;
+border-radius:35px;
 backdrop-filter:blur(20px);
 transition:.5s;
+overflow:hidden;
 }
 
-.leader-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 35px rgba(124,77,255,.18);
+.founder-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 40px rgba(124,77,255,.15);
 }
 
-.leader-card img{
+.founder-right{
+grid-template-columns:1fr 380px;
+}
+
+.founder-image{
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.founder-image img{
 width:100%;
-height:420px;
+max-width:380px;
+height:480px;
 object-fit:cover;
+border-radius:25px;
 display:block;
 }
 
-.leader-content{
+.founder-badge{
+display:inline-block;
+padding:10px 18px;
+border-radius:50px;
+background:rgba(124,77,255,.15);
+color:#b388ff;
+font-size:14px;
+font-weight:600;
+margin-bottom:20px;
+}
+
+.founder-content h3{
+font-size:48px;
+font-weight:800;
+margin-bottom:10px;
+}
+
+.founder-content h4{
+font-size:20px;
+color:#b388ff;
+margin-bottom:20px;
+}
+
+.founder-content p{
+line-height:2;
+opacity:.85;
+font-size:16px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.founder-card,
+.founder-right{
+grid-template-columns:1fr;
 padding:30px;
+}
+
+.founder-right .founder-content{
+order:2;
+}
+
+.founder-right .founder-image{
+order:1;
+}
+
+.founder-image img{
+max-width:100%;
+height:420px;
+}
+
+.founder-content{
 text-align:center;
 }
 
-.leader-content h3{
-font-size:30px;
-margin-bottom:8px;
-font-weight:800;
-}
-
-.leader-content h4{
-color:#b388ff;
-margin-bottom:15px;
-font-size:17px;
-}
-
-.leader-content p{
-line-height:1.8;
-opacity:.82;
-}
-
-@media(max-width:768px){
-
-.leader-card img{
-height:350px;
+.founder-content h3{
+font-size:34px;
 }
 
 }
