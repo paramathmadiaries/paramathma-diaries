@@ -1,4 +1,3 @@
-```html id="premium-contact-page"
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,11 +6,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Contact Us | Paramathma Diaries</title>
+<title>Start Your Journey | PARAMATHMA DIARIES</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -23,54 +24,43 @@ font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
 }
 
+:root{
+--primary:#7c4dff;
+--secondary:#ff4ecd;
+--glass:rgba(255,255,255,.04);
+}
+
 body{
 background:#050505;
 color:#fff;
 overflow-x:hidden;
 }
 
-/* SCROLLBAR */
-
-::-webkit-scrollbar{
-width:8px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#55e6a5;
-border-radius:20px;
-}
-
-/* GLOW EFFECT */
-
 body::before{
 content:'';
 position:fixed;
 width:500px;
 height:500px;
-background:#55e6a5;
-filter:blur(180px);
-opacity:0.07;
+background:var(--primary);
+filter:blur(220px);
+opacity:.08;
 top:-150px;
 left:-150px;
 z-index:-1;
-animation:floatGlow 8s infinite alternate;
 }
 
 body::after{
 content:'';
 position:fixed;
-width:450px;
-height:450px;
-background:#55e6a5;
-filter:blur(180px);
-opacity:0.05;
+width:500px;
+height:500px;
+background:var(--secondary);
+filter:blur(220px);
+opacity:.08;
 bottom:-150px;
 right:-150px;
 z-index:-1;
-animation:floatGlow2 10s infinite alternate;
 }
-
-/* NAVBAR */
 
 nav{
 position:fixed;
@@ -81,19 +71,17 @@ padding:22px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+background:rgba(0,0,0,.55);
+backdrop-filter:blur(15px);
 z-index:999;
-background:rgba(0,0,0,0.45);
-backdrop-filter:blur(12px);
-border-bottom:1px solid rgba(255,255,255,0.05);
-animation:fadeDown 1s ease;
 }
 
 .logo{
-font-size:30px;
-font-weight:800;
-color:#55e6a5;
-letter-spacing:2px;
-text-shadow:0 0 20px rgba(85,230,165,0.5);
+font-size:28px;
+font-weight:900;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 nav ul{
@@ -102,382 +90,182 @@ gap:35px;
 list-style:none;
 }
 
-nav ul li a{
+nav ul a{
 text-decoration:none;
 color:#fff;
-font-weight:500;
-transition:0.4s;
-position:relative;
+font-weight:600;
 }
 
-nav ul li a::after{
-content:'';
-position:absolute;
-width:0%;
-height:2px;
-background:#55e6a5;
-left:0;
-bottom:-6px;
-transition:0.4s;
+.menu-btn{
+display:none;
+font-size:28px;
+cursor:pointer;
 }
 
-nav ul li a:hover::after{
-width:100%;
+section{
+padding:120px 10%;
 }
 
-nav ul li a:hover{
-color:#55e6a5;
+.section-title{
+font-size:65px;
+font-weight:900;
+text-align:center;
+margin-bottom:70px;
+}
+
+.section-title span{
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 /* HERO */
 
 .hero{
-height:70vh;
-position:relative;
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
+position:relative;
 overflow:hidden;
 }
 
-.hero-bg{
+.hero::before{
+content:'';
 position:absolute;
-width:100%;
-height:100%;
+inset:0;
 background:
-linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.88)),
-url('https://images.unsplash.com/photo-1527631746610-bca00a040d60?q=80&w=2070&auto=format&fit=crop');
-
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070');
 background-size:cover;
 background-position:center;
-animation:zoomBg 18s infinite alternate ease-in-out;
 }
 
 .hero-content{
 position:relative;
 z-index:2;
-max-width:950px;
-padding:20px;
-animation:fadeUp 1.5s ease;
+max-width:1000px;
 }
 
-.hero-content h1{
-font-size:90px;
-font-weight:800;
+.hero-tag{
+display:inline-block;
+padding:12px 25px;
+border-radius:50px;
+border:1px solid rgba(255,255,255,.1);
+margin-bottom:25px;
+color:#b388ff;
+}
+
+.hero h1{
+font-size:95px;
+font-weight:900;
 line-height:1;
 margin-bottom:25px;
 }
 
-.hero-content span{
-color:#55e6a5;
+.hero h1 span{
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.hero-content p{
+.hero p{
 font-size:22px;
-line-height:1.8;
-opacity:0.9;
+line-height:1.9;
+opacity:.85;
+max-width:850px;
+margin:auto;
 }
 
-/* SECTION */
+/* JOURNEY TYPES */
 
-section{
-padding:120px 10%;
-position:relative;
-}
-
-.section-title{
-font-size:60px;
-text-align:center;
-margin-bottom:70px;
-font-weight:800;
-animation:fadeUp 1.2s ease;
-}
-
-.section-title span{
-color:#55e6a5;
-}
-
-/* CONTACT GRID */
-
-.contact-grid{
+.journey-grid{
 display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:start;
-}
-
-/* CONTACT INFO */
-
-.contact-info{
-display:flex;
-flex-direction:column;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:30px;
 }
 
-.info-card{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
-padding:35px;
-border-radius:25px;
-transition:0.5s;
-backdrop-filter:blur(15px);
-animation:fadeUp 1.2s ease;
+.journey-card{
+background:var(--glass);
+padding:40px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+transition:.5s;
+text-align:center;
 }
 
-.info-card:hover{
+.journey-card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 35px rgba(85,230,165,0.12);
+box-shadow:0 0 35px rgba(124,77,255,.15);
 }
 
-.info-card h3{
+.journey-card i{
+font-size:50px;
+margin-bottom:20px;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.journey-card h3{
 font-size:28px;
 margin-bottom:15px;
-color:#55e6a5;
 }
 
-.info-card p{
+.journey-card p{
 line-height:1.9;
-opacity:0.85;
+opacity:.82;
 }
 
-/* CONTACT FORM */
+/* PROMISE */
 
-.contact-form{
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.05);
-padding:45px;
-border-radius:30px;
-backdrop-filter:blur(15px);
-animation:fadeUp 1.4s ease;
+.promise{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.contact-form h2{
-font-size:40px;
-margin-bottom:30px;
-}
-
-.contact-form span{
-color:#55e6a5;
-}
-
-.input-box{
-margin-bottom:25px;
-}
-
-.input-box input,
-.input-box textarea{
-width:100%;
-padding:18px 22px;
-background:#101010;
-border:1px solid rgba(255,255,255,0.05);
-border-radius:18px;
-outline:none;
-color:#fff;
-font-size:16px;
-transition:0.4s;
-}
-
-.input-box input:focus,
-.input-box textarea:focus{
-border-color:#55e6a5;
-box-shadow:0 0 20px rgba(85,230,165,0.15);
-}
-
-.input-box textarea{
-height:180px;
-resize:none;
-}
-
-.submit-btn{
-width:100%;
-padding:18px;
-border:none;
-border-radius:50px;
-background:#55e6a5;
-color:#000;
-font-size:18px;
-font-weight:700;
-cursor:pointer;
-transition:0.5s;
-}
-
-.submit-btn:hover{
-transform:translateY(-5px);
-box-shadow:0 0 30px rgba(85,230,165,0.35);
-}
-
-/* SOCIALS */
-
-.socials{
-display:flex;
-gap:20px;
-margin-top:20px;
-flex-wrap:wrap;
-}
-
-.social-btn{
-padding:14px 28px;
-border-radius:50px;
-background:#101010;
-color:#fff;
-text-decoration:none;
-transition:0.4s;
-border:1px solid rgba(255,255,255,0.05);
-}
-
-.social-btn:hover{
-background:#55e6a5;
-color:#000;
-transform:translateY(-5px);
-}
-
-/* CTA */
-
-.cta{
-margin-top:120px;
-background:linear-gradient(135deg,#55e6a5,#1f8f5f);
-padding:80px 60px;
-border-radius:35px;
+.promise-card{
+background:var(--glass);
+padding:35px;
+border-radius:25px;
 text-align:center;
-animation:fadeUp 1.2s ease;
+border:1px solid rgba(255,255,255,.05);
 }
 
-.cta h2{
-font-size:60px;
-color:#000;
-margin-bottom:20px;
+.promise-card h3{
+font-size:22px;
+margin-bottom:10px;
+color:#b388ff;
 }
 
-.cta p{
-font-size:20px;
-color:#000;
-opacity:0.85;
-margin-bottom:35px;
+.promise-card p{
+opacity:.8;
+line-height:1.8;
 }
-
-.cta a{
-display:inline-block;
-padding:18px 40px;
-background:#000;
-color:#fff;
-text-decoration:none;
-border-radius:50px;
-font-weight:700;
-transition:0.4s;
-}
-
-.cta a:hover{
-transform:translateY(-5px);
-}
-
-/* FOOTER */
-
-footer{
-background:#101010;
-padding:70px 10%;
-text-align:center;
-margin-top:120px;
-}
-
-footer h2{
-font-size:38px;
-color:#55e6a5;
-margin-bottom:15px;
-}
-
-footer p{
-opacity:0.7;
-letter-spacing:2px;
-}
-
-/* ANIMATIONS */
-
-@keyframes fadeUp{
-0%{
-opacity:0;
-transform:translateY(60px);
-}
-100%{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes fadeDown{
-0%{
-opacity:0;
-transform:translateY(-40px);
-}
-100%{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes floatGlow{
-100%{
-transform:translate(220px,120px);
-}
-}
-
-@keyframes floatGlow2{
-100%{
-transform:translate(-180px,-120px);
-}
-}
-
-@keyframes zoomBg{
-0%{
-transform:scale(1);
-}
-100%{
-transform:scale(1.12);
-}
-}
-
-/* MOBILE */
 
 @media(max-width:900px){
-
-.contact-grid{
-grid-template-columns:1fr;
-}
-
-}
-
-@media(max-width:768px){
-
-.hero-content h1{
-font-size:52px;
-}
-
-.hero-content p{
-font-size:17px;
-}
 
 nav ul{
 display:none;
 }
 
+.menu-btn{
+display:block;
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.hero p{
+font-size:16px;
+}
+
 .section-title{
-font-size:40px;
-}
-
-.logo{
-font-size:24px;
-}
-
-.contact-form h2{
-font-size:32px;
-}
-
-.cta h2{
-font-size:40px;
-}
-
-.cta{
-padding:50px 30px;
+font-size:42px;
 }
 
 }
@@ -487,8 +275,6 @@ padding:50px 30px;
 </head>
 
 <body>
-
-<!-- NAVBAR -->
 
 <nav>
 
@@ -500,128 +286,413 @@ PARAMATHMA DIARIES
 <li><a href="index.html">Home</a></li>
 <li><a href="about.html">About</a></li>
 <li><a href="trips.html">Trips</a></li>
-<li><a href="gallery.html">Gallery</a></li>
+<li><a href="gallery.html">Memories</a></li>
 <li><a href="contact.html">Contact</a></li>
 </ul>
 
-</nav>
+<div class="menu-btn">
+<i class="fas fa-bars"></i>
+</div>
 
-<!-- HERO -->
+</nav>
 
 <section class="hero">
 
-<div class="hero-bg"></div>
-
 <div class="hero-content">
 
+<div class="hero-tag">
+YOUR NEXT MEMORY IS ONE MESSAGE AWAY
+</div>
+
 <h1>
-Contact <span>Us</span>
+Start Your Next<br>
+<span>Journey</span>
 </h1>
 
 <p>
-Let’s create unforgettable journeys, soulful experiences and beautiful memories together.
+Whether you're looking for adventure, friendships, healing or unforgettable experiences — your next story starts here.
 </p>
 
 </div>
 
 </section>
 
-<!-- CONTACT -->
+<section>
+
+<h2 class="section-title">
+Choose Your <span>Journey</span>
+</h2>
+
+<div class="journey-grid">
+
+<div class="journey-card">
+<i class="fas fa-mountain"></i>
+<h3>Trekking Adventures</h3>
+<p>Epic mountain trails, sunrises and unforgettable outdoor experiences.</p>
+</div>
+
+<div class="journey-card">
+<i class="fas fa-users"></i>
+<h3>Community Trips</h3>
+<p>Meet like-minded explorers and build meaningful friendships.</p>
+</div>
+
+<div class="journey-card">
+<i class="fas fa-briefcase"></i>
+<h3>Corporate Outings</h3>
+<p>Team bonding experiences designed for companies and groups.</p>
+</div>
+
+<div class="journey-card">
+<i class="fas fa-route"></i>
+<h3>Private Getaways</h3>
+<p>Custom experiences built around your group's preferences.</p>
+</div>
+
+</div>
+
+</section>
 
 <section>
 
 <h2 class="section-title">
-Get In <span>Touch</span>
+Our <span>Promise</span>
 </h2>
 
-<div class="contact-grid">
+<div class="promise">
 
-<!-- INFO -->
+<div class="promise-card">
+<h3>⚡ Fast Response</h3>
+<p>We aim to respond within 24 hours.</p>
+</div>
+
+<div class="promise-card">
+<h3>💜 Personalized Help</h3>
+<p>Every traveler receives guidance tailored to their needs.</p>
+</div>
+
+<div class="promise-card">
+<h3>🛡 Safe Travel</h3>
+<p>Your safety and comfort are always our priority.</p>
+</div>
+
+<div class="promise-card">
+<h3>🤝 Human Support</h3>
+<p>Real people helping you create real memories.</p>
+</div>
+
+</div>
+
+</section>
+<style>
+
+/* CONTACT WRAPPER */
+
+.contact-wrapper{
+display:grid;
+grid-template-columns:1fr 1.2fr;
+gap:50px;
+align-items:start;
+}
+
+/* CONTACT CARDS */
+
+.contact-info{
+display:flex;
+flex-direction:column;
+gap:25px;
+}
+
+.contact-card{
+background:var(--glass);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+transition:.5s;
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+.contact-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 35px rgba(124,77,255,.15);
+}
+
+.contact-icon{
+width:70px;
+height:70px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+font-size:24px;
+color:#fff;
+flex-shrink:0;
+}
+
+.contact-content h3{
+font-size:24px;
+margin-bottom:5px;
+}
+
+.contact-content p{
+opacity:.8;
+line-height:1.7;
+}
+
+/* FORM */
+
+.contact-form{
+background:var(--glass);
+padding:45px;
+border-radius:35px;
+border:1px solid rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+}
+
+.contact-form h2{
+font-size:42px;
+margin-bottom:15px;
+font-weight:900;
+}
+
+.contact-form h2 span{
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.contact-form p{
+opacity:.8;
+margin-bottom:30px;
+line-height:1.8;
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+width:100%;
+padding:18px 20px;
+background:rgba(255,255,255,.03);
+border:1px solid rgba(255,255,255,.08);
+border-radius:15px;
+outline:none;
+color:#fff;
+font-size:15px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder{
+color:rgba(255,255,255,.5);
+}
+
+.form-group textarea{
+height:180px;
+resize:none;
+}
+
+.send-btn{
+display:inline-block;
+padding:18px 40px;
+border:none;
+border-radius:60px;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+color:#fff;
+font-weight:700;
+cursor:pointer;
+font-size:16px;
+transition:.4s;
+}
+
+.send-btn:hover{
+transform:translateY(-5px);
+}
+
+/* HELP SECTION */
+
+.help-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.help-card{
+background:var(--glass);
+padding:35px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.05);
+text-align:center;
+transition:.5s;
+}
+
+.help-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 35px rgba(124,77,255,.15);
+}
+
+.help-card i{
+font-size:45px;
+margin-bottom:20px;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.help-card h3{
+font-size:24px;
+margin-bottom:12px;
+}
+
+.help-card p{
+line-height:1.8;
+opacity:.82;
+}
+
+/* MOBILE */
+
+@media(max-width:1000px){
+
+.contact-wrapper{
+grid-template-columns:1fr;
+}
+
+.contact-form{
+padding:30px;
+}
+
+.contact-form h2{
+font-size:34px;
+}
+
+}
+
+</style>
+
+<!-- LET'S TALK -->
+
+<section>
+
+<h2 class="section-title">
+Let's <span>Talk</span>
+</h2>
+
+<div class="contact-wrapper">
+
+<!-- LEFT -->
 
 <div class="contact-info">
 
-<div class="info-card">
+<div class="contact-card">
 
-<h3>Phone</h3>
+<div class="contact-icon">
+<i class="fab fa-whatsapp"></i>
+</div>
 
-<p>
-+91 8217682902
-</p>
+<div class="contact-content">
+<h3>WhatsApp</h3>
+<p>+91 82176 82902</p>
+</div>
 
 </div>
 
-<div class="info-card">
+<div class="contact-card">
 
-<h3>Email</h3>
+<div class="contact-icon">
+<i class="fas fa-phone"></i>
+</div>
 
-<p>
-paramathmadiaries@gmail.com
-</p>
+<div class="contact-content">
+<h3>Call Us</h3>
+<p>Available for trip inquiries and support.</p>
+</div>
 
 </div>
 
-<div class="info-card">
+<div class="contact-card">
 
+<div class="contact-icon">
+<i class="fab fa-instagram"></i>
+</div>
+
+<div class="contact-content">
+<h3>Instagram</h3>
+<p>@paramathmadiaries</p>
+</div>
+
+</div>
+
+<div class="contact-card">
+
+<div class="contact-icon">
+<i class="fas fa-location-dot"></i>
+</div>
+
+<div class="contact-content">
 <h3>Location</h3>
-
-<p>
-Bangalore, Karnataka, India
-</p>
-
-</div>
-
-<div class="info-card">
-
-<h3>Follow Us</h3>
-
-<div class="socials">
-
-<a href="https://instagram.com" class="social-btn">
-Instagram
-</a>
-
-<a href="https://youtube.com" class="social-btn">
-YouTube
-</a>
-
-<a href="https://wa.me/918217682902" class="social-btn">
-WhatsApp
-</a>
-
+<p>Bangalore, Karnataka</p>
 </div>
 
 </div>
 
 </div>
 
-<!-- FORM -->
+<!-- RIGHT -->
 
 <div class="contact-form">
 
 <h2>
-Plan Your Next <span>Adventure</span>
+Plan Your <span>Adventure</span>
 </h2>
+
+<p>
+Tell us a little about yourself and we'll help you choose the perfect PARAMATHMA experience.
+</p>
 
 <form>
 
-<div class="input-box">
+<div class="form-group">
 <input type="text" placeholder="Your Name">
 </div>
 
-<div class="input-box">
-<input type="email" placeholder="Your Email">
+<div class="form-group">
+<input type="email" placeholder="Email Address">
 </div>
 
-<div class="input-box">
-<input type="text" placeholder="Destination Interested">
+<div class="form-group">
+<input type="tel" placeholder="Phone Number">
 </div>
 
-<div class="input-box">
+<div class="form-group">
+
+<select>
+
+<option>Select Journey Type</option>
+
+<option>Trekking Adventure</option>
+
+<option>Community Trip</option>
+
+<option>Corporate Outing</option>
+
+<option>Private Getaway</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
 <textarea placeholder="Tell us about your dream trip..."></textarea>
 </div>
 
-<button class="submit-btn">
-Send Message
+<button class="send-btn">
+Start My Journey
 </button>
 
 </form>
@@ -630,23 +701,412 @@ Send Message
 
 </div>
 
+</section>
+
+<!-- HOW WE CAN HELP -->
+
+<section>
+
+<h2 class="section-title">
+How We Can <span>Help</span>
+</h2>
+
+<div class="help-grid">
+
+<div class="help-card">
+<i class="fas fa-map"></i>
+<h3>Trip Planning</h3>
+<p>
+Get guidance in choosing the right adventure for your goals.
+</p>
+</div>
+
+<div class="help-card">
+<i class="fas fa-people-group"></i>
+<h3>Group Trips</h3>
+<p>
+Custom trips designed for friends, families and communities.
+</p>
+</div>
+
+<div class="help-card">
+<i class="fas fa-building"></i>
+<h3>Corporate Events</h3>
+<p>
+Unique outdoor experiences for team bonding and engagement.
+</p>
+</div>
+
+<div class="help-card">
+<i class="fas fa-compass"></i>
+<h3>Travel Guidance</h3>
+<p>
+Receive support before, during and after your journey.
+</p>
+</div>
+
+</div>
+
+</section>
+<style>
+
+/* JOURNEY TIMELINE */
+
+.journey-timeline{
+max-width:1000px;
+margin:auto;
+position:relative;
+}
+
+.journey-timeline::before{
+content:'';
+position:absolute;
+left:50%;
+top:0;
+transform:translateX(-50%);
+width:3px;
+height:100%;
+background:linear-gradient(var(--primary),var(--secondary));
+}
+
+.timeline-step{
+width:50%;
+padding:25px;
+position:relative;
+}
+
+.timeline-step:nth-child(odd){
+left:0;
+text-align:right;
+}
+
+.timeline-step:nth-child(even){
+left:50%;
+}
+
+.timeline-card{
+background:var(--glass);
+padding:30px;
+border-radius:25px;
+border:1px solid rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+transition:.4s;
+}
+
+.timeline-card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 35px rgba(124,77,255,.15);
+}
+
+.timeline-card h3{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.timeline-card p{
+opacity:.82;
+line-height:1.8;
+}
+
+.timeline-dot{
+position:absolute;
+width:22px;
+height:22px;
+border-radius:50%;
+background:linear-gradient(var(--primary),var(--secondary));
+top:40px;
+right:-11px;
+}
+
+.timeline-step:nth-child(even) .timeline-dot{
+left:-11px;
+}
+
+/* MASSIVE CTA */
+
+.contact-cta{
+padding:180px 10%;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+
+.contact-cta::before{
+content:'';
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.92)),
+url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2070');
+background-size:cover;
+background-position:center;
+z-index:-2;
+}
+
+.contact-cta h2{
+font-size:90px;
+font-weight:900;
+line-height:1.05;
+margin-bottom:25px;
+}
+
+.contact-cta h2 span{
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.contact-cta p{
+font-size:20px;
+max-width:850px;
+margin:auto;
+line-height:2;
+opacity:.85;
+margin-bottom:40px;
+}
+
+.cta-btn{
+display:inline-block;
+padding:20px 45px;
+border-radius:60px;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+color:#fff;
+text-decoration:none;
+font-weight:700;
+transition:.4s;
+}
+
+.cta-btn:hover{
+transform:translateY(-5px);
+}
+
+/* FOOTER */
+
+footer{
+background:#080808;
+padding:80px 10%;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.05);
+}
+
+.footer-logo{
+font-size:42px;
+font-weight:900;
+margin-bottom:20px;
+background:linear-gradient(90deg,var(--primary),var(--secondary));
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.footer-text{
+max-width:700px;
+margin:auto;
+line-height:2;
+opacity:.8;
+margin-bottom:30px;
+}
+
+.footer-links{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.footer-links a{
+color:#fff;
+text-decoration:none;
+opacity:.8;
+}
+
+.footer-links a:hover{
+color:#b388ff;
+}
+
+.social-icons{
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.social-icons a{
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+background:rgba(255,255,255,.05);
+color:#fff;
+font-size:20px;
+text-decoration:none;
+transition:.4s;
+}
+
+.social-icons a:hover{
+background:#7c4dff;
+}
+
+/* MOBILE MENU */
+
+.mobile-menu{
+position:fixed;
+top:0;
+right:-100%;
+width:280px;
+height:100vh;
+background:#050505;
+padding:120px 40px;
+display:flex;
+flex-direction:column;
+gap:25px;
+transition:.5s;
+z-index:9999;
+}
+
+.mobile-menu.active{
+right:0;
+}
+
+.mobile-menu a{
+color:#fff;
+text-decoration:none;
+font-size:20px;
+font-weight:600;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.journey-timeline::before{
+left:20px;
+}
+
+.timeline-step{
+width:100%;
+left:0!important;
+text-align:left!important;
+padding-left:60px;
+}
+
+.timeline-dot{
+left:10px!important;
+right:auto!important;
+}
+
+.contact-cta h2{
+font-size:48px;
+}
+
+.contact-cta p{
+font-size:16px;
+}
+
+.footer-logo{
+font-size:32px;
+}
+
+}
+
+</style>
+
+<!-- JOURNEY TIMELINE -->
+
+<section>
+
+<h2 class="section-title">
+Your <span>Journey</span> Starts Here
+</h2>
+
+<div class="journey-timeline">
+
+<div class="timeline-step">
+
+<div class="timeline-card">
+<h3>📩 Message Us</h3>
+<p>
+Reach out through WhatsApp, Instagram or our contact form.
+</p>
+</div>
+
+<div class="timeline-dot"></div>
+
+</div>
+
+<div class="timeline-step">
+
+<div class="timeline-card">
+<h3>🧭 Choose Your Trip</h3>
+<p>
+We'll help you select the perfect PARAMATHMA experience.
+</p>
+</div>
+
+<div class="timeline-dot"></div>
+
+</div>
+
+<div class="timeline-step">
+
+<div class="timeline-card">
+<h3>✅ Confirm Your Seat</h3>
+<p>
+Secure your place and get all travel details.
+</p>
+</div>
+
+<div class="timeline-dot"></div>
+
+</div>
+
+<div class="timeline-step">
+
+<div class="timeline-card">
+<h3>🎒 Pack Your Bags</h3>
+<p>
+Prepare for adventure, friendships and unforgettable memories.
+</p>
+</div>
+
+<div class="timeline-dot"></div>
+
+</div>
+
+<div class="timeline-step">
+
+<div class="timeline-card">
+<h3>✨ Create Memories</h3>
+<p>
+Experience the journey that becomes a story you'll tell forever.
+</p>
+</div>
+
+<div class="timeline-dot"></div>
+
+</div>
+
+</div>
+
+</section>
+
 <!-- CTA -->
 
-<div class="cta">
+<section class="contact-cta">
 
 <h2>
-Ready For Your Next Adventure?
+Don't Wait For The<br>
+<span>Perfect Time.</span>
 </h2>
 
 <p>
-Join Paramathma Diaries and experience travel beyond destinations.
+The mountains are calling. The campfire is waiting. Your next adventure is just one message away.
 </p>
 
-<a href="https://wa.me/918217682902">
-Join Community
+<a href="https://wa.me/918217682902" class="cta-btn">
+WHATSAPP US NOW
 </a>
-
-</div>
 
 </section>
 
@@ -654,15 +1114,56 @@ Join Community
 
 <footer>
 
-<h2>PARAMATHMA DIARIES</h2>
+<div class="footer-logo">
+PARAMATHMA DIARIES
+</div>
 
-<p>
-Travel • Heal • Connect
+<p class="footer-text">
+Travel • Heal • Connect • Grow
+<br><br>
+Creating journeys that become lifelong memories.
 </p>
+
+<div class="footer-links">
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="trips.html">Trips</a>
+<a href="gallery.html">Memories</a>
+<a href="contact.html">Contact</a>
+</div>
+
+<div class="social-icons">
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-whatsapp"></i></a>
+<a href="#"><i class="fab fa-youtube"></i></a>
+</div>
 
 </footer>
 
-</body>
+<!-- MOBILE MENU -->
 
+<div class="mobile-menu" id="mobileMenu">
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="trips.html">Trips</a>
+<a href="gallery.html">Memories</a>
+<a href="contact.html">Contact</a>
+
+</div>
+
+<script>
+
+const menuBtn=document.querySelector('.menu-btn');
+const mobileMenu=document.getElementById('mobileMenu');
+
+if(menuBtn){
+menuBtn.addEventListener('click',()=>{
+mobileMenu.classList.toggle('active');
+});
+}
+
+</script>
+
+</body>
 </html>
-```
